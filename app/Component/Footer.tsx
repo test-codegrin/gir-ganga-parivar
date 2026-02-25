@@ -33,7 +33,7 @@ export default function Footer() {
 
       <div className="relative container mx-auto px-6 pt-16 pb-10">
         {/* Top thin gold accent line */}
-        <div className="h-0.5 mb-12 rounded-full bg-gradient-to-r from-transparent via-yellow-400/80 to-transparent" />
+        <div className="h-0.5 mb-12 rounded-full bg-gradient-to-r from-transparent via-orange-500/80 to-transparent" />
 
         {/* Footer columns - centered */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 justify-center items-start text-center">
@@ -52,10 +52,10 @@ export default function Footer() {
               </div>
               <h2 className="text-white font-bold text-base leading-tight">
                 Girganga <br />
-                <span className="text-yellow-400">Parivar Trust</span>
+                <span className="text-orange-500">Parivar Trust</span>
               </h2>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-white text-sm leading-relaxed">
               Transforming Saurashtra through water conservation — building a
               sustainable future for generations to come.
             </p>
@@ -106,11 +106,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-5 border-t border-white/10 flex flex-wrap justify-center gap-2 text-gray-500 text-xs">
+        <div className="mt-12 pt-5 border-t border-white/10 flex flex-wrap justify-center gap-2 text-white text-xs">
           <span>Registered Non-Profit Trust · All Rights Reserved</span>
           <span>
             <span className="text-red-400">♥</span>{" "}
-            <span className="text-yellow-400">Girganga Parivar Trust © 2026</span>
+            <span className="text-orange-500">Girganga Parivar Trust © 2026</span>
           </span>
         </div>
       </div>
@@ -129,8 +129,8 @@ function FooterColumn({
 }) {
   return (
     <div className={`flex flex-col ${center ? "items-center text-center" : ""}`}>
-      <h3 className="text-yellow-400 text-xl font-bold uppercase mb-5 flex items-center gap-2 justify-center">
-        <span className="inline-block w-4 h-[2px] bg-yellow-400 rounded-full" />
+      <h3 className="text-orange-500 text-xl font-bold uppercase mb-5 flex items-center gap-2 justify-center">
+        <span className="inline-block w-4 h-[2px] bg-orange-500 rounded-full" />
         {title}
       </h3>
       <ul className={`flex flex-col gap-3 ${center ? "items-center" : ""}`}>{children}</ul>
@@ -143,7 +143,7 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
     <li>
       <Link
         href={href}
-        className="text-gray-400 text-md transition-all hover:text-white hover:pl-1.5 inline-block"
+        className="text-white text-md transition-all hover:text-white hover:pl-1.5 inline-block"
       >
         {children}
       </Link>
@@ -152,5 +152,5 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
 }
 
 function FooterItem({ children }: { children: React.ReactNode }) {
-  return <li className="text-gray-400 text-sm">{children}</li>;
+  return <li className="text-white text-sm">{children}</li>;
 }
