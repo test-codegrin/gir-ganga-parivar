@@ -2,8 +2,8 @@
 
 import { useEffect, ReactNode } from "react";
 import Lenis from "@studio-freight/lenis";
-import AOS from "aos";
-import "aos/dist/aos.css"; 
+// import AOS from "aos";
+// import "aos/dist/aos.css"; 
 
 interface Props {
   children: ReactNode;
@@ -12,11 +12,11 @@ interface Props {
 export default function SmoothScroll({ children }: Props) {
   useEffect(() => {
     // Initialize AOS once
-    AOS.init({
-      duration: 1000, 
-      easing: "ease-in-out",
-      once: true,    
-    });
+    // AOS.init({
+    //   duration: 1000, 
+    //   easing: "ease-in-out",
+    //   once: true,    
+    // });
 
     // 🚫 Disable Lenis on touch devices (fixes crash)
     if ("ontouchstart" in window) return;
@@ -36,12 +36,12 @@ export default function SmoothScroll({ children }: Props) {
     requestAnimationFrame(raf);
 
     // Optional: refresh AOS on resize or after content changes
-    const handleResize = () => AOS.refresh();
-    window.addEventListener("resize", handleResize);
+    // const handleResize = () => AOS.refresh();
+    // window.addEventListener("resize", handleResize);
 
     return () => {
       lenis.destroy();
-      window.removeEventListener("resize", handleResize);
+    //   window.removeEventListener("resize", handleResize);
     };
   }, []);
 
