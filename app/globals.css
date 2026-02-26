@@ -5,6 +5,11 @@
   margin: 0 auto;
   padding: 60px;
 }
+.container-header {
+  max-width: 1880px;
+  margin: 0 auto;
+  
+}
 @media (max-width: 640px) {
   .container {
     padding: 20px;
@@ -18,10 +23,10 @@
 
 .section-padding-header {
   padding-top: 4px;
-  padding-bottom: 20px;
 }
 
 html,
 body {
   overflow-x: hidden;
+  background-color: #11111;
 }
