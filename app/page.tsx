@@ -35,103 +35,183 @@ const HeroSection = () => {
     <>
       <SmoothScroll>
         {/* Section - 1 */}
-        <section className="relative bg-white flex items-center overflow-hidden font-sans px-4 lg:py-7">
-          {/* Container is now centered with mx-auto and has responsive padding */}
-          <div className="container section-padding-header mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="space-y-8 order-1 ">
-              <p className="relative bg-emerald-50 text-emerald-800 text-sm font-medium max-w-sm px-4 py-1 rounded-full text-center lg:text-left justify-self-center lg:justify-self-start">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 w-2 h-2 bg-emerald-600 rounded-full"></span>
-                <span className="pl-4">
-                  NGO-DARPAN & CSR-1 Registered · Gujarat, India
+        <section className="relative overflow-hidden font-sans">
+          {/* Right */}
+          <div className="relative bg-emerald-600 min-h-[90vh] flex items-center overflow-hidden">
+            {/* Background watermark text */}
+            <span
+              className="absolute -left-6 top-1/2 -translate-y-1/2 text-[22rem] font-black text-white/[0.05] leading-none pointer-events-none select-none whitespace-nowrap"
+              aria-hidden="true"
+            >
+              GGPT
+            </span>
+
+            {/* Top-right dot pattern */}
+            <div
+              className="absolute top-0 right-0 w-64 h-64 opacity-20 pointer-events-none"
+              style={{
+                backgroundImage: `radial-gradient(circle, white 1.5px, transparent 1.5px)`,
+                backgroundSize: "18px 18px",
+              }}
+            />
+
+            {/* Bottom-left dot pattern */}
+            <div
+              className="absolute bottom-0 left-0 w-48 h-48 opacity-10 pointer-events-none"
+              style={{
+                backgroundImage: `radial-gradient(circle, white 1.5px, transparent 1.5px)`,
+                backgroundSize: "14px 14px",
+              }}
+            />
+
+            {/* Diagonal bottom slice */}
+            <div
+              className="absolute bottom-0 left-0 right-0 h-24 bg-white pointer-events-none"
+              style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 0)" }}
+            />
+
+            <div className="relative z-10 container mx-auto px-6 lg:px-16 py-28 w-full grid lg:grid-cols-2 gap-16 items-center">
+              {/* LEFT — headline */}
+              <div className="space-y-7 text-center lg:text-left">
+                {/* pill */}
+                <span className="inline-flex items-center gap-2 bg-white/15 border border-white/30 text-white text-[11px] tracking-[0.16em] uppercase px-4 py-2 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                  NGO-DARPAN & CSR-1 Registered · Gujarat
                 </span>
-              </p>
 
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-slate-900 leading-[1.1] text-center lg:text-left">
-                Reviving Rivers. <br />
-                <span className="text-emerald-600">
-                  Recharging Groundwater.
-                </span>{" "}
-                <br />
-                Securing Futures.
-              </h1>
+                {/* headline */}
+                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.0] text-white tracking-tight">
+                  Reviving
+                  <span className="text-white/70 italic font-black">
+                    {" "}
+                    Rivers.
+                  </span>
+                  <br />
+                  Recharging
+                  <br />
+                  <span className="text-white/70 italic font-black">
+                    Groundwater.
+                  </span>
+                </h1>
 
-              <p className="text-lg text-slate-600 max-w-lg leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
-                Girganga Parivar Trust (GGPT) is a Gujarat-based organization
-                working at scale to address water scarcity through community-led
-                conservation structures across drought-prone regions.
-              </p>
+                {/* desc */}
+                <p className="text-white/65 text-base font-light leading-relaxed max-w-md">
+                  Girganga Parivar Trust (GGPT) is a Gujarat-based organization
+                  working at scale to address water scarcity through
+                  community-led conservation structures across drought-prone
+                  regions.
+                </p>
 
-              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                <Link href="/donate">
-                  <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-10 py-4 rounded-full font-bold transition-all shadow-xl shadow-emerald-100 active:scale-95">
-                    Support Us →
-                  </button>
-                </Link>
+                {/* CTAs */}
+                <div className="flex flex-wrap gap-3 pt-2 text-center lg:text-left justify-center lg:justify-start">
+                  <Link href="/donate">
+                    <button className="bg-white text-emerald-600 px-8 py-4 rounded-full font-bold hover:bg-white/90 transition-all shadow-xl shadow-black/10 active:scale-95 flex items-center gap-2">
+                      Support Us →
+                    </button>
+                  </Link>
+  
+                </div>
               </div>
 
-              {/* Infographics Bar */}
-              <div className="pt-8 flex flex-wrap gap-8 border-t border-gray-100 justify-center lg:justify-start">
-                {[
-                  { label: "Water Structures", val: 8354, suf: "+" },
-                  { label: "Gram Panchayats", val: 580, suf: "+" },
-                  { label: "Check Dams", val: 6189, suf: "" },
-                  { label: "CSR Excavators", val: 18, suf: "" },
-                ].map((stat, idx) => (
-                  <div
-                    key={idx}
-                    className="flex flex-col items-center lg:items-start"
-                  >
-                    <span className="text-3xl font-bold text-slate-800">
-                      <CountUp value={stat.val} suffix={stat.suf} />
-                    </span>
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                      {stat.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+              {/* RIGHT — video card */}
+              <div className="relative">
+                {/* offset frame */}
+                <div className="absolute -top-3 -right-3 w-full h-full rounded-3xl border-2 border-white/20 pointer-events-none" />
 
-            {/* Right Content - Video Section */}
-            <div className="relative order-2">
-              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/3] bg-slate-900 group">
-                {/* YouTube Background Video */}
-                <iframe
-                  className="absolute inset-0 w-full h-full object-cover scale-150 pointer-events-none"
-                  src="https://www.youtube.com/embed/ZJSRtSWG5DU?autoplay=1&mute=1&loop=1&playlist=ZJSRtSWG5DU&controls=0&showinfo=0&rel=0&modestbranding=1"
-                  title="Girganga Parivar Trust Impact"
-                  allow="autoplay; encrypted-media"
-                ></iframe>
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/30 aspect-[4/3] bg-gray-900">
+                  <iframe
+                    className="absolute inset-0 w-full h-full object-cover scale-150 pointer-events-none"
+                    src="https://www.youtube.com/embed/ZJSRtSWG5DU?autoplay=1&mute=1&loop=1&playlist=ZJSRtSWG5DU&controls=0&showinfo=0&rel=0&modestbranding=1"
+                    title="Girganga Parivar Trust Impact"
+                    allow="autoplay; encrypted-media"
+                  />
 
-                {/* Dark Overlay for better contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent " />
+                  {/* gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-                <div className="lg:block hidden">
-                  {/* Floating Stats Card */}
+                  {/* floating impact card */}
                   <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.8 }}
-                    className=" absolute bottom-6 right-6 left-6 md:left-auto bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-2xl flex items-center gap-4 border border-white/50"
+                    className="absolute bottom-5 left-5 right-5 md:right-auto bg-white px-5 py-4 rounded-2xl shadow-2xl flex items-center gap-4 border border-emerald-600/10"
                   >
-                    <div className="bg-emerald-600 p-3 rounded-xl shadow-lg shadow-emerald-200">
-                      <Droplets className="text-white w-6 h-6" />
+                    <div className="w-11 h-11 bg-emerald-600 rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-emerald-600/30">
+                      <Droplets className="text-white w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-[10px] text-emerald-700 font-bold uppercase tracking-tight">
+                      <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest mb-0.5">
                         Impact Feature
                       </p>
-                      <p className="text-sm font-bold text-slate-800">
+                      <p className="text-sm font-bold text-gray-800">
                         1,057 Borewell Recharges
                       </p>
                     </div>
                   </motion.div>
+
                 </div>
               </div>
+            </div>
+          </div>
 
-              {/* Decorative background element */}
-              <div className="absolute -z-10 -top-10 -right-10 w-64 h-64 bg-emerald-50 rounded-full blur-3xl opacity-70" />
+          {/* left */}
+          <div className="relative bg-white py-16 px-6 lg:px-16">
+            <div className="max-w-7xl mx-auto text-center lg:text-left">
+              {/* eyebrow */}
+              <p className="flex items-center justify-center gap-3 text-emerald-600 text-xs font-bold tracking-[0.18em] uppercase mb-10 pl-4">
+                Impact at Scale
+                <span className="w-12 h-px bg-emerald-600/30" />
+              </p>
+
+              {/* stats grid */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  {
+                    label: "Water Structures",
+                    val: 8354,
+                    suf: "+",
+                    desc: "Built & restored",
+                  },
+                  {
+                    label: "Gram Panchayats",
+                    val: 580,
+                    suf: "+",
+                    desc: "Villages covered",
+                  },
+                  {
+                    label: "Check Dams",
+                    val: 6189,
+                    suf: "",
+                    desc: "Across Gujarat",
+                  },
+                  {
+                    label: "CSR Excavators",
+                    val: 18,
+                    suf: "",
+                    desc: "Deployed on ground",
+                  },
+                ].map((stat, idx) => (
+                  <div
+                    key={idx}
+                    className="group relative bg-white border-2 border-emerald-600/15 rounded-3xl px-7 py-7 hover:border-emerald-600 hover:shadow-xl hover:shadow-emerald-600/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                  >
+                    {/* number watermark */}
+                    <span className="absolute top-3 right-4 text-6xl font-black text-emerald-600/[0.06] leading-none pointer-events-none select-none group-hover:text-emerald-600/10 transition-colors">
+                      0{idx + 1}
+                    </span>
+
+                    <span className="text-4xl font-black text-emerald-600 leading-none block mb-2">
+                      <CountUp value={stat.val} suffix={stat.suf} />
+                    </span>
+                    <p className="text-gray-800 font-bold text-sm mb-1">
+                      {stat.label}
+                    </p>
+                    <p className="text-gray-400 text-xs font-light">
+                      {stat.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
