@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
 import type * as LeafletType from "leaflet";
+import SmoothScroll from "@/app/Component/SmothScrolling";
 
 // Dynamic Import (Next.js SSR Fix)
 const MapContainer = dynamic(
@@ -110,79 +111,87 @@ export default function GirgangaMap() {
   const damIcon = createFlagIcon("#6B0F0F");
 
   return (
-    <div className="flex flex-col items-center bg-white min-h-screen p-4">
-      <h1 className="text-5xl font-bold text-emerald-600 mb-4">
-        Structures Created by Girganga Parivar Trust
-      </h1>
+    <>
+      <SmoothScroll>
+        <div className="flex flex-col items-center bg-white min-h-screen p-4">
+          <h1 className="text-5xl font-bold text-emerald-600 mb-4">
+            Structures Created by Girganga Parivar Trust
+          </h1>
 
-      <div className="relative w-full max-w-6xl h-[560px] border rounded shadow">
-        <MapContainer
-          center={[22.35, 70.65]}
-          zoom={10}
-          className="h-full w-full"
-        >
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
-          {/* Lakes */}
-
-          {LAKES.map((lake) => (
-            <Marker
-              key={lake.id}
-              position={[lake.lat, lake.lng]}
-              icon={lakeIcon}
+          <div className="relative w-full max-w-6xl h-[560px] border rounded shadow">
+            <MapContainer
+              center={[22.35, 70.65]}
+              zoom={10}
+              className="h-full w-full"
             >
-              <Popup>{lake.name}</Popup>
-            </Marker>
-          ))}
+              <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-          {/* Checkdams */}
+              {/* Lakes */}
 
-          {CHECK_DAMS.map((dam) => (
-            <Marker key={dam.id} position={[dam.lat, dam.lng]} icon={damIcon}>
-              <Popup>{dam.name}</Popup>
-            </Marker>
-          ))}
-        </MapContainer>
+              {LAKES.map((lake) => (
+                <Marker
+                  key={lake.id}
+                  position={[lake.lat, lake.lng]}
+                  icon={lakeIcon}
+                >
+                  <Popup>{lake.name}</Popup>
+                </Marker>
+              ))}
 
-        {/* Search */}
+              {/* Checkdams */}
 
-        <div className="absolute top-3 left-12 z-[1000]">
-          <input
-            type="text"
-            placeholder="Type here..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="px-3 py-2 border rounded bg-white"
-          />
-        </div>
+              {CHECK_DAMS.map((dam) => (
+                <Marker
+                  key={dam.id}
+                  position={[dam.lat, dam.lng]}
+                  icon={damIcon}
+                >
+                  <Popup>{dam.name}</Popup>
+                </Marker>
+              ))}
+            </MapContainer>
 
-        {/* Categories */}
+            {/* Search */}
 
-        {showCategories && (
-          <div className="absolute top-3 right-3 z-[1000] bg-white shadow rounded w-56">
-            <div className="bg-sky-400 text-white text-center py-2">
-              Categories
+            <div className="absolute top-3 left-12 z-[1000]">
+              <input
+                type="text"
+                placeholder="Type here..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="px-3 py-2 border rounded bg-white"
+              />
             </div>
 
-            <div className="flex justify-between px-4 py-3 border-b">
-              Lake (11) 🚩
-            </div>
+            {/* Categories */}
 
-            <div className="flex justify-between px-4 py-3">
-              Check Dam (4) 🚩
-            </div>
+            {showCategories && (
+              <div className="absolute top-3 right-3 z-[1000] bg-white shadow rounded w-56">
+                <div className="bg-sky-400 text-white text-center py-2">
+                  Categories
+                </div>
 
-            <div className="text-center py-2">
-              <button
-                onClick={() => setShowCategories(false)}
-                className="bg-black text-white px-4 py-1 rounded"
-              >
-                Hide
-              </button>
-            </div>
+                <div className="flex justify-between px-4 py-3 border-b">
+                  Lake (11) 🚩
+                </div>
+
+                <div className="flex justify-between px-4 py-3">
+                  Check Dam (4) 🚩
+                </div>
+
+                <div className="text-center py-2">
+                  <button
+                    onClick={() => setShowCategories(false)}
+                    className="bg-black text-white px-4 py-1 rounded"
+                  >
+                    Hide
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      </SmoothScroll>
+    </>
   );
 }
