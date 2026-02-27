@@ -3,182 +3,190 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 
 export default function Footer() {
   return (
-    <footer className="relative text-black overflow-hidden bg-white font-sans">
-      {/* Decorative water-wave top border */}
-      <div className="w-full overflow-hidden -mb-0.5 leading-none">
-        <svg
-          viewBox="0 0 1440 60"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full rotate-180 block"
-        >
-          <path
-            d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z"
-            fill="#059670"
-            opacity="0.5"
-          />
-          <path
-            d="M0,40 C360,10 720,60 1080,20 C1260,5 1380,40 1440,30 L1440,60 L0,60 Z"
-            fill="#059670"
-            opacity="0.4"
-          />
-        </svg>
-      </div>
+    <footer className="relative w-full overflow-hidden font-sans">
 
-      {/* Subtle background accent circles */}
-      <div className="absolute top-[-80px] right-[-80px] w-80 h-80 rounded-full bg-gradient-radial from-[#38bdf8]/6 to-transparent pointer-events-none" />
-      <div className="absolute bottom-14 left-[-60px] w-60 h-60 rounded-full bg-gradient-radial from-[#facc15]/5 to-transparent pointer-events-none" />
+      {/* ── Background image — fills entire footer ── */}
+      <img
+        src="/image/Footer_Img.jpg"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+      />
 
-      <div className="relative container mx-auto px-6 pt-16 pb-10">
-        {/* Top thin gold accent line */}
-        <div className="h-0.5 mb-12 rounded-full bg-gradient-to-r from-transparent via-emerald-600 to-transparent" />
+      {/* ── Dark overlay so text is readable over image ── */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/55 to-black/90" />
 
-        {/* Footer columns - centered */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 justify-center items-start text-center">
-          {/* Brand */}
-          <div className="flex flex-col items-center text-center">
-            <div className="flex flex-col items-center gap-3 mb-5">
-              <div className="bg-white/7 rounded-lg p-2 border border-white/10">
-                <Image
-                  src="/image/logo.png"
-                  alt="Girganga Parivar Trust"
-                  width={100}
-                  height={100}
-                  className="object-contain"
-                />
+      {/* ── All content sits above both layers ── */}
+      <div className="relative z-10 text-white">
+        {/* Thin emerald divider */}
+        <div className="h-px mx-8 lg:mx-16 bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent mb-14" />
+
+        {/* ── 4-column grid ── */}
+        <div className="max-w-[1500px] mx-auto px-8 lg:px-16 pb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+
+            {/* Brand */}
+            <div className="flex flex-col">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="rounded-xl p-1.5 flex-shrink-0 backdrop-blur-sm">
+                  <Image
+                    src="/image/logo.png"
+                    alt="Girganga Parivar Trust"
+                    width={56}
+                    height={56}
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <p className="text-white font-black text-base leading-tight">Girganga</p>
+                  <p className="text-emerald-400 font-bold text-sm">Parivar Trust</p>
+                </div>
               </div>
-              <h2 className="text-black font-bold text-base leading-tight">
-                Girganga <br />
-                <span className="text-emerald-600">Parivar Trust</span>
-              </h2>
+
+              <p className="text-white/70 text-sm leading-relaxed mb-6">
+                Transforming Saurashtra through water conservation — building a
+                sustainable future for generations to come.
+              </p>
+
+              {/* Socials */}
+              <div className="flex gap-2.5">
+                {[
+                  { icon: <FaFacebookF size={13} />, href: "https://www.facebook.com/profile.php?id=100083921712230", label: "Facebook"  },
+                  { icon: <FaTwitter   size={13} />, href: "https://x.com/GirgangaT71455",                           label: "Twitter"   },
+                  { icon: <FaInstagram size={13} />, href: "https://www.instagram.com/girgangaparivartrust/",         label: "Instagram" },
+                  { icon: <FaYoutube   size={13} />, href: "https://www.youtube.com/@girgangaparivartrust",           label: "YouTube"   },
+                ].map(({ icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-9 h-9 rounded-lg bg-white/10 border border-white/15 backdrop-blur-sm
+                               flex items-center justify-center text-white/80
+                               hover:bg-emerald-600 hover:border-emerald-600 hover:text-white
+                               transition-all duration-200"
+                  >
+                    {icon}
+                  </a>
+                ))}
+              </div>
             </div>
-            <p className="text-black text-sm leading-relaxed">
-              Transforming Saurashtra through water conservation — building a
-              sustainable future for generations to come.
-            </p>
-            
-            {/* Social Icons */}
-            <div className="flex gap-3 mt-6 justify-center">
-              {[
-                {
-                  icon: <FaFacebookF />,
-                  bg: "bg-emerald-600 text-white",
-                  label: "Facebook",
-                },
-                {
-                  icon: <FaTwitter />,
-                  bg: "bg-emerald-600 text-white",
-                  label: "Twitter",
-                },
-                {
-                  icon: <FaInstagram />,
-                  bg: "bg-emerald-600 text-white",
-                  label: "Instagram",
-                },
-                {
-                  icon: <FaYoutube />,
-                  bg: "bg-emerald-600 text-white shadow-md",
-                  label: "YouTube",
-                },
-              ].map(({ icon, bg, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  aria-label={label}
-                  className={`${bg} w-9 h-9 rounded-lg flex items-center justify-center text-sm transition-transform transform hover:-translate-y-1`}
-                >
-                  {icon}
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-white font-bold text-sm uppercase tracking-widest mb-5 flex items-center gap-2">
+                <span className="w-5 h-0.5 bg-emerald-400 rounded-full inline-block" />
+                Quick Links
+              </h3>
+              <ul className="space-y-3">
+                {[
+                  { label: "Home",       href: "/" },
+                  { label: "Awards",     href: "/awards" },
+                  { label: "About Us",   href: "/about" },
+                  { label: "Gallery",    href: "/gallery" },
+                  { label: "Contact Us", href: "/contact" },
+                ].map(({ label, href }) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      className="text-white/65 text-sm hover:text-emerald-400 hover:pl-1.5
+                                 transition-all duration-200 inline-flex items-center gap-1.5 group"
+                    >
+                      <span className="w-0 group-hover:w-2 h-px bg-emerald-400
+                                       transition-all duration-200 inline-block" />
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Our Work */}
+            <div>
+              <h3 className="text-white font-bold text-sm uppercase tracking-widest mb-5 flex items-center gap-2">
+                <span className="w-5 h-0.5 bg-emerald-400 rounded-full inline-block" />
+                Our Work
+              </h3>
+              <ul className="space-y-3">
+                {[
+                  "Checkdam Construction",
+                  "Community Impact",
+                  "Media Coverage",
+                  "Community Engagement",
+                ].map((item) => (
+                  <li key={item} className="text-white/65 text-sm flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Get Involved + Contact */}
+            <div>
+              <h3 className="text-white font-bold text-sm uppercase tracking-widest mb-5 flex items-center gap-2">
+                <span className="w-5 h-0.5 bg-emerald-400 rounded-full inline-block" />
+                Get Involved
+              </h3>
+              <ul className="space-y-3 mb-8">
+                {[
+                  { label: "Make a Donation",  href: "/donation"           },
+                  { label: "Volunteer",        href: "/team"               },
+                  { label: "Corporate / CSR",  href: "/partner-with-us-csr"},
+                ].map(({ label, href }) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      className="text-white/65 text-sm hover:text-emerald-400 hover:pl-1.5
+                                 transition-all duration-200 inline-flex items-center gap-1.5 group"
+                    >
+                      <span className="w-0 group-hover:w-2 h-px bg-emerald-400
+                                       transition-all duration-200 inline-block" />
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Contact details */}
+              <div className="space-y-3">
+                <a href="tel:+919409692693"
+                   className="flex items-center gap-2.5 text-white/65 text-sm hover:text-emerald-400 transition-colors">
+                  <FiPhone size={13} className="text-emerald-400 flex-shrink-0" />
+                  +91 94096 92693
                 </a>
-              ))}
+                <a href="mailto:info@girgangaparivartrust.com"
+                   className="flex items-center gap-2.5 text-white/65 text-sm hover:text-emerald-400 transition-colors">
+                  <FiMail size={13} className="text-emerald-400 flex-shrink-0" />
+                  info@girgangaparivartrust.com
+                </a>
+                <div className="flex items-start gap-2.5 text-white/65 text-sm">
+                  <FiMapPin size={13} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span>Sunstar Chamber, Rajkot – 360005, Gujarat</span>
+                </div>
+              </div>
             </div>
+
           </div>
 
-          {/* Quick Links */}
-          <FooterColumn title="Quick Links" center>
-            <FooterLink href="/">Home</FooterLink>
-            <FooterLink href="/awards">Awards</FooterLink>
-            <FooterLink href="/about">About Us</FooterLink>
-            <FooterLink href="/gallery">Gallery</FooterLink>
-            <FooterLink href="/contact">Contact Us</FooterLink>
-          </FooterColumn>
-
-          {/* Our Work */}
-          <FooterColumn title="Our Work" center>
-            <FooterItem>Checkdam Construction</FooterItem>
-            <FooterItem>Community Impact</FooterItem>
-            <FooterItem>Media Coverage</FooterItem>
-            <FooterItem>Community Engagement</FooterItem>
-          </FooterColumn>
-
-          {/* Get Involved */}
-          <FooterColumn title="Get Involved" center>
-            <FooterItem> Make a Donation</FooterItem>
-            <FooterItem>Volunteer</FooterItem>
-            <FooterItem>Corporate Partnership</FooterItem>
-          </FooterColumn>
-          
-        </div>
-
-        {/* Bottom bar */}
-        <div className="mt-12 pt-5 border-t border-white/10 flex flex-wrap justify-center gap-2 text-black text-lg">
-          <span>Registered Non-Profit Trust · All Rights Reserved</span>
-          <span>
-            <span className="text-emerald-600">♥</span>{" "}
-            <span className="text-emerald-600">
-              Girganga Parivar Trust © 2026
-            </span>
-          </span>
+          {/* Bottom bar */}
+          <div className="mt-12 pt-5 border-t border-white/15
+                          flex flex-col sm:flex-row items-center justify-between
+                          gap-3 text-white/40 text-xs">
+            <p>Registered Non-Profit Trust · All Rights Reserved</p>
+            <p className="flex items-center gap-1.5">
+              Made with <span className="text-emerald-400">♥</span> for Water Conservation
+              · <span className="text-emerald-400/80">Girganga Parivar Trust © 2026</span>
+            </p>
+          </div>
         </div>
       </div>
+
     </footer>
   );
-}
-
-function FooterColumn({
-  title,
-  children,
-  center = false,
-}: {
-  title: string;
-  children: React.ReactNode;
-  center?: boolean;
-}) {
-  return (
-    <div
-      className={`flex flex-col ${center ? "items-center text-center" : ""}`}
-    >
-      <h3 className="text-emerald-600 text-xl font-bold uppercase mb-5 flex items-center gap-2 justify-center">
-        <span className="inline-block w-4 h-[2px] bg-emerald-600 rounded-full" />
-        {title}
-      </h3>
-      <ul className={`flex flex-col gap-3 ${center ? "items-center" : ""}`}>
-        {children}
-      </ul>
-    </div>
-  );
-}
-
-function FooterLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <li>
-      <Link
-        href={href}
-        className="text-black text-md transition-all hover:text-white hover:pl-1.5 inline-block"
-      >
-        {children}
-      </Link>
-    </li>
-  );
-}
-
-function FooterItem({ children }: { children: React.ReactNode }) {
-  return <li className="text-black text-sm">{children}</li>;
 }
