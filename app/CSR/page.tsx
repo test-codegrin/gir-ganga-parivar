@@ -13,7 +13,7 @@ import {
   User,
 } from "lucide-react";
 import { useState } from "react";
-import Slider from "@/app/Component/Slider";
+import Slider from "../../Component/Slider";
 import SmoothScroll from "../../Component/SmothScrolling";
 
 export default function Support() {
@@ -133,7 +133,7 @@ export default function Support() {
                 us create structural impact in communities that need it most.
               </p>
 
-              <Link href="/pages/Our-Work">
+              <Link href="/Our-Work">
                 <button className="mt-2 flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 transition-colors text-white font-semibold px-8 py-3.5 rounded-full text-base">
                   Support A Structure
                   <ArrowRight size={18} />
@@ -159,7 +159,7 @@ export default function Support() {
                   Review our detailed objectives, methodology, and projected
                   outcomes for the current fiscal year.
                 </p>
-                <Link href="/pages/Our-Work">
+                <Link href="/Our-Work">
                   <button className="mt-2 w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 transition-colors text-white font-semibold px-6 py-3.5 rounded-xl text-sm">
                     <Download size={16} />
                     Download CSR Proposal (PDF)
@@ -183,7 +183,7 @@ export default function Support() {
                   Learn more about our core values, mission, and the history of
                   our social responsibility commitments.
                 </p>
-                <Link href="/pages/Our-Work">
+                <Link href="/Our-Work">
                   <button className="mt-2 w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 transition-colors text-white font-semibold px-6 py-3.5 rounded-xl text-sm">
                     <Download size={16} />
                     Download Company Profile (PDF)
@@ -207,18 +207,16 @@ export default function Support() {
           </div>
 
           <div className="flex items-center justify-center pt-10">
-            {/* ✅ max-w-5xl so the card doesn't stretch too wide */}
             <div className="flex w-full max-w-5xl rounded-2xl overflow-hidden shadow-xl">
-              {/* Left — Image: hidden on mobile, visible md and up, fixed 2/5 width */}
               <div className="hidden md:block md:w-2/5 relative">
                 <img
                   src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80"
                   alt="Construction excavator on site"
-                  className="w-full h-full object-cover" /* ✅ h-full fills the card height */
+                  className="w-full h-full object-cover" 
                 />
               </div>
 
-              {/* Right — Form: full width on mobile, 3/5 on md+ */}
+              {/* Right */}
               <div className="w-full md:w-3/5 bg-white px-6 sm:px-8 py-8 flex flex-col gap-5">
                 {/* Header */}
                 <div>

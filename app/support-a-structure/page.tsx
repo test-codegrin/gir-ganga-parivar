@@ -1,4 +1,4 @@
-import SmoothScroll from "@/app/Component/SmothScrolling";
+import SmoothScroll from "../../Component/SmothScrolling";
 import Image from "next/image";
 
 export default function SupportAStructure() {

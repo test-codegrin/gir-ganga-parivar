@@ -6,7 +6,7 @@ import Link from "next/link";
 import { GiRibbonMedal } from "react-icons/gi";
 import { FaRegHandshake } from "react-icons/fa";
 import { HiUsers } from "react-icons/hi";
-import SmoothScroll from "./Component/SmothScrolling";
+import SmoothScroll from "../Component/SmothScrolling";
 
 interface CountUpProps {
   value: number;
@@ -233,14 +233,14 @@ const HeroSection = () => {
           {/* Buttons */}
           <div className="flex flex-wrap gap-10 mt-6 justify-center">
             <a
-              href="/pages/CSR"
+              href="/CSR"
               className="bg-emerald-600 text-white font-semibold px-10 py-4 rounded-lg shadow-md text-xl transition-transform transform hover:-translate-y-1 inline-block text-center"
             >
               Partner With Us (CSR)
             </a>
 
             <a
-              href="/pages/support-a-structure"
+              href="/support-a-structure"
               className="bg-emerald-600 text-white font-semibold px-10 py-4 rounded-lg shadow-md text-xl transition-transform transform hover:-translate-y-1 inline-block text-center"
             >
               Support A Structure

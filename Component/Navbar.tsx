@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation"; // Import this to detect current page
@@ -19,7 +19,7 @@ export default function Navbar() {
 
   // Helper function to check if a link or its dropdown children are active
   const isActive = (path: string) => pathname === path;
-  const isWorkActive = pathname.startsWith("/our-work");
+  const isWorkActive = pathname.startsWith("/Our-Work");
   const isMediaActive = pathname.startsWith("/media");
 
   return (
@@ -58,7 +58,7 @@ export default function Navbar() {
                 />
               </button>
               <div
-                className={`absolute top-full -left-4 mt-4 bg-white shadow-2xl rounded-2xl py-4 w-60 border border-slate-100 transition-all ${workOpen ? "opacity-100 translate-y-0 visible" : "opacity-0 translate-y-4 invisible pointer-events-none"}`}
+                className={`absolute top-full z-10 -left-4 mt-4 bg-white shadow-2xl rounded-2xl py-4 w-60 border border-slate-100 transition-all ${workOpen ? "opacity-100 translate-y-0 visible" : "opacity-0 translate-y-4 invisible pointer-events-none"}`}
               >
                 <Link
                   href="/our-work/impact"
@@ -85,7 +85,7 @@ export default function Navbar() {
                 />
               </button>
               <div
-                className={`absolute top-full -left-4 mt-4 bg-white shadow-2xl rounded-2xl py-4 w-60 border border-slate-100 transition-all ${mediaOpen ? "opacity-100 translate-y-0 visible" : "opacity-0 translate-y-4 invisible pointer-events-none"}`}
+                className={`absolute top-full -left-4 mt-4 z-10 bg-white shadow-2xl rounded-2xl py-4 w-60 border border-slate-100 transition-all ${mediaOpen ? "opacity-100 translate-y-0 visible" : "opacity-0 translate-y-4 invisible pointer-events-none"}`}
               >
                 {["photos", "press", "videos"].map((item) => (
                   <Link
