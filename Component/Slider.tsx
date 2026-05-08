@@ -32,6 +32,9 @@ export default function Slider() {
     "/logos/UNITY_CEMENT_PVT_LTD.png",
     "/logos/VERSHIL_PUMP_PVT_LTD.png",
     "/logos/DECORA_GROUP.png",
+    "/logos/Hi-Bond.png",
+    "/logos/Prashant-Casting.png",
+    "/logos/Varmora-tiles.png",
   ];
 
   return (
