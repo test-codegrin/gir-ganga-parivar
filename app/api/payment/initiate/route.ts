@@ -5,7 +5,17 @@ export async function POST(req: Request) {
   try {
     const key = process.env.EASEBUZZ_KEY;
     const salt = process.env.EASEBUZZ_SALT;
-    const env = process.env.EASEBUZZ_ENV || "sandbox";
+    const env = process.env.EASEBUZZ_ENV;
+
+    if (env !== "production" && env !== "sandbox") {
+      console.error("Easebuzz environment is not configured correctly in environment variables.");
+      return NextResponse.json(
+        { status: 0, error: "Payment gateway environment is not configured correctly." },
+        { status: 500 }
+      );
+    }
+
+    const isProduction = env === "production";
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
     if (!key || !salt) {
@@ -87,10 +97,9 @@ export async function POST(req: Request) {
     const hash = crypto.createHash("sha512").update(hashString).digest("hex");
 
     // Select the correct endpoint based on environment
-    const endpoint =
-      env === "prod"
-        ? "https://pay.easebuzz.in/payment/initiateLink"
-        : "https://testpay.easebuzz.in/payment/initiateLink";
+    const endpoint = isProduction
+      ? "https://pay.easebuzz.in/payment/initiateLink"
+      : "https://testpay.easebuzz.in/payment/initiateLink";
 
     // Format request body as URL-encoded fields
     const formParams = new URLSearchParams({
@@ -141,7 +150,7 @@ export async function POST(req: Request) {
       return NextResponse.json({
         status: 1,
         access_key: result.data,
-        env: env === "prod" ? "prod" : "sandbox",
+        env: isProduction ? "production" : "sandbox",
       });
     } else {
       console.error("Easebuzz initiation error:", result.data);

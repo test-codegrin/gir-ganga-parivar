@@ -388,7 +388,7 @@ export default function DonateDetail({
       "cartItem",
       JSON.stringify({ ...item, quantity: 1 }),
     );
-    window.location.href = "/cart";
+    window.location.href = "/checkout";
   };
 
   // ── General Donation ──

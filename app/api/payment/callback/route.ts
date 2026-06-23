@@ -8,10 +8,8 @@ export async function POST(req: Request) {
 
     if (!salt) {
       console.error("EASEBUZZ_SALT is not configured.");
-      return NextResponse.json(
-        { error: "Payment gateway salt configuration is missing." },
-        { status: 500 }
-      );
+      const failUrl = `${baseUrl}/checkout/failure?reason=${encodeURIComponent("Payment gateway salt configuration is missing.")}`;
+      return NextResponse.redirect(failUrl, { status: 303 });
     }
 
     // Parse URL-encoded form data sent by Easebuzz
@@ -84,7 +82,7 @@ export async function POST(req: Request) {
 
     if (status === "success") {
       console.log(`Payment successful for transaction ${txnid}`);
-      const successUrl = `${baseUrl}/checkout/success?txnid=${txnid}&amount=${amount}&firstname=${firstname}`;
+      const successUrl = `${baseUrl}/checkout/success?txnid=${txnid}&amount=${amount}&firstname=${firstname}&email=${encodeURIComponent(data.email || "")}&phone=${encodeURIComponent(data.phone || "")}`;
       return NextResponse.redirect(successUrl, { status: 303 });
     } else {
       console.log(`Payment failed for transaction ${txnid} with status ${status}`);

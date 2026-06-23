@@ -171,10 +171,16 @@ export default function DonationCheckout() {
 
       if (resData.status === 1) {
         // Redirect to Easebuzz Hosted Page
-        const payUrl =
-          resData.env === "prod"
-            ? `https://pay.easebuzz.in/pay/${resData.access_key}`
-            : `https://testpay.easebuzz.in/pay/${resData.access_key}`;
+        let payUrl = "";
+        if (resData.env === "production") {
+          payUrl = `https://pay.easebuzz.in/pay/${resData.access_key}`;
+        } else if (resData.env === "sandbox") {
+          payUrl = `https://testpay.easebuzz.in/pay/${resData.access_key}`;
+        } else {
+          setErrorMsg("Invalid payment gateway environment configuration.");
+          setLoading(false);
+          return;
+        }
         window.location.href = payUrl;
       } else {
         setErrorMsg(resData.error || "Failed to initiate payment. Please try again.");

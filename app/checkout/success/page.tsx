@@ -19,6 +19,8 @@ function SuccessContent() {
   const txnid = searchParams.get("txnid") || "N/A";
   const amount = searchParams.get("amount") || "0.00";
   const firstname = searchParams.get("firstname") || "Donor";
+  const email = searchParams.get("email") || "";
+  const phone = searchParams.get("phone") || "";
 
   const [cartItem, setCartItem] = useState<CartItem | null>(null);
 
@@ -46,8 +48,53 @@ function SuccessContent() {
 
   return (
     <div className=" min-h-screen bg-[var(--color-tertiary)] pb-12">
+      <style>{`
+        @media print {
+          @page {
+            margin: 0;
+          }
+          html, body, #smooth-wrapper, #smooth-content {
+            height: auto !important;
+            min-height: 0 !important;
+            overflow: visible !important;
+            position: static !important;
+            transform: none !important;
+          }
+          body {
+            padding: 1.5cm !important;
+            background: white !important;
+          }
+          nav, footer, .screen-only {
+            display: none !important;
+          }
+          #print-receipt-section {
+            display: block !important;
+            position: relative !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            background: white !important;
+            color: black !important;
+            border: none !important;
+          }
+          /* Preserve graphics and background colors during printing */
+          * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+          }
+          /* Disable AOS animations and transforms on print */
+          [data-aos] {
+            transform: none !important;
+            transition: none !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+          }
+        }
+      `}</style>
       {/* ── Page Header ── */}
-      <div className="container bg-white border-b border-[var(--color-dark)] container">
+      <div className="container bg-white border-b border-[var(--color-dark)] container screen-only">
         <div className="mx-auto justify-self-center items-center">
           <p className="text-[var(--color-secondary)] text-[10px] font-black uppercase tracking-[0.35em] flex items-center justify-center gap-2 mb-2">
             <span className="w-5 h-px bg-[var(--color-secondary)]" />
@@ -62,7 +109,7 @@ function SuccessContent() {
         </div>
       </div>
 
-      <div className=" max-w-6xl mx-auto grid lg:grid-cols-5 mt-6">
+      <div className=" max-w-6xl mx-auto grid lg:grid-cols-5 mt-6 screen-only">
         {/* ── LEFT: Success Card ── */}
         <div className="lg:col-span-3 space-y-6 container">
           <div className="bg-white rounded-3xl border border-[var(--color-dark)] shadow-sm overflow-hidden">
@@ -98,15 +145,7 @@ function SuccessContent() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 bg-blue-50/50 border border-blue-100 rounded-2xl p-4">
-                <span className="text-xl">📋</span>
-                <div className="text-xs text-blue-800">
-                  <p className="font-bold">80G Tax Benefit Receipt</p>
-                  <p className="text-blue-600/80 mt-0.5">Your receipt will be emailed to you within 24 hours.</p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3 pt-2">
+              <div className="grid grid-cols-2 gap-3 pt-2 print-hide">
                 <button
                   onClick={() => window.print()}
                   className="border border-[var(--color-dark)] text-gray-700 rounded-xl py-3.5 text-xs font-black uppercase tracking-wider hover:bg-gray-50 transition-colors cursor-pointer"
@@ -227,6 +266,77 @@ function SuccessContent() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Print-only Receipt ── */}
+      <div id="print-receipt-section" className="hidden print:block w-full max-w-[800px] mx-auto p-10 bg-white text-gray-900 border-2 border-gray-400 rounded-2xl">
+        {/* Receipt Header */}
+        <div className="flex justify-between items-start pb-6 border-b-2 border-gray-900">
+          <div className="flex items-center gap-4">
+            <img src="/image/logo.png" alt="Girganga Parivar Trust" className="w-20 h-20 object-contain" />
+            <div>
+              <h1 className="text-2xl font-black uppercase text-gray-900 leading-tight">Girganga Parivar Trust</h1>
+              <p className="text-[10px] text-gray-500 font-bold uppercase tracking-wider mt-0.5">Water Conservation & Groundwater Recharge NGO</p>
+              <p className="text-[10px] text-gray-500 mt-1 max-w-[400px]">
+                Decora Capital, 5th Floor, Nr. McDonalds, Above HDFC Bank, Kalawad Road, Rajkot - 360005, Gujarat
+              </p>
+            </div>
+          </div>
+          <div className="text-right">
+            <h2 className="text-xl font-black text-gray-900 uppercase tracking-widest">Donation Receipt</h2>
+            <p className="text-xs text-gray-500 font-bold mt-1">Receipt No: GPT-{txnid}</p>
+            <p className="text-xs text-gray-500">Date: {new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
+          </div>
+        </div>
+
+        {/* Receipt Body */}
+        <div className="py-8 space-y-6">
+          <p className="text-sm leading-relaxed text-gray-700">
+            Received with thanks from <strong className="text-gray-900 font-black">{firstname}</strong> {phone ? `(${phone})` : ""}, a donation of <strong className="text-gray-900 font-black">{formatted(rawAmount)}</strong> towards <strong className="text-gray-900 font-black">{cartItem?.title || "Water Conservation Initiatives"}</strong>.
+          </p>
+
+          <table className="w-full border-collapse border border-gray-300 text-sm">
+            <thead>
+              <tr className="bg-gray-100 text-left">
+                <th className="border border-gray-300 px-4 py-2 font-black">Description</th>
+                <th className="border border-gray-300 px-4 py-2 font-black text-right">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-4 py-3 text-gray-700">
+                  {cartItem?.title || "Water Conservation Donation"}<br/>
+                  <span className="text-[10px] text-gray-400 font-bold">Transaction ID: {txnid}</span>
+                </td>
+                <td className="border border-gray-300 px-4 py-3 text-right font-bold text-gray-900">{formatted(rawAmount)}</td>
+              </tr>
+              <tr className="bg-gray-50 font-black">
+                <td className="border border-gray-300 px-4 py-2 text-right">Total Received:</td>
+                <td className="border border-gray-300 px-4 py-2 text-right text-gray-900">{formatted(rawAmount)}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-xs text-blue-900 space-y-1">
+            <p className="font-black">80G Tax Exemption Benefit</p>
+            <p className="text-blue-700/90 leading-relaxed">
+              Donations to Girganga Parivar Trust are exempt under section 80G of the Income Tax Act. A formal tax certificate will be emailed to your registered email address {email ? `(${email})` : ""} within 24 hours.
+            </p>
+          </div>
+        </div>
+
+        {/* Receipt Footer */}
+        <div className="pt-8 border-t border-gray-200 flex justify-between items-end">
+          <div className="text-xs text-gray-500 space-y-0.5">
+            <p><strong>Contact:</strong> +91 94096 92693 | info@girgangaparivartrust.com</p>
+            <p><strong>Website:</strong> www.girgangaparivartrust.com</p>
+            <p className="text-[9px] text-gray-400 mt-2 font-mono">This is a system-generated document. No signature is required.</p>
+          </div>
+          <div className="text-center w-40 border-t border-gray-400 pt-2">
+            <p className="text-xs font-black text-gray-800 uppercase">For Girganga Parivar Trust</p>
+            <p className="text-[10px] text-gray-400 mt-6">Authorized Signatory</p>
           </div>
         </div>
       </div>
