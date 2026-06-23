@@ -1,0 +1,368 @@
+﻿diff --git a/app/checkout/page.tsx b/app/checkout/page.tsx
+index 40cf0bb..608f4c3 100644
+--- a/app/checkout/page.tsx
++++ b/app/checkout/page.tsx
+@@ -53,6 +53,22 @@ export default function DonationCheckout() {
+   const [open, setOpen] = useState(false);
+   const [stateOpen, setStateOpen] = useState(false);
+ 
++  // Form Fields State
++  const [firstName, setFirstName] = useState("");
++  const [lastName, setLastName] = useState("");
++  const [companyName, setCompanyName] = useState("");
++  const [phone, setPhone] = useState("");
++  const [email, setEmail] = useState("");
++  const [country, setCountry] = useState("India");
++  const [addressLine1, setAddressLine1] = useState("");
++  const [addressLine2, setAddressLine2] = useState("");
++  const [city, setCity] = useState("");
++  const [stateName, setStateName] = useState("Gujarat");
++  const [pinCode, setPinCode] = useState("");
++
++  const [loading, setLoading] = useState(false);
++  const [errorMsg, setErrorMsg] = useState("");
++
+   useEffect(() => {
+     const saved = sessionStorage.getItem("cartItem");
+     if (!saved) return;
+@@ -91,6 +107,86 @@ export default function DonationCheckout() {
+   const labelBase =
+     "block text-[10px] font-black text-gray-400 uppercase tracking-[0.25em] mb-1.5";
+ 
++  const handleSubmit = async (e: React.FormEvent) => {
++    e.preventDefault();
++    setErrorMsg("");
++
++    // Validate inputs
++    if (
++      !firstName.trim() ||
++      !lastName.trim() ||
++      !phone.trim() ||
++      !email.trim() ||
++      !addressLine1.trim() ||
++      !city.trim() ||
++      !pinCode.trim()
++    ) {
++      setErrorMsg("Please fill out all required fields marked with *.");
++      return;
++    }
++
++    if (phone.length !== 10) {
++      setErrorMsg("Please enter a valid 10-digit phone number.");
++      return;
++    }
++
++    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
++    if (!emailRegex.test(email)) {
++      setErrorMsg("Please enter a valid email address.");
++      return;
++    }
++
++    if (!agreedTerms) {
++      setErrorMsg("You must agree to the terms and conditions to proceed.");
++      return;
++    }
++
++    setLoading(true);
++
++    try {
++      const fullAddress = addressLine2.trim()
++        ? `${addressLine1.trim()}, ${addressLine2.trim()}`
++        : addressLine1.trim();
++
++      const response = await fetch("/api/payment/initiate", {
++        method: "POST",
++        headers: {
++          "Content-Type": "application/json",
++        },
++        body: JSON.stringify({
++          amount: rawAmount,
++          title: cartItem.title,
++          firstName: firstName.trim(),
++          lastName: lastName.trim(),
++          email: email.trim(),
++          phone: phone.trim(),
++          address: fullAddress,
++          city: city.trim(),
++          state: stateName,
++          pinCode: pinCode.trim(),
++        }),
++      });
++
++      const resData = await response.json();
++
++      if (resData.status === 1) {
++        // Redirect to Easebuzz Hosted Page
++        const payUrl =
++          resData.env === "prod"
++            ? `https://pay.easebuzz.in/pay/${resData.access_key}`
++            : `https://testpay.easebuzz.in/pay/${resData.access_key}`;
++        window.location.href = payUrl;
++      } else {
++        setErrorMsg(resData.error || "Failed to initiate payment. Please try again.");
++        setLoading(false);
++      }
++    } catch (err: any) {
++      console.error("Checkout submit error:", err);
++      setErrorMsg("An unexpected error occurred. Please try again later.");
++      setLoading(false);
++    }
++  };
++
+   return (
+     <SmoothScroll>
+       <div className=" min-h-screen bg-[var(--color-tertiary)]">
+@@ -111,7 +207,7 @@ export default function DonationCheckout() {
+           </div>
+         </div>
+ 
+-        <div className=" max-w-6xl mx-auto grid lg:grid-cols-5">
++        <form onSubmit={handleSubmit} className=" max-w-6xl mx-auto grid lg:grid-cols-5">
+           {/* ΓöÇΓöÇ LEFT FORM ΓöÇΓöÇ */}
+           <div className="lg:col-span-3 space-y-6 container">
+             {/* Personal Info */}
+@@ -139,7 +235,12 @@ export default function DonationCheckout() {
+                         *
+                       </span>
+                     </label>
+-                    <input className={inputBase} />
++                    <input
++                      className={inputBase}
++                      value={firstName}
++                      onChange={(e) => setFirstName(e.target.value)}
++                      required
++                    />
+                   </div>
+                   <div>
+                     <label className={labelBase}>
+@@ -148,7 +249,12 @@ export default function DonationCheckout() {
+                         *
+                       </span>
+                     </label>
+-                    <input className={inputBase} />
++                    <input
++                      className={inputBase}
++                      value={lastName}
++                      onChange={(e) => setLastName(e.target.value)}
++                      required
++                    />
+                   </div>
+                 </div>
+ 
+@@ -159,7 +265,11 @@ export default function DonationCheckout() {
+                       (optional)
+                     </span>
+                   </label>
+-                  <input className={inputBase} />
++                  <input
++                    className={inputBase}
++                    value={companyName}
++                    onChange={(e) => setCompanyName(e.target.value)}
++                  />
+                 </div>
+ 
+                 <div className="grid md:grid-cols-2 gap-5">
+@@ -181,12 +291,9 @@ export default function DonationCheckout() {
+                         className={`${inputBase} pl-12`}
+                         maxLength={10}
+                         inputMode="numeric"
+-                        onInput={(e) => {
+-                          e.currentTarget.value = e.currentTarget.value.replace(
+-                            /[^0-9]/g,
+-                            "",
+-                          );
+-                        }}
++                        value={phone}
++                        onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g, ""))}
++                        required
+                       />
+                     </div>
+                   </div>
+@@ -197,7 +304,13 @@ export default function DonationCheckout() {
+                         *
+                       </span>
+                     </label>
+-                    <input className={inputBase} type="email" />
++                    <input
++                      className={inputBase}
++                      type="email"
++                      value={email}
++                      onChange={(e) => setEmail(e.target.value)}
++                      required
++                    />
+                   </div>
+                 </div>
+               </div>
+@@ -229,18 +342,21 @@ export default function DonationCheckout() {
+                 <div className="relative">
+                   <select
+                     className={`
+-      ${inputBase}
+-      w-full
+-      appearance-none
+-      pr-10
+-      h-12
+-      leading-tight
+-      focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]
+-    `}
+-                    defaultValue="India"
++                      ${inputBase}
++                      w-full
++                      appearance-none
++                      pr-10
++                      h-12
++                      leading-tight
++                      focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]
++                    `}
++                    value={country}
+                     onMouseDown={() => setOpen((prev) => !prev)}
+                     onBlur={() => setOpen(false)}
+-                    onChange={() => setOpen(false)}
++                    onChange={(e) => {
++                      setCountry(e.target.value);
++                      setOpen(false);
++                    }}
+                   >
+                     <option value="India">India</option>
+                     <option value="Hungary">Hungary</option>
+@@ -251,10 +367,10 @@ export default function DonationCheckout() {
+                   {/* Animated Arrow */}
+                   <div
+                     className={`
+-      pointer-events-none absolute inset-y-0 right-3 flex items-center 
+-      text-gray-500 text-sm transition-transform duration-200
+-      ${open ? "rotate-180" : "rotate-0"}
+-    `}
++                      pointer-events-none absolute inset-y-0 right-3 flex items-center 
++                      text-gray-500 text-sm transition-transform duration-200
++                      ${open ? "rotate-180" : "rotate-0"}
++                    `}
+                   >
+                     <MdExpandLess className="h-5 w-5" />
+                   </div>
+@@ -267,8 +383,18 @@ export default function DonationCheckout() {
+                       *
+                     </span>
+                   </label>
+-                  <input className={inputBase} />
+-                  <input className={`${inputBase} mt-3`} />
++                  <input
++                    className={inputBase}
++                    value={addressLine1}
++                    onChange={(e) => setAddressLine1(e.target.value)}
++                    required
++                  />
++                  <input
++                    className={`${inputBase} mt-3`}
++                    value={addressLine2}
++                    onChange={(e) => setAddressLine2(e.target.value)}
++                    placeholder="Apartment, suite, unit, etc. (optional)"
++                  />
+                 </div>
+ 
+                 <div className="grid md:grid-cols-3 gap-5">
+@@ -279,7 +405,12 @@ export default function DonationCheckout() {
+                         *
+                       </span>
+                     </label>
+-                    <input className={inputBase} />
++                    <input
++                      className={inputBase}
++                      value={city}
++                      onChange={(e) => setCity(e.target.value)}
++                      required
++                    />
+                   </div>
+                   <div className="w-full">
+                     <label className={labelBase}>
+@@ -292,10 +423,13 @@ export default function DonationCheckout() {
+                     <div className="relative">
+                       <select
+                         className={`${inputBase} appearance-none pr-10`}
+-                        defaultValue="Gujarat"
++                        value={stateName}
+                         onMouseDown={() => setStateOpen((prev) => !prev)}
+                         onBlur={() => setStateOpen(false)}
+-                        onChange={() => setStateOpen(false)}
++                        onChange={(e) => {
++                          setStateName(e.target.value);
++                          setStateOpen(false);
++                        }}
+                       >
+                         {INDIAN_STATES.map((s) => (
+                           <option key={s} value={s}>
+@@ -307,10 +441,10 @@ export default function DonationCheckout() {
+                       {/* Animated Arrow */}
+                       <div
+                         className={`
+-        pointer-events-none absolute inset-y-0 right-3 flex items-center
+-        text-gray-500 text-sm transition-transform duration-200
+-        ${stateOpen ? "rotate-180" : "rotate-0"}
+-      `}
++                          pointer-events-none absolute inset-y-0 right-3 flex items-center
++                          text-gray-500 text-sm transition-transform duration-200
++                          ${stateOpen ? "rotate-180" : "rotate-0"}
++                        `}
+                       >
+                         <MdExpandLess />
+                       </div>
+@@ -329,12 +463,9 @@ export default function DonationCheckout() {
+                       className={inputBase}
+                       maxLength={6}
+                       inputMode="numeric"
+-                      onInput={(e) => {
+-                        e.currentTarget.value = e.currentTarget.value.replace(
+-                          /[^0-9]/g,
+-                          "",
+-                        );
+-                      }}
++                      value={pinCode}
++                      onChange={(e) => setPinCode(e.target.value.replace(/[^0-9]/g, ""))}
++                      required
+                     />
+                   </div>
+                 </div>
+@@ -473,6 +604,12 @@ export default function DonationCheckout() {
+ 
+               {/* CTA */}
+ 
++              {errorMsg && (
++                <div className="bg-red-50 text-red-600 border border-red-200 rounded-2xl p-4 text-sm font-semibold">
++                  ΓÜá∩╕Å {errorMsg}
++                </div>
++              )}
++
+               <motion.div
+                 initial={{ opacity: 0, y: 16 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+@@ -482,13 +619,16 @@ export default function DonationCheckout() {
+               >
+                 <button
+                   type="submit"
+-                  className="btn-primary w-full group relative inline-flex items-center justify-center gap-2
+-      font-semibold text-base px-10 py-4 cursor-pointer
+-      bg-[var(--color-primary)] text-[var(--color-secondary)]
+-      hover:text-[var(--color-primary)] overflow-hidden"
++                  disabled={loading}
++                  className={`btn-primary w-full group relative inline-flex items-center justify-center gap-2
++                    font-semibold text-base px-10 py-4 cursor-pointer
++                    bg-[var(--color-primary)] text-[var(--color-secondary)]
++                    hover:text-[var(--color-primary)] overflow-hidden ${
++                      loading ? "opacity-50 cursor-not-allowed" : ""
++                    }`}
+                 >
+                   <span className="relative z-10 flex gap-2 items-center">
+-                    Donate {formatted(rawAmount)} Now
++                    {loading ? "Processing..." : `Donate ${formatted(rawAmount)} Now`}
+                   </span>
+ 
+                   <span className="btn-primary-overlay"></span>
+@@ -515,7 +655,7 @@ export default function DonationCheckout() {
+               </div>
+             </div>
+           </div>
+-        </div>
++        </form>
+       </div>
+     </SmoothScroll>
+   );

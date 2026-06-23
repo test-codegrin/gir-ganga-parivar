@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -53,22 +53,6 @@ export default function DonationCheckout() {
   const [open, setOpen] = useState(false);
   const [stateOpen, setStateOpen] = useState(false);
 
-  // Form Fields State
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [country, setCountry] = useState("India");
-  const [addressLine1, setAddressLine1] = useState("");
-  const [addressLine2, setAddressLine2] = useState("");
-  const [city, setCity] = useState("");
-  const [stateName, setStateName] = useState("Gujarat");
-  const [pinCode, setPinCode] = useState("");
-
-  const [loading, setLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
-
   useEffect(() => {
     const saved = sessionStorage.getItem("cartItem");
     if (!saved) return;
@@ -84,7 +68,7 @@ export default function DonationCheckout() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-5 bg-[var(--color-tertiary)]">
         <div className="w-20 h-20 rounded-full bg-white border-2 border-[var(--color-dark)] flex items-center justify-center shadow-md">
-          <span className="text-4xl">🛒</span>
+          <span className="text-4xl">≡ƒ¢Æ</span>
         </div>
         <h2 className="text-2xl font-black text-gray-900">
           No donation item found
@@ -93,104 +77,24 @@ export default function DonationCheckout() {
           href="/donate"
           className="bg-[var(--color-primary)] text-white px-8 py-3 rounded-2xl font-black text-sm hover:bg-[#007fa3] transition-all shadow-lg"
         >
-          Browse Donations →
+          Browse Donations ΓåÆ
         </Link>
       </div>
     );
   }
 
-  const rawAmount = Number(String(cartItem.amount).replace(/[,₹\s]/g, ""));
-  const formatted = (n: number) => "₹" + n.toLocaleString("en-IN");
+  const rawAmount = Number(String(cartItem.amount).replace(/[,Γé╣\s]/g, ""));
+  const formatted = (n: number) => "Γé╣" + n.toLocaleString("en-IN");
 
   const inputBase =
     "w-full border border-[var(--color-dark)] rounded-xl px-4 py-3 text-sm bg-[var(--color-tertiary)] focus:bg-white focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] outline-none transition-all duration-200 text-gray-800 placeholder-gray-400";
   const labelBase =
     "block text-[10px] font-black text-gray-400 uppercase tracking-[0.25em] mb-1.5";
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setErrorMsg("");
-
-    // Validate inputs
-    if (
-      !firstName.trim() ||
-      !lastName.trim() ||
-      !phone.trim() ||
-      !email.trim() ||
-      !addressLine1.trim() ||
-      !city.trim() ||
-      !pinCode.trim()
-    ) {
-      setErrorMsg("Please fill out all required fields marked with *.");
-      return;
-    }
-
-    if (phone.length !== 10) {
-      setErrorMsg("Please enter a valid 10-digit phone number.");
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setErrorMsg("Please enter a valid email address.");
-      return;
-    }
-
-    if (!agreedTerms) {
-      setErrorMsg("You must agree to the terms and conditions to proceed.");
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const fullAddress = addressLine2.trim()
-        ? `${addressLine1.trim()}, ${addressLine2.trim()}`
-        : addressLine1.trim();
-
-      const response = await fetch("/api/payment/initiate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          amount: rawAmount,
-          title: cartItem.title,
-          firstName: firstName.trim(),
-          lastName: lastName.trim(),
-          email: email.trim(),
-          phone: phone.trim(),
-          address: fullAddress,
-          city: city.trim(),
-          state: stateName,
-          pinCode: pinCode.trim(),
-        }),
-      });
-
-      const resData = await response.json();
-
-      if (resData.status === 1) {
-        // Redirect to Easebuzz Hosted Page
-        const payUrl =
-          resData.env === "prod"
-            ? `https://pay.easebuzz.in/pay/${resData.access_key}`
-            : `https://testpay.easebuzz.in/pay/${resData.access_key}`;
-        window.location.href = payUrl;
-      } else {
-        setErrorMsg(resData.error || "Failed to initiate payment. Please try again.");
-        setLoading(false);
-      }
-    } catch (err: any) {
-      console.error("Checkout submit error:", err);
-      setErrorMsg("An unexpected error occurred. Please try again later.");
-      setLoading(false);
-    }
-  };
-
   return (
     <SmoothScroll>
       <div className=" min-h-screen bg-[var(--color-tertiary)]">
-        {/* ── Progress Bar ── */}
+        {/* ΓöÇΓöÇ Progress Bar ΓöÇΓöÇ */}
 
         <div className="container bg-white border-b border-[var(--color-dark)] container">
           <div className="mx-auto justify-self-center items-center">
@@ -207,14 +111,14 @@ export default function DonationCheckout() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className=" max-w-6xl mx-auto grid lg:grid-cols-5">
-          {/* ── LEFT FORM ── */}
+        <div className=" max-w-6xl mx-auto grid lg:grid-cols-5">
+          {/* ΓöÇΓöÇ LEFT FORM ΓöÇΓöÇ */}
           <div className="lg:col-span-3 space-y-6 container">
             {/* Personal Info */}
             <div className="bg-white rounded-3xl border border-[var(--color-dark)] shadow-sm overflow-hidden">
               <div className="bg-[var(--color-primary)] px-7 py-5 flex items-center gap-3">
                 <div className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center">
-                  <span className="text-white text-lg">👤</span>
+                  <span className="text-white text-lg">≡ƒæñ</span>
                 </div>
                 <div>
                   <h2 className="text-white font-black text-base">
@@ -235,12 +139,7 @@ export default function DonationCheckout() {
                         *
                       </span>
                     </label>
-                    <input
-                      className={inputBase}
-                      value={firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
-                      required
-                    />
+                    <input className={inputBase} />
                   </div>
                   <div>
                     <label className={labelBase}>
@@ -249,12 +148,7 @@ export default function DonationCheckout() {
                         *
                       </span>
                     </label>
-                    <input
-                      className={inputBase}
-                      value={lastName}
-                      onChange={(e) => setLastName(e.target.value)}
-                      required
-                    />
+                    <input className={inputBase} />
                   </div>
                 </div>
 
@@ -265,11 +159,7 @@ export default function DonationCheckout() {
                       (optional)
                     </span>
                   </label>
-                  <input
-                    className={inputBase}
-                    value={companyName}
-                    onChange={(e) => setCompanyName(e.target.value)}
-                  />
+                  <input className={inputBase} />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-5">
@@ -291,9 +181,12 @@ export default function DonationCheckout() {
                         className={`${inputBase} pl-12`}
                         maxLength={10}
                         inputMode="numeric"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g, ""))}
-                        required
+                        onInput={(e) => {
+                          e.currentTarget.value = e.currentTarget.value.replace(
+                            /[^0-9]/g,
+                            "",
+                          );
+                        }}
                       />
                     </div>
                   </div>
@@ -304,13 +197,7 @@ export default function DonationCheckout() {
                         *
                       </span>
                     </label>
-                    <input
-                      className={inputBase}
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
+                    <input className={inputBase} type="email" />
                   </div>
                 </div>
               </div>
@@ -320,7 +207,7 @@ export default function DonationCheckout() {
             <div className="bg-white rounded-3xl border border-[var(--color-dark)] shadow-sm overflow-hidden">
               <div className="bg-[var(--color-primary)] px-7 py-5 flex items-center gap-3">
                 <div className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center">
-                  <span className="text-white text-lg">📍</span>
+                  <span className="text-white text-lg">≡ƒôì</span>
                 </div>
                 <div>
                   <h2 className="text-white font-black text-base">
@@ -350,13 +237,10 @@ export default function DonationCheckout() {
       leading-tight
       focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]
     `}
-                    value={country}
+                    defaultValue="India"
                     onMouseDown={() => setOpen((prev) => !prev)}
                     onBlur={() => setOpen(false)}
-                    onChange={(e) => {
-                      setCountry(e.target.value);
-                      setOpen(false);
-                    }}
+                    onChange={() => setOpen(false)}
                   >
                     <option value="India">India</option>
                     <option value="Hungary">Hungary</option>
@@ -383,18 +267,8 @@ export default function DonationCheckout() {
                       *
                     </span>
                   </label>
-                  <input
-                    className={inputBase}
-                    value={addressLine1}
-                    onChange={(e) => setAddressLine1(e.target.value)}
-                    required
-                  />
-                  <input
-                    className={`${inputBase} mt-3`}
-                    value={addressLine2}
-                    onChange={(e) => setAddressLine2(e.target.value)}
-                    placeholder="Apartment, suite, unit, etc. (optional)"
-                  />
+                  <input className={inputBase} />
+                  <input className={`${inputBase} mt-3`} />
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-5">
@@ -405,12 +279,7 @@ export default function DonationCheckout() {
                         *
                       </span>
                     </label>
-                    <input
-                      className={inputBase}
-                      value={city}
-                      onChange={(e) => setCity(e.target.value)}
-                      required
-                    />
+                    <input className={inputBase} />
                   </div>
                   <div className="w-full">
                     <label className={labelBase}>
@@ -423,13 +292,10 @@ export default function DonationCheckout() {
                     <div className="relative">
                       <select
                         className={`${inputBase} appearance-none pr-10`}
-                        value={stateName}
+                        defaultValue="Gujarat"
                         onMouseDown={() => setStateOpen((prev) => !prev)}
                         onBlur={() => setStateOpen(false)}
-                        onChange={(e) => {
-                          setStateName(e.target.value);
-                          setStateOpen(false);
-                        }}
+                        onChange={() => setStateOpen(false)}
                       >
                         {INDIAN_STATES.map((s) => (
                           <option key={s} value={s}>
@@ -463,9 +329,12 @@ export default function DonationCheckout() {
                       className={inputBase}
                       maxLength={6}
                       inputMode="numeric"
-                      value={pinCode}
-                      onChange={(e) => setPinCode(e.target.value.replace(/[^0-9]/g, ""))}
-                      required
+                      onInput={(e) => {
+                        e.currentTarget.value = e.currentTarget.value.replace(
+                          /[^0-9]/g,
+                          "",
+                        );
+                      }}
                     />
                   </div>
                 </div>
@@ -473,7 +342,7 @@ export default function DonationCheckout() {
             </div>
           </div>
 
-          {/* ── RIGHT SUMMARY ── */}
+          {/* ΓöÇΓöÇ RIGHT SUMMARY ΓöÇΓöÇ */}
           <div className="lg:col-span-2 container">
             <div className="sticky top-6 space-y-4">
               {/* Donation Summary */}
@@ -535,14 +404,14 @@ export default function DonationCheckout() {
                 <p className={labelBase}>Payment Method</p>
                 <div className="flex items-center gap-3 bg-[var(--color-tertiary)] rounded-2xl px-4 py-3.5 border border-[var(--color-dark)] mt-2">
                   <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-base">💳</span>
+                    <span className="text-white text-base">≡ƒÆ│</span>
                   </div>
                   <div>
                     <p className="text-sm font-black text-gray-800">
                       Easebuzz Gateway
                     </p>
                     <p className="text-[10px] text-gray-400 mt-0.5">
-                      Card · UPI · Net Banking · Wallet
+                      Card ┬╖ UPI ┬╖ Net Banking ┬╖ Wallet
                     </p>
                   </div>
                   <div className="ml-auto w-2.5 h-2.5 bg-[var(--color-accent)] rounded-full" />
@@ -591,7 +460,7 @@ export default function DonationCheckout() {
                     >
                       {item.checked && (
                         <span className="text-white text-[10px] font-black">
-                          ✓
+                          Γ£ô
                         </span>
                       )}
                     </div>
@@ -604,12 +473,6 @@ export default function DonationCheckout() {
 
               {/* CTA */}
 
-              {errorMsg && (
-                <div className="bg-red-50 text-red-600 border border-red-200 rounded-2xl p-4 text-sm font-semibold">
-                  ⚠️ {errorMsg}
-                </div>
-              )}
-
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -619,16 +482,13 @@ export default function DonationCheckout() {
               >
                 <button
                   type="submit"
-                  disabled={loading}
-                  className={`btn-primary w-full group relative inline-flex items-center justify-center gap-2
+                  className="btn-primary w-full group relative inline-flex items-center justify-center gap-2
       font-semibold text-base px-10 py-4 cursor-pointer
       bg-[var(--color-primary)] text-[var(--color-secondary)]
-      hover:text-[var(--color-primary)] overflow-hidden ${
-        loading ? "opacity-50 cursor-not-allowed" : ""
-      }`}
+      hover:text-[var(--color-primary)] overflow-hidden"
                 >
                   <span className="relative z-10 flex gap-2 items-center">
-                    {loading ? "Processing..." : `Donate ${formatted(rawAmount)} Now`}
+                    Donate {formatted(rawAmount)} Now
                   </span>
 
                   <span className="btn-primary-overlay"></span>
@@ -638,9 +498,9 @@ export default function DonationCheckout() {
               {/* Trust badges */}
               <div className="grid grid-cols-3 gap-2">
                 {[
-                  { icon: "🔒", label: "SSL Secure" },
-                  { icon: "📋", label: "80G Tax Benefit" },
-                  { icon: "✅", label: "Trusted NGO" },
+                  { icon: "≡ƒöÆ", label: "SSL Secure" },
+                  { icon: "≡ƒôï", label: "80G Tax Benefit" },
+                  { icon: "Γ£à", label: "Trusted NGO" },
                 ].map((b) => (
                   <div
                     key={b.label}
@@ -655,7 +515,7 @@ export default function DonationCheckout() {
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </SmoothScroll>
   );
