@@ -1125,27 +1125,27 @@ export default function AboutPage() {
                 {[
                   {
                     title: "Sustainability",
-                    img: "/image/About page/Sustainability.jpeg",
+                    img: "/image/About page/Sustainability.webp",
                     desc: "GGPT is committed to promoting environmentally sustainable water management practices that restore natural water systems and ensure long-term availability of water resources for agriculture, ecosystems, and rural communities.",
                   },
                   {
                     title: "Community Ownership",
-                    img: "/image/About page/Community.jpeg",
+                    img: "/image/About page/Community.webp",
                     desc: "We believe that lasting change happens when communities actively participate in planning, implementing, and maintaining water conservation initiatives.",
                   },
                   {
                     title: "Transparency & Accountability",
-                    img: "/image/About page/Transparency.jpeg",
+                    img: "/image/About page/Transparency.webp",
                     desc: "GGPT maintains high standards of transparency, ethical governance, and accountability in all its programs.",
                   },
                   {
                     title: "Collaboration",
-                    img: "/image/About page/Collaboration.jpeg",
+                    img: "/image/About page/Collaboration.webp",
                     desc: "GGPT collaborates with communities, government institutions, CSR partners, and organizations.",
                   },
                   {
                     title: "Innovation & Learning",
-                    img: "/image/About page/Innovation.jpeg",
+                    img: "/image/About page/Innovation.webp",
                     desc: "GGPT continuously explores innovative approaches and integrates practical knowledge with field experience.",
                   },
                 ].map((item, i) => (
