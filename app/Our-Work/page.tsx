@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import "leaflet/dist/leaflet.css";
+// import "leaflet/dist/leaflet.css";
 import { MapPin, Waves, Search, Eye, EyeOff, Award } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -991,7 +991,7 @@ export default function OurWorkPage() {
 
               <p className="text-gray-500 mt-3 text-sm sm:text-base max-w-xl mx-auto">
                 Transforming drought-prone Saurashtra and Gujarat through
-                community-led water structures across 8 districts.
+                community-led water structures across 10 districts.
               </p>
             </motion.div>
 
@@ -1049,7 +1049,7 @@ export default function OurWorkPage() {
                       Water Structures Built
                     </p>
                     <p className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
-                      8,357 Structures
+                     	19,592+ Structures
                     </p>
                     <p className="text-gray-500 text-sm leading-relaxed">
                       Check dams, bore wells, and allied structures across 35

@@ -40,7 +40,7 @@ const impactStats = [
   { num: 8357, label: "Water Structures", suffix: "", icon: "💧" },
   { num: 619, label: "Villages Impacted", suffix: "", icon: "🏘️" },
   { num: 35, label: "Blocks Covered", suffix: "", icon: "📍" },
-  { num: 8, label: "Districts", suffix: "", icon: "🗺️" },
+  { num: 10, label: "Districts", suffix: "", icon: "🗺️" },
   {
     num: 74,
     label: "Billion Litres Recharge Capacity",
@@ -107,6 +107,40 @@ const approaches = [
         />
       </svg>
     ),
+  },
+];
+
+const trustStripData = [
+  {
+    title: "Water Conservation Impact",
+    accent: "var(--color-primary)",
+    stats: [
+      { label: "Water Structures Created", value: "19,592+" },
+      { label: "Check-dams Rejuvenated & Constructed", value: "15,602" },
+      { label: "Borewell Recharge Structures", value: "1,370" },
+      { label: "Percolation Pits Developed", value: "2,620" },
+    ],
+  },
+  {
+    title: "Geographical Reach",
+    accent: "var(--color-secondary)",
+    stats: [
+      { label: "Districts Across Gujarat", value: "10" },
+      { label: "Talukas Covered", value: "53" },
+      { label: "Locations Reached", value: "759" },
+      { label: "Rural Villages", value: "588" },
+      { label: "Urban Water-Stressed Locations", value: "171" },
+    ],
+  },
+  {
+    title: "Community Impact",
+    accent: "var(--color-accent)",
+    stats: [
+      { label: "People Impacted", value: "11.4+ Lakh" },
+      { label: "Direct Beneficiaries", value: "2.25+ Lakh" },
+      { label: "Indirect Beneficiaries", value: "9.14+ Lakh" },
+      { label: "Acres Recharged", value: "7.38+ Lakh" },
+    ],
   },
 ];
 
@@ -181,8 +215,8 @@ export default function HomePage() {
 
             {/* Subtitle */}
             <p className="text-white/80 text-sm md:text-lg lg:text-xl font-medium mb-8 sm:mb-10 max-w-2xl">
-              Reviving groundwater, strengthening agriculture, and empowering
-              rural communities through decentralized water conservation.
+              Registered with National Stock Exchange of India Social Stock Exchange (SSE)
+
             </p>
 
             {/* Buttons */}
@@ -452,11 +486,85 @@ export default function HomePage() {
           </div>
         </section>
 
+
+        {/* ══════════════════════════════════════════════
+          SECTION — TRUST STRIP
+      ══════════════════════════════════════════════ */}
+        <section className="bg-[var(--color-tertiary)]/50">
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+                  Trusted at Scale
+                </span>
+                <div className="h-px w-8 bg-[var(--color-secondary)]" />
+              </div>
+              <h2
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900"
+              >
+                Our Growing{" "}
+                <span className="text-[var(--color-primary)]">Footprint</span>
+              </h2>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+              {trustStripData.map((group, i) => (
+                <motion.div
+                  key={group.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, delay: i * 0.1 }}
+                  className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-5">
+                    <div
+                      className="h-1.5 w-8 rounded-full"
+                      style={{ backgroundColor: group.accent }}
+                    />
+                    <h3
+                      className="font-bold text-gray-900 text-base sm:text-lg"
+                    >
+                      {group.title}
+                    </h3>
+                  </div>
+
+                  <div className="space-y-3">
+                    {group.stats.map((stat) => (
+                      <div
+                        key={stat.label}
+                        className="flex items-center justify-between gap-4 border-b border-gray-100 last:border-none pb-3 last:pb-0"
+                      >
+                        <span className="text-gray-500 text-xs sm:text-sm leading-snug">
+                          {stat.label}
+                        </span>
+                        <span
+                          className="font-bold text-sm sm:text-base whitespace-nowrap"
+                          style={{ color: group.accent }}
+                        >
+                          {stat.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ══════════════════════════════════════════════
           SECTION 5 — OUR PARTNERS
       ══════════════════════════════════════════════ */}
         <Slider />
 
+        
         {/* ══════════════════════════════════════════════
           SECTION 6 — CALL TO ACTION
       ══════════════════════════════════════════════ */}

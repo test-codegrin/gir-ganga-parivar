@@ -270,6 +270,115 @@ function StatCard({
   );
 }
 
+/* ─── Growth Stat Card (for values with decimals/units, e.g. "11.4 Lakh") ── */
+function GrowthStatCard({
+  value,
+  label,
+  index,
+}: {
+  value: string;
+  label: string;
+  index: number;
+}) {
+  return (
+    <div
+      className="group relative flex flex-col items-center justify-center text-center
+      bg-white border border-gray-100 rounded-2xl p-6
+       hover:shadow-xl hover:-translate-y-1
+      transition-all duration-300"
+    >
+      <span
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[var(--color-primary)] rounded-full
+        group-hover:w-full transition-all duration-500"
+      />
+
+      <span className="text-[var(--color-secondary)] text-[10px] font-bold tracking-widest uppercase mb-3 opacity-60">
+        0{index + 1}
+      </span>
+
+      <h3 className="text-2xl xl:text-3xl font-extrabold text-[var(--color-primary)] leading-none mb-2">
+        {value}
+      </h3>
+
+      <p className="text-xs text-gray-400 font-medium tracking-wide leading-snug">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+/* ─── Annual Growth Timeline (table on desktop, stacked cards on mobile) ── */
+function GrowthTimelineTable({
+  data,
+}: {
+  data: { year: string; structures: number; villages: number }[];
+}) {
+  return (
+    <div className="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm">
+      {/* Desktop / tablet table */}
+      <div className="hidden sm:block">
+        <div className="grid grid-cols-3 bg-[var(--color-primary)]/5 px-6 md:px-8 py-4">
+          <span className="text-[11px] md:text-xs font-bold tracking-widest uppercase text-[var(--color-primary)]">
+            Year
+          </span>
+          <span className="text-[11px] md:text-xs font-bold tracking-widest uppercase text-[var(--color-primary)] text-center">
+            Structures
+          </span>
+          <span className="text-[11px] md:text-xs font-bold tracking-widest uppercase text-[var(--color-primary)] text-right">
+            Villages
+          </span>
+        </div>
+        <div className="divide-y divide-gray-100">
+          {data.map((row, i) => (
+            <div
+              key={i}
+              className="grid grid-cols-3 px-6 md:px-8 py-5 items-center hover:bg-[var(--color-tertiary)] transition-colors duration-300"
+            >
+              <span className="text-sm font-semibold text-gray-900">
+                {row.year}
+              </span>
+              <span className="text-base md:text-lg font-extrabold text-[var(--color-primary)] text-center">
+                <CountUp end={row.structures} />
+              </span>
+              <span className="text-base md:text-lg font-extrabold text-[var(--color-secondary)] text-right">
+                <CountUp end={row.villages} />
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mobile stacked cards */}
+      <div className="sm:hidden divide-y divide-gray-100">
+        {data.map((row, i) => (
+          <div key={i} className="px-6 py-5">
+            <p className="text-sm font-bold text-gray-900 mb-3">{row.year}</p>
+            <div className="flex items-center justify-around">
+              <div className="text-center">
+                <p className="text-xl font-extrabold text-[var(--color-primary)]">
+                  <CountUp end={row.structures} />
+                </p>
+                <p className="text-[10px] uppercase tracking-widest text-gray-400 mt-1">
+                  Structures
+                </p>
+              </div>
+              <div className="w-px h-8 bg-gray-100" />
+              <div className="text-center">
+                <p className="text-xl font-extrabold text-[var(--color-secondary)]">
+                  <CountUp end={row.villages} />
+                </p>
+                <p className="text-[10px] uppercase tracking-widest text-gray-400 mt-1">
+                  Villages
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ─── Impact Card ─────────────────────────────────── */
 function ImpactCard({ title, items }: { title: string; items: string[] }) {
   return (
@@ -310,9 +419,22 @@ export default function JalMandirSection() {
     { value: 8357, label: "Water Structures" },
     { value: 619, label: "Villages Covered" },
     { value: 35, label: "Blocks" },
-    { value: 8, label: "Districts" },
+    { value: 10, label: "Districts" },
     { value: 125000, label: "Farmers Impacted", suffix: "+" },
     { value: 74, label: "Billion Litres Recharged", suffix: "B" },
+  ];
+
+  const cumulativeStats = [
+    { value: "19,592+", label: "Water Structures Created / Rejuvenated" },
+    { value: "11.4 Lakh", label: "Beneficiaries" },
+    { value: "7.38 Lakh", label: "Acres Farmland Rejuvenated" },
+  ];
+
+  const growthTimeline = [
+    { year: "2022-23", structures: 100, villages: 22 },
+    { year: "2023-24", structures: 1617, villages: 197 },
+    { year: "2024-25", structures: 6637, villages: 437 },
+    { year: "2025-26", structures: 11238, villages: 349 },
   ];
 
   const additionalTransformations = [
@@ -457,10 +579,61 @@ export default function JalMandirSection() {
                 items={[
                   "4,29,000 Acres Farmland Supported",
                   "7,25,000 Rural Population Benefitted",
-                  "⦁	20-30% of Crop productivity increase. ",
+                  "20-30% of Crop productivity increase. ",
                 ]}
               />
             </div>
+          </div>
+        </section>
+
+        {/* ── 3.5 CUMULATIVE GROWTH SUMMARY ───────────────── */}
+        <section className="container bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-14">
+              <Eyebrow text="Cumulative Progress" />
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+                Growth{" "}
+                <span className="text-[var(--color-primary)]">at a Glance</span>
+              </h2>
+              <p className="text-gray-400 mt-3 text-sm max-w-lg mx-auto">
+                Our cumulative footprint across water conservation, farmer
+                welfare, and agricultural revival.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+              {cumulativeStats.map((s, i) => (
+                <GrowthStatCard key={i} index={i} {...s} />
+              ))}
+            </div>
+
+            <div className="max-w-2xl mx-auto text-center">
+              <p className="text-gray-400 text-sm italic leading-relaxed">
+                &quot;Improved groundwater availability supporting irrigation,
+                crop stability, and farmer resilience.&quot;
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 3.6 ANNUAL GROWTH TIMELINE ──────────────────── */}
+        <section className="container bg-[var(--color-tertiary)]">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-14">
+              <Eyebrow text="Year on Year" />
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
+                Annual{" "}
+                <span className="text-[var(--color-primary)]">
+                  Growth Timeline
+                </span>
+              </h2>
+              <p className="text-gray-400 mt-3 text-sm">
+                Tracking our expansion in water structures and villages
+                covered, year by year.
+              </p>
+            </div>
+
+            <GrowthTimelineTable data={growthTimeline} />
           </div>
         </section>
 

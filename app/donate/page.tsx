@@ -80,22 +80,22 @@ const maintaindonateData = [
 
 const donationequipment = [
   {
-    id: "donation-for-Water-Tanker",
-    img: "/image/suport/Water-Tanker.jpg",
-    title: "Water Tanker",
-    amount: "₹2,50,000",
-    tag: "ESSENTIAL",
-    desc: "Purchase and maintain a water tanker to deliver clean water to drought-affected villages and construction sites.",
+    id: "donation-for-excavator",
+    img: "/image/suport/Excavator.webp",
+    title: "Excavator",
+    amount: "₹98,50,000 ",
+    tag: "FLAGSHIP",
+    desc: "The most powerful machine for large-scale construction, dam building, and deep excavation projects.",
   },
   {
-    id: "donation-for-tractor",
-    img: "/image/suport/Tractor.jpg",
-    title: "Tractor",
-    amount: "₹7,50,000",
-    tag: "AGRICULTURAL",
-    desc: "Support agricultural and rural development by funding a tractor for field work and earthmoving tasks.",
+    id: "donation-for-jcb",
+    img: "/image/suport/JCB.jpg",
+    title: "Backhoe Loader",
+    amount: "₹40,00,000",
+    tag: "FLAGSHIP",
+    desc: "The most powerful machine for large-scale construction, dam building, and deep excavation projects.",
   },
-  {
+   {
     id: "donation-for-ace-pickup-tempo",
     img: "/image/suport/Ace-Small-Truck.jpg",
     title: "Ace Pickup Tempo",
@@ -111,14 +111,23 @@ const donationequipment = [
     tag: "HEAVY DUTY",
     desc: "Essential for construction, digging, and earth-moving work required in checkdam and infrastructure projects.",
   },
+   {
+    id: "donation-for-tractor",
+    img: "/image/suport/Tractor.jpg",
+    title: "Tractor",
+    amount: "₹7,50,000",
+    tag: "AGRICULTURAL",
+    desc: "Support agricultural and rural development by funding a tractor for field work and earthmoving tasks.",
+  }, 
   {
-    id: "donation-for-jcb",
-    img: "/image/suport/JCB.jpg",
-    title: "JCB Excavator",
-    amount: "₹40,00,000",
-    tag: "FLAGSHIP",
-    desc: "The most powerful machine for large-scale construction, dam building, and deep excavation projects.",
+    id: "donation-for-Water-Tanker",
+    img: "/image/suport/Water-Tanker.jpg",
+    title: "Water Tanker",
+    amount: "₹2,50,000",
+    tag: "ESSENTIAL",
+    desc: "Purchase and maintain a water tanker to deliver clean water to drought-affected villages and construction sites.",
   },
+  
 ];
 
 const bankDetails = [

@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import SmoothScroll from "../../Component/SmothScrolling";
@@ -8,7 +7,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Variants } from "framer-motion";
 import { FaCow } from "react-icons/fa6";
-import { Target, Eye } from "lucide-react";
 import {
   FaChartBar,
   FaGlobeAsia,
@@ -16,6 +14,18 @@ import {
   FaRocket,
   FaTint,
 } from "react-icons/fa";
+import {
+  ArrowRight,
+  Target,
+  Eye,
+  ShieldCheck,
+  BadgeCheck,
+  FileCheck2,
+  ClipboardCheck,
+  Landmark,
+  Globe2,
+  Phone,
+} from "lucide-react";
 
 /* ─────────────────────────────────────
    Shared animation helpers
@@ -69,13 +79,14 @@ function Counter({ value, start }: { value: number; start: boolean }) {
 const timelineItems = [
   {
     year: "2017",
-    icon: "🐄",
+    type: "image",
+    src: "/image/About page/Deshi-Cow-removebg-preview.png",
     title: "Foundation — Gau Seva",
     desc: "Girganga Parivar Trust formally established with the vision of promoting Gau Seva and Gaushala activities while supporting rural communities through livestock care and grassroots participation.",
   },
   {
-    year: "2019–2020",
-    icon: "💧",
+    year: "2019-2020",
+    icon: FaTint,
     title: "Beginning of Water Conservation Mission",
     desc: (
       <div className="space-y-3">
@@ -90,7 +101,6 @@ const timelineItems = [
           <li>Village-level water awareness programs</li>
           <li>Community mobilisation for watershed restoration</li>
         </ul>
-
         <p>
           This phase laid the foundation for GGPT’s long-term water conservation
           movement.
@@ -100,7 +110,7 @@ const timelineItems = [
   },
   {
     year: "2021–2023",
-    icon: "🏞️",
+    icon: FaMountain,
     title: "Expansion across Saurashtra",
     desc: (
       <div className="space-y-3">
@@ -127,7 +137,7 @@ const timelineItems = [
   },
   {
     year: "2024",
-    icon: "🌍",
+    icon: FaGlobeAsia,
     title: "Large-Scale Community Water Movement",
     desc: (
       <div className="space-y-3">
@@ -152,7 +162,7 @@ const timelineItems = [
   },
   {
     year: "2025",
-    icon: "📊",
+    icon: FaChartBar,
     title: "Major Impact Milestone",
     desc: (
       <div className="space-y-3">
@@ -177,7 +187,6 @@ const timelineItems = [
             equipment for water conservation work, supported by CSR partners.
           </li>
         </ul>
-
         <p>
           In 2025, Model recognized in Parliamentary proceedings as a scalable
           grassroots solution under the Public–Private–People (PPP) model.
@@ -196,7 +205,7 @@ const timelineItems = [
   },
   {
     year: "2026",
-    icon: "🚀",
+    icon: FaRocket,
     title: "Scaling Impact & National Recognition",
     desc: (
       <div className="space-y-3">
@@ -218,7 +227,6 @@ const timelineItems = [
             across 619 villages, 35 blocks of 8 Districts of Gujarat.
           </li>
         </ul>
-
         <p>
           GGPT was also recognized as Best NGO – JSJB 1.0 (Second Rank at All
           India Level) by the Ministry of Jal Shakti.
@@ -239,6 +247,14 @@ const jalKathaRecords = [
   "IEA Book of World Records",
   "India Book of Records",
   "OMG Book of Records",
+];
+
+const complianceBadges = [
+  { label: "NSE-SSE Registered", img: "/image/About page/NSE_SSE.webp" },
+  { label: "CSR-1 Registered", img: "/image/About page/CSR-1.webp" },
+  { label: "12A & 80G Certified", img: "/image/About page/12A_80G.webp" },
+  { label: "Darpan Registered", img: "/image/About page/Darpan.webp" },
+  { label: "Ministry of Jal Shakti Partner", img: "/image/About page/MinistryofJalShaktiPartner.webp" },
 ];
 
 /* ═══════════════════════════════════════
@@ -313,7 +329,7 @@ export default function AboutPage() {
                 Over the years, GGPT has implemented thousands of water
                 conservation structures across multiple districts, contributing
                 significantly to groundwater recharge and improved water access
-                for rural communities. The Trust’s approach combines traditional
+                for rural communities. The Trust's approach combines traditional
                 knowledge, community participation, and practical engineering
                 solutions to create scalable and sustainable models for water
                 security.
@@ -419,6 +435,115 @@ export default function AboutPage() {
             </motion.div>
           </div>
         </section>
+
+        {/* ══════════════════════════════════════════
+    1.5 ABOUT US & COMPLIANCE
+══════════════════════════════════════════ */}
+<section className="bg-[var(--color-tertiary)]">
+  <div className="container">
+    <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+      {/* LEFT — About Us */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={stagger}
+      >
+        <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
+          <div className="h-px w-8 bg-[var(--color-secondary)]" />
+          <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+            About Us
+          </span>
+          <div className="h-px w-8 bg-[var(--color-secondary)]" />
+        </div>
+
+        <h2 className="text-3xl md:text-4xl font-bold mb-5 leading-tight text-center lg:text-start">
+          A Movement Rooted in{" "}
+          <span className="text-[var(--color-primary)]">Gujarat</span>
+        </h2>
+
+        <p className="text-gray-500 text-sm leading-relaxed mb-6 text-center lg:text-start">
+          Girganga Parivar Trust (GGPT) is a Gujarat-based grassroots
+          organization dedicated to water conservation, groundwater
+          recharge, and sustainable rural development. Through
+          community-driven water harvesting initiatives, GGPT has created
+          and rejuvenated thousands of decentralized water conservation
+          structures across rural and urban regions of Gujarat.
+        </p>
+
+        <p className="text-gray-500 text-sm leading-relaxed mb-8 text-center lg:text-start">
+          Over the last four years, GGPT has expanded its footprint across{" "}
+          <strong>10 districts</strong> and <strong>53 talukas</strong>,
+          positively impacting <strong>759 locations</strong> and benefiting
+          over <strong>11.4 lakh people</strong> through improved water
+          availability, agricultural resilience, and climate adaptation.
+        </p>
+
+        <div className="grid grid-cols-2 gap-4">
+          {[
+            { value: "10", label: "Districts" },
+            { value: "53", label: "Talukas" },
+            { value: "759", label: "Locations Impacted" },
+            { value: "11.4L+", label: "People Benefited" },
+          ].map((s) => (
+            <div
+              key={s.label}
+              className="bg-white rounded-2xl p-4 text-center border border-gray-100 shadow-sm"
+            >
+              <p className="text-2xl font-bold text-[var(--color-primary)]">
+                {s.value}
+              </p>
+              <p className="text-xs text-gray-500 mt-1">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+{/* RIGHT — Compliance & Institutional Credentials */}
+<motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.15 }}
+  variants={stagger}
+>
+  <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
+    <div className="h-px w-8 bg-[var(--color-secondary)]" />
+    <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+      Compliance & Credentials
+    </span>
+    <div className="h-px w-8 bg-[var(--color-secondary)]" />
+  </div>
+
+  <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-center lg:text-start">
+    Registered &{" "}
+    <span className="text-[var(--color-primary)]">Recognised</span>
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4">
+    {complianceBadges.map((badge) => (
+      <motion.div
+        key={badge.label}
+        variants={fadeUp}
+        className="flex flex-col items-center text-center gap-3 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:border-[var(--color-primary)]/25 hover:-translate-y-0.5 transition-all duration-300"
+      >
+        <div className="w-full aspect-square max-w-[125px] rounded-xl  flex items-center justify-center p-3">
+          <img
+            loading="lazy"
+            src={badge.img}
+            alt={badge.label}
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <span className="text-xs font-semibold text-gray-800 leading-snug">
+          {badge.label}
+        </span>
+      </motion.div>
+    ))}
+  </div>
+</motion.div>
+    </div>
+  </div>
+</section>
 
         {/* ══════════════════════════════════════════
             2. OUR ORIGIN
@@ -643,13 +768,26 @@ export default function AboutPage() {
                         }`}
                       >
                         <div
-                          className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? "lg:flex-row-reverse" : ""}`}
-                        >
-                          <span className="text-2xl">{item.icon}</span>
-                          <span className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)] bg-[var(--color-tertiary)] px-3 py-1 rounded-full">
-                            {item.year}
-                          </span>
-                        </div>
+  className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? "lg:flex-row-reverse" : ""}`}
+>
+  <span className="w-10 h-10 rounded-full bg-[var(--color-tertiary)] flex items-center justify-center shrink-0">
+    {item.type === "image" ? (
+      <img
+        loading="lazy"
+        src={item.src}
+        alt="icon"
+        className="w-6 h-6 object-contain"
+      />
+    ) : (
+      item.icon && (
+        <item.icon className="text-lg text-[var(--color-primary)]" />
+      )
+    )}
+  </span>
+  <span className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)] bg-[var(--color-tertiary)] px-3 py-1 rounded-full">
+    {item.year}
+  </span>
+</div>
                         <h3 className="font-bold text-gray-900 mb-2">
                           {item.title}
                         </h3>
@@ -781,7 +919,7 @@ export default function AboutPage() {
                   year: "2017",
                   type: "image",
                   src: "/image/About page/Deshi-Cow-removebg-preview.png",
-                  theme: "Foundation – Gau Seva",
+                  theme: "Foundation - Gau Seva",
                 },
                 {
                   year: "2019",
@@ -889,6 +1027,81 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
+            {/* Global Outreach — added below Board */}
+
+<motion.div
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={fadeUp}
+  className="relative overflow-hidden bg-white border border-gray-100 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
+>
+  {/* Decorative accent */}
+  <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-[var(--color-tertiary)]" />
+  <div className="absolute -bottom-14 -left-14 w-36 h-36 rounded-full bg-[var(--color-secondary)]/10" />
+
+  <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+    {/* LEFT — Icon + eyebrow */}
+    <div className="flex flex-col items-center lg:items-start shrink-0">
+      <div className="w-16 h-16 rounded-2xl bg-[var(--color-primary)] flex items-center justify-center text-white shadow-lg shadow-emerald-900/20 mb-3">
+        <Globe2 size={28} strokeWidth={2} />
+      </div>
+      <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.2em] uppercase text-center lg:text-start">
+        Global Outreach
+      </span>
+    </div>
+
+    {/* Divider */}
+    <div className="hidden lg:block w-px self-stretch bg-gray-100" />
+    <div className="lg:hidden w-full h-px bg-gray-100" />
+
+    {/* MIDDLE — Person info */}
+    <div className="flex-1 text-center lg:text-start">
+      <h4 className="font-bold text-xl text-gray-900">
+        Mr. Harishbhai Bhalani
+      </h4>
+      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mt-0.5">
+        USA
+      </p>
+      <p className="text-sm text-[var(--color-primary)] font-semibold mt-2">
+        International Outreach & Resource Mobilization Coordinator
+      </p>
+
+      {/* Tags */}
+      <div className="flex flex-wrap justify-center lg:justify-start gap-2 mt-4">
+        {[
+          "USA Coordination",
+          "NRI Donor Engagement",
+          "Awareness Meetings",
+          "Community Partnerships",
+        ].map((tag) => (
+          <span
+            key={tag}
+            className="text-[11px] font-medium px-3 py-1.5 rounded-full bg-[var(--color-tertiary)] text-[var(--color-primary)] border border-[var(--color-primary)]/10"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    {/* RIGHT — Contact pill */}
+    <div className="flex justify-center lg:justify-end shrink-0">
+      <a
+        href="tel:+14109710291"
+        className="group inline-flex items-center gap-2.5 bg-[var(--color-primary)] text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-md hover:shadow-lg hover:brightness-110 transition-all"
+      >
+        <span className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center">
+          <Phone size={15} />
+        </span>
+        <span className="flex flex-col items-start leading-tight">
+          <span className="text-[10px] font-normal text-white/70">Call</span>
+          <span>+1 (410) 971-0291</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</motion.div>
             {/* Core Values */}
             <div>
               <div className="text-center mb-12">
