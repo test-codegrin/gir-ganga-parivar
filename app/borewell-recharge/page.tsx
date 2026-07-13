@@ -401,7 +401,7 @@ export default function BorewellRecharge() {
             runoff and improving long-term water security. To date, the Trust
             has successfully completed{" "}
             <span className="font-bold text-[var(--color-primary)]">
-              1,057 borewell recharge structures
+              1,370 borewell recharge structures
             </span>
             , significantly contributing to urban water resilience and
             climate-adaptive infrastructure development.

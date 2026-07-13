@@ -37,7 +37,7 @@ const CountUp = ({ value, suffix = "" }: CountUpProps) => {
 };
 
 const impactStats = [
-  { num: 8357, label: "Water Structures", suffix: "", icon: "💧" },
+  { num: 19592, label: "Water Structures", suffix: "+", icon: "💧" },
   { num: 619, label: "Villages Impacted", suffix: "", icon: "🏘️" },
   { num: 35, label: "Blocks Covered", suffix: "", icon: "📍" },
   { num: 10, label: "Districts", suffix: "", icon: "🗺️" },
@@ -456,7 +456,7 @@ export default function HomePage() {
                       Water Structures Built
                     </p>
                     <p className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
-                      8,357 Structures
+                      19592+ Structures
                     </p>
                     <p className="text-gray-500 text-sm leading-relaxed">
                       Check dams, bore wells, and allied structures across 35

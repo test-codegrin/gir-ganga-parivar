@@ -16,7 +16,7 @@ import data from "@/data/water-data.json";
 const STATS = [
   {
     icon: Droplets,
-    number: 8354,
+    number: 19592,
     suffix: "+",
     label: "Water structures developed",
     accent: "#009dc4",
@@ -29,7 +29,7 @@ const STATS = [
     icon: Sprout,
     number: 429000,
     suffix: "+",
-    label: "Acres farmland rejuvenated",
+    label: "Acres farm land rejuvenated",
     accent: "#009dc4",
     bg: "bg-[var(--color-primary)]/10",
     border: "border-[var(--color-primary)]/60",
@@ -49,7 +49,7 @@ const STATS = [
   },
   {
     icon: Building2,
-    number: 580,
+    number: 588,
     suffix: "+",
     label: "Gram Panchayats engaged",
     accent: "#009dc4",
