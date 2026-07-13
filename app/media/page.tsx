@@ -278,8 +278,7 @@ export default function Media() {
         </div>
       </section>
 
-      {/* ── PRESS COVERAGE ── */}
-      
+      {/* ── NEWS ARTICLES GALLERY ── */}
       <section className="container bg-white">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
           {/* LEFT: Heading + small grid */}
@@ -287,15 +286,15 @@ export default function Media() {
             <div className="mb-8">
               <SectionLabel label="Event In The Spotlight" />
               <h2 className="text-black text-3xl sm:text-4xl lg:text-5xl font-black uppercase text-center lg:text-start">
-                Press{" "}
+                NEWS{" "}
                 <span className="text-[var(--color-primary)]">
-                  Coverage <br /> GALLERY
+                  ARTICLES <br /> GALLERY
                 </span>
               </h2>
             </div>
 
             {/* Small thumbnails — 5 columns */}
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-4 gap-3 ">
               {galleryItems.map((item, index) => {
                 const isActive = featuredIndex === index;
                 return (
@@ -305,11 +304,10 @@ export default function Media() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className={`relative group cursor-pointer rounded-xl overflow-hidden bg-gray-100 transition-all duration-300 ${
-                      isActive
+                    className={`relative group cursor-pointer rounded-xl overflow-hidden bg-gray-100 transition-all duration-300 ${isActive
                         ? "ring-2 ring-[var(--color-primary)] ring-offset-2 scale-[0.96]"
                         : "hover:scale-[0.96] hover:ring-1 hover:ring-gray-300 hover:ring-offset-1"
-                    }`}
+                      }`}
                     onClick={() => setFeaturedIndex(index)}
                   >
                     <div className="relative w-full h-[60px] sm:h-[110px]">
@@ -423,92 +421,6 @@ export default function Media() {
         </div>
       </section>
 
-      {/* ── NEWS ARTICLES GALLERY ── */}
-      <section className="container bg-white">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
-          {/* LEFT: Heading + small grid */}
-          <div>
-            <div className="mb-8">
-              <SectionLabel label="Event In The Spotlight" />
-              <h2 className="text-black text-3xl sm:text-4xl lg:text-5xl font-black uppercase text-center lg:text-start">
-                NEWS{" "}
-                <span className="text-[var(--color-primary)]">
-                  ARTICLES <br /> GALLERY
-                </span>
-              </h2>
-            </div>
-
-            {/* Small thumbnails — 5 columns */}
-            <div className="grid grid-cols-4 gap-3 ">
-              {galleryItems.map((item, index) => {
-                const isActive = featuredIndex === index;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className={`relative group cursor-pointer rounded-xl overflow-hidden bg-gray-100 transition-all duration-300 ${
-                      isActive
-                        ? "ring-2 ring-[var(--color-primary)] ring-offset-2 scale-[0.96]"
-                        : "hover:scale-[0.96] hover:ring-1 hover:ring-gray-300 hover:ring-offset-1"
-                    }`}
-                    onClick={() => setFeaturedIndex(index)}
-                  >
-                    <div className="relative w-full h-[60px] sm:h-[110px]">
-                      <Image src={item.img}
-                        alt={`Press ${index + 1}`}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
-                      {/* Active tint */}
-                      {isActive && (
-                        <div className="absolute inset-0 bg-[var(--color-primary)]/25" />
-                      )}
-                      {/* Hover tint */}
-                      {!isActive && (
-                        <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      )}
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* RIGHT: Large featured image — updates on thumbnail click */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={featuredIndex}
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.96 }}
-              transition={{ duration: 0.35 }}
-              className="relative group cursor-pointer rounded-2xl overflow-hidden bg-gray-100 h-[400px] sm:h-[480px] lg:h-[760px] border p-5"
-              onClick={() =>
-                setLightbox({ images: pressImages, index: featuredIndex })
-              }
-            >
-              <Image src={galleryItems[featuredIndex].img}
-                alt="Press coverage featured"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
-
-              {/* Zoom on hover */}
-              <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-center justify-center">
-                <div className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40">
-                  <FaSearchPlus className="text-white text-lg" />
-                </div>
-              </div>
-
-              {/* Counter badge */}
-              <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full">
-                {featuredIndex + 1} / {galleryItems.length}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </section>
 
       {/* ── SHARED LIGHTBOX ── */}
       <AnimatePresence>
