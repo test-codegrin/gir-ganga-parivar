@@ -12,6 +12,7 @@ import {
 import SmoothScroll from "../../Component/SmothScrolling";
 import Image from "next/image";
 import Link from "next/link";
+import { impactMetrics } from "@/data/impact-stats";
 import {
   CheckCircle2,
   Camera,
@@ -153,9 +154,18 @@ export default function SupportAStructure() {
 
               <div className="mt-10 flex flex-wrap items-center gap-4 border-t border-emerald-600/10 pt-8">
                 {[
-                  { num: "1,200+", label: "Structures Built" },
-                  { num: "3.5 Lakh", label: "Farmers Benefited" },
-                  { num: "22 Years", label: "Of Work" },
+                  {
+                    num: impactMetrics.waterStructuresCreated.display,
+                    label: "Structures Built",
+                  },
+                  {
+                    num: impactMetrics.peopleImpacted.display,
+                    label: "People Impacted",
+                  },
+                  {
+                    num: impactMetrics.districts.display,
+                    label: "Districts Covered",
+                  },
                 ].map((s) => (
                   <div
                     key={s.num}

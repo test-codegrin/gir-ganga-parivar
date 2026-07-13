@@ -10,13 +10,14 @@ import type { Map as LeafletMap, Marker as LeafletMarker } from "leaflet";
 import SmoothScroll from "../../Component/SmothScrolling";
 import { motion } from "framer-motion";
 import data from "@/data/water-data.json";
+import { impactMetrics } from "@/data/impact-stats";
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 // ── Stats data ────────────────────────────────────────────────────────────────
 const STATS = [
   {
     icon: Droplets,
-    number: 19592,
+    number: impactMetrics.waterStructuresCreated.value,
     suffix: "+",
     label: "Water structures developed",
     accent: "#009dc4",
@@ -27,9 +28,9 @@ const STATS = [
   },
   {
     icon: Sprout,
-    number: 429000,
+    number: impactMetrics.acresRecharged.value,
     suffix: "+",
-    label: "Acres farm land rejuvenated",
+    label: "Acres recharged",
     accent: "#009dc4",
     bg: "bg-[var(--color-primary)]/10",
     border: "border-[var(--color-primary)]/60",
@@ -38,9 +39,9 @@ const STATS = [
   },
   {
     icon: Users,
-    number: 151000,
+    number: impactMetrics.peopleImpacted.value,
     suffix: "+",
-    label: "Farmers benefited",
+    label: "People impacted",
     accent: "#009dc4",
     bg: "bg-[var(--color-primary)]/10",
     border: "border-[var(--color-primary)]/60",
@@ -49,9 +50,8 @@ const STATS = [
   },
   {
     icon: Building2,
-    number: 588,
-    suffix: "+",
-    label: "Gram Panchayats engaged",
+    number: impactMetrics.ruralVillages.value,
+    label: "Rural villages reached",
     accent: "#009dc4",
     bg: "bg-[var(--color-primary)]/10",
     border: "border-[var(--color-primary)]/60",
@@ -991,7 +991,9 @@ export default function OurWorkPage() {
 
               <p className="text-gray-500 mt-3 text-sm sm:text-base max-w-xl mx-auto">
                 Transforming drought-prone Saurashtra and Gujarat through
-                community-led water structures across 10 districts.
+                community-led water structures across{" "}
+                {impactMetrics.districts.display} districts and{" "}
+                {impactMetrics.talukas.display} talukas.
               </p>
             </motion.div>
 
@@ -1029,14 +1031,16 @@ export default function OurWorkPage() {
                   <div className="bg-[var(--color-secondary)] w-1.5 rounded-full flex-shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">
-                      Villages Transformed
+                      Rural Villages Reached
                     </p>
                     <p className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
-                      619 Villages
+                      {impactMetrics.ruralVillages.display} Villages
                     </p>
                     <p className="text-gray-500 text-sm leading-relaxed">
-                      Rural communities across Saurashtra now have reliable
-                      groundwater access.
+                      Along with{" "}
+                      {impactMetrics.urbanWaterStressedLocations.display} urban
+                      water-stressed locations now seeing stronger water
+                      security.
                     </p>
                   </div>
                 </div>
@@ -1049,11 +1053,11 @@ export default function OurWorkPage() {
                       Water Structures Built
                     </p>
                     <p className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
-                     	19,592+ Structures
+                      {impactMetrics.waterStructuresCreated.display} Structures
                     </p>
                     <p className="text-gray-500 text-sm leading-relaxed">
-                      Check dams, bore wells, and allied structures across 35
-                      blocks.
+                      Check dams, bore recharge structures, and percolation pits
+                      across {impactMetrics.talukas.display} talukas.
                     </p>
                   </div>
                 </div>

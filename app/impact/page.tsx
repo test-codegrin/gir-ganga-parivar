@@ -4,6 +4,7 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import SmoothScroll from "../../Component/SmothScrolling";
 import Link from "next/link";
+import { impactMetrics } from "@/data/impact-stats";
 
 /* ─── CountUp ─────────────────────────────────────── */
 interface CountUpProps {
@@ -416,18 +417,39 @@ function ImpactCard({ title, items }: { title: string; items: string[] }) {
 /* ─── Main Page ───────────────────────────────────── */
 export default function JalMandirSection() {
   const stats = [
-    { value: 8357, label: "Water Structures" },
-    { value: 619, label: "Villages Covered" },
-    { value: 35, label: "Blocks" },
-    { value: 10, label: "Districts" },
-    { value: 125000, label: "Farmers Impacted", suffix: "+" },
-    { value: 74, label: "Billion Litres Recharged", suffix: "B" },
+    {
+      value: impactMetrics.waterStructuresCreated.value,
+      label: "Water Structures",
+      suffix: "+",
+    },
+    { value: impactMetrics.checkDamsRejuvenated.value, label: "Check-dams" },
+    {
+      value: impactMetrics.borewellRechargeStructures.value,
+      label: "Borewell Recharge",
+    },
+    {
+      value: impactMetrics.percolationPitsDeveloped.value,
+      label: "Percolation Pits",
+    },
+    { value: impactMetrics.locationsReached.value, label: "Locations Reached" },
+    {
+      value: impactMetrics.peopleImpacted.value,
+      label: "People Impacted",
+      suffix: "+",
+    },
   ];
 
   const cumulativeStats = [
-    { value: "19,592+", label: "Water Structures Created / Rejuvenated" },
-    { value: "11.4 Lakh", label: "Beneficiaries" },
-    { value: "7.38 Lakh", label: "Acres Farmland Rejuvenated" },
+    { value: impactMetrics.peopleImpacted.display, label: "People Impacted" },
+    {
+      value: impactMetrics.directBeneficiaries.display,
+      label: "Direct Beneficiaries",
+    },
+    {
+      value: impactMetrics.indirectBeneficiaries.display,
+      label: "Indirect Beneficiaries",
+    },
+    { value: impactMetrics.acresRecharged.display, label: "Acres Recharged" },
   ];
 
   const growthTimeline = [
@@ -577,9 +599,9 @@ export default function JalMandirSection() {
               <ImpactCard
                 title="Agricultural Impact"
                 items={[
-                  "4,29,000 Acres Farmland Supported",
-                  "7,25,000 Rural Population Benefitted",
-                  "20-30% of Crop productivity increase. ",
+                  `${impactMetrics.acresRecharged.display} Acres Recharged`,
+                  `${impactMetrics.directBeneficiaries.display} Direct Beneficiaries`,
+                  `${impactMetrics.indirectBeneficiaries.display} Indirect Beneficiaries`,
                 ]}
               />
             </div>
@@ -601,7 +623,7 @@ export default function JalMandirSection() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
               {cumulativeStats.map((s, i) => (
                 <GrowthStatCard key={i} index={i} {...s} />
               ))}

@@ -26,6 +26,7 @@ import {
   Globe2,
   Phone,
 } from "lucide-react";
+import { impactMetrics } from "@/data/impact-stats";
 
 /* ─────────────────────────────────────
    Shared animation helpers
@@ -173,7 +174,7 @@ const timelineItems = [
         </p>
         <p className="font-semibold">Key highlights of this phase include:</p>
         <ul className="list-disc pl-5 text-sm text-gray-600 space-y-1">
-          <li>Expansion across 7 districts and multiple blocks,</li>
+          <li>Expansion across multiple districts and talukas,</li>
           <li>
             Thousands of farmers benefiting from improved groundwater
             availability,
@@ -223,8 +224,11 @@ const timelineItems = [
           </li>
           <li>₹18+ crore social investment mobilized for water initiatives</li>
           <li>
-            Cumulative achievement crossing 9,000+ water conservation structures
-            across 619 villages, 35 blocks of 8 Districts of Gujarat.
+            Cumulative achievement crossing{" "}
+            {impactMetrics.waterStructuresCreated.display} water conservation
+            structures across {impactMetrics.districts.display} districts,{" "}
+            {impactMetrics.talukas.display} talukas, and{" "}
+            {impactMetrics.locationsReached.display} locations in Gujarat.
           </li>
         </ul>
         <p>
@@ -473,18 +477,29 @@ export default function AboutPage() {
 
         <p className="text-gray-500 text-sm leading-relaxed mb-8 text-center lg:text-start">
           Over the last four years, GGPT has expanded its footprint across{" "}
-          <strong>10 districts</strong> and <strong>53 talukas</strong>,
-          positively impacting <strong>759 locations</strong> and benefiting
-          over <strong>11.4 lakh people</strong> through improved water
-          availability, agricultural resilience, and climate adaptation.
+          <strong>{impactMetrics.districts.display} districts</strong> and{" "}
+          <strong>{impactMetrics.talukas.display} talukas</strong>,
+          positively impacting{" "}
+          <strong>{impactMetrics.locationsReached.display} locations</strong>{" "}
+          and benefiting more than{" "}
+          <strong>{impactMetrics.peopleImpacted.display.replace("+", "")}</strong>{" "}
+          people through
+          improved water availability, agricultural resilience, and climate
+          adaptation.
         </p>
 
         <div className="grid grid-cols-2 gap-4">
           {[
-            { value: "10", label: "Districts" },
-            { value: "53", label: "Talukas" },
-            { value: "759", label: "Locations Impacted" },
-            { value: "11.4L+", label: "People Benefited" },
+            { value: impactMetrics.districts.display, label: "Districts" },
+            { value: impactMetrics.talukas.display, label: "Talukas" },
+            {
+              value: impactMetrics.locationsReached.display,
+              label: "Locations Impacted",
+            },
+            {
+              value: impactMetrics.peopleImpacted.display,
+              label: "People Impacted",
+            },
           ].map((s) => (
             <div
               key={s.label}
@@ -660,8 +675,10 @@ export default function AboutPage() {
                     <p className="text-gray-500 text-sm leading-relaxed">
                       One of Gujarat's most impactful community-driven
                       initiatives for water conservation, groundwater recharge,
-                      and rural climate resilience — working across 8 districts
-                      and 619 villages.
+                      and rural climate resilience — working across{" "}
+                      {impactMetrics.districts.display} districts,{" "}
+                      {impactMetrics.talukas.display} talukas, and{" "}
+                      {impactMetrics.locationsReached.display} locations.
                     </p>
                   </div>
 

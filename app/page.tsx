@@ -7,6 +7,7 @@ import Image from "next/image";
 import SmoothScroll from "../Component/SmothScrolling";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { impactMetrics, impactTrustStripData } from "@/data/impact-stats";
 
 /* ─────────────────────────────────────────────
    COUNT UP
@@ -37,10 +38,25 @@ const CountUp = ({ value, suffix = "" }: CountUpProps) => {
 };
 
 const impactStats = [
-  { num: 19592, label: "Water Structures", suffix: "+", icon: "💧" },
-  { num: 619, label: "Villages Impacted", suffix: "", icon: "🏘️" },
-  { num: 35, label: "Blocks Covered", suffix: "", icon: "📍" },
-  { num: 10, label: "Districts", suffix: "", icon: "🗺️" },
+  {
+    num: impactMetrics.waterStructuresCreated.value,
+    label: "Water Structures",
+    suffix: "+",
+    icon: "💧",
+  },
+  {
+    num: impactMetrics.locationsReached.value,
+    label: "Locations Reached",
+    suffix: "",
+    icon: "📍",
+  },
+  {
+    num: impactMetrics.ruralVillages.value,
+    label: "Rural Villages",
+    suffix: "",
+    icon: "🏘️",
+  },
+  { num: impactMetrics.districts.value, label: "Districts", suffix: "", icon: "🗺️" },
   {
     num: 74,
     label: "Billion Litres Recharge Capacity",
@@ -68,7 +84,7 @@ const approaches = [
   },
   {
     title: "Community Participation",
-    desc: "Partnering with 619+ gram panchayats, local leaders, and citizens to drive grassroots-led conservation at scale.",
+    desc: `Partnering with ${impactMetrics.ruralVillages.display} rural villages and ${impactMetrics.urbanWaterStressedLocations.display} urban water-stressed locations to drive grassroots-led conservation at scale.`,
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -107,40 +123,6 @@ const approaches = [
         />
       </svg>
     ),
-  },
-];
-
-const trustStripData = [
-  {
-    title: "Water Conservation Impact",
-    accent: "var(--color-primary)",
-    stats: [
-      { label: "Water Structures Created", value: "19,592+" },
-      { label: "Check-dams Rejuvenated & Constructed", value: "15,602" },
-      { label: "Borewell Recharge Structures", value: "1,370" },
-      { label: "Percolation Pits Developed", value: "2,620" },
-    ],
-  },
-  {
-    title: "Geographical Reach",
-    accent: "var(--color-secondary)",
-    stats: [
-      { label: "Districts Across Gujarat", value: "10" },
-      { label: "Talukas Covered", value: "53" },
-      { label: "Locations Reached", value: "759" },
-      { label: "Rural Villages", value: "588" },
-      { label: "Urban Water-Stressed Locations", value: "171" },
-    ],
-  },
-  {
-    title: "Community Impact",
-    accent: "var(--color-accent)",
-    stats: [
-      { label: "People Impacted", value: "11.4+ Lakh" },
-      { label: "Direct Beneficiaries", value: "2.25+ Lakh" },
-      { label: "Indirect Beneficiaries", value: "9.14+ Lakh" },
-      { label: "Acres Recharged", value: "7.38+ Lakh" },
-    ],
   },
 ];
 
@@ -398,7 +380,9 @@ export default function HomePage() {
 
               <p className="text-gray-500 mt-3 text-sm sm:text-base max-w-xl mx-auto">
                 Transforming drought-prone Saurashtra and Gujarat through
-                community-led water structures across 8 districts.
+                community-led water structures across{" "}
+                {impactMetrics.districts.display} districts and{" "}
+                {impactMetrics.talukas.display} talukas.
               </p>
             </motion.div>
 
@@ -436,13 +420,14 @@ export default function HomePage() {
                   <div className="bg-[var(--color-secondary)] w-1.5 rounded-full flex-shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">
-                      Villages Transformed
+                      Rural Villages Reached
                     </p>
                     <p className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
-                      619 Villages
+                      {impactMetrics.ruralVillages.display} Villages
                     </p>
                     <p className="text-gray-500 text-sm leading-relaxed">
-                      Rural communities across Saurashtra now have reliable
+                      Plus {impactMetrics.urbanWaterStressedLocations.display}{" "}
+                      urban water-stressed locations now benefit from stronger
                       groundwater access.
                     </p>
                   </div>
@@ -456,11 +441,11 @@ export default function HomePage() {
                       Water Structures Built
                     </p>
                     <p className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
-                      19592+ Structures
+                      {impactMetrics.waterStructuresCreated.display} Structures
                     </p>
                     <p className="text-gray-500 text-sm leading-relaxed">
-                      Check dams, bore wells, and allied structures across 35
-                      blocks.
+                      Check dams, bore recharge structures, and percolation pits
+                      across {impactMetrics.talukas.display} talukas.
                     </p>
                   </div>
                 </div>
@@ -514,7 +499,7 @@ export default function HomePage() {
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-              {trustStripData.map((group, i) => (
+              {impactTrustStripData.map((group, i) => (
                 <motion.div
                   key={group.title}
                   initial={{ opacity: 0, y: 24 }}
