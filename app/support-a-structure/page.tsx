@@ -805,7 +805,7 @@ ${
                   img: "/image/support-structure-2.jpg",
                   label: "Media",
                   Icon: Tv2,
-                  href: "/media",
+                  href: "/press-release",
                 },
                 {
                   img: "/image/support-structure-3.png",

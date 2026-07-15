@@ -146,7 +146,7 @@ export default function Footer() {
                 {[
                   { label: "Checkdam Construction", href: "/check-dam-creat" },
                   { label: "Community Impact", href: "/impact" },
-                  { label: "Media Coverage", href: "/media" },
+                  { label: "Media Coverage", href: "/press-release" },
                   { label: "Borewell Recharge", href: "/borewell-recharge" },
                 ].map(({ label, href }) => (
                   <li key={label}>

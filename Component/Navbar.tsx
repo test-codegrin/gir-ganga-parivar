@@ -32,7 +32,10 @@ export default function Navbar() {
   const isActive = (path: string) => pathname === path;
   const isWorkActive = pathname.startsWith("/Our-Work");
   const isMediaActive =
-    pathname.startsWith("/media") || pathname.startsWith("/certificates");
+    pathname.startsWith("/photos") ||
+    pathname.startsWith("/press-release") ||
+    pathname.startsWith("/videos") ||
+    pathname.startsWith("/reports");
 
   /* close dropdowns on outside click */
   useEffect(() => {
@@ -59,8 +62,6 @@ export default function Navbar() {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
-      setMobileMediaOpen(false);
-      setMobileWorkOpen(false); // ✅ Reset on close
     }
     return () => {
       document.body.style.overflow = "auto";
@@ -294,10 +295,10 @@ export default function Navbar() {
               onMouseEnter={() => setDesktopMediaOpen(true)}
               onMouseLeave={() => setDesktopMediaOpen(false)}
             >
-              <Link
-                href="/media"
+              <button
+                type="button"
                 onClick={() => setDesktopMediaOpen(!desktopMediaOpen)}
-                className={`${linkCls(isMediaActive ? "/media" : "")} gap-1 flex items-center`}
+                className={`${linkCls("")} gap-1 flex items-center cursor-pointer`}
               >
                 Media/News
                 <FiChevronDown
@@ -312,7 +313,7 @@ export default function Navbar() {
                     false,
                   )}
                 />
-              </Link>
+              </button>
 
               <div className={dropPanel(desktopMediaOpen)}>
                 <div className="absolute -top-[7px] left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-l border-t border-slate-100 rotate-45" />
@@ -372,7 +373,11 @@ export default function Navbar() {
           <button
             type="button"
             className="lg:hidden text-slate-800"
-            onClick={() => setMenuOpen(true)}
+            onClick={() => {
+              setMobileMediaOpen(false);
+              setMobileWorkOpen(false);
+              setMenuOpen(true);
+            }}
             aria-label="Open menu"
             title="Open menu"
           >
@@ -659,20 +664,19 @@ export default function Navbar() {
           {/* Media/News — uses mobileMediaOpen ONLY */}
           <li className="relative">
             <div className="flex items-center justify-between w-full py-3.5 border-b border-slate-50">
-              <Link
-                href="/media"
+              <button
+                type="button"
                 onClick={() => {
-                  setMenuOpen(false);
-                  setMobileMediaOpen(false);
+                  setMobileMediaOpen((prev) => !prev);
                 }}
-                className={`text-lg font-bold tracking-wide flex-1 ${
+                className={`text-lg font-bold tracking-wide flex-1 text-left ${
                   isMediaActive
                     ? "text-(--color-primary)"
                     : "text-slate-800"
                 }`}
               >
                 Media/News
-              </Link>
+              </button>
               <button
                 type="button"
                 onClick={(e) => {
