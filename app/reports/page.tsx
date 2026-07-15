@@ -23,11 +23,11 @@ export default function CertificatesPage() {
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-[var(--color-secondary)] text-[10px] font-black tracking-[0.38em] uppercase mb-3 flex items-center justify-center gap-3"
+          className="text-(--color-secondary) text-[10px] font-black tracking-[0.38em] uppercase mb-3 flex items-center justify-center gap-3"
         >
-          <span className="w-8 h-px bg-[var(--color-secondary)]" />
+          <span className="w-8 h-px bg-(--color-secondary)" />
           Certificates
-          <span className="w-8 h-px bg-[var(--color-secondary)]" />
+          <span className="w-8 h-px bg-(--color-secondary)" />
         </motion.p>
 
         <motion.h1
@@ -36,7 +36,7 @@ export default function CertificatesPage() {
           className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900"
         >
           Reports &{" "}
-          <span className="text-[var(--color-primary)]">Certificates</span>
+          <span className="text-(--color-primary)">Certificates</span>
         </motion.h1>
       </section>
 
@@ -55,9 +55,9 @@ export default function CertificatesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: index * 0.05 }}
-                className="group border border-slate-200 rounded-xl bg-white p-5 flex items-start gap-4 shadow-sm hover:shadow-md hover:border-[var(--color-primary)] transition-all duration-300"
+                className="group border border-slate-200 rounded-xl bg-white p-5 flex items-start gap-4 shadow-sm hover:shadow-md hover:border-(--color-primary) transition-all duration-300"
               >
-                <span className="w-11 h-11 rounded-lg bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
+                <span className="w-11 h-11 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0">
                   <FaFilePdf size={20} />
                 </span>
 
@@ -71,7 +71,7 @@ export default function CertificatesPage() {
                   <p className="text-[13px] text-slate-500 mt-1">{file}</p>
                 </div>
 
-                <span className="text-slate-400 group-hover:text-[var(--color-primary)] transition-colors">
+                <span className="text-slate-400 group-hover:text-(--color-primary) transition-colors">
                   <FaExternalLinkAlt size={14} />
                 </span>
               </motion.a>

@@ -70,7 +70,7 @@ export default function Navbar() {
   /* Animated underline that grows from left */
   const underline = (active: boolean, hoverGroup = true) =>
     [
-      "absolute bottom-0 left-3 right-3 h-[2px] bg-[var(--color-primary)] transition-all duration-300 origin-left",
+      "absolute bottom-0 left-3 right-3 h-[2px] bg-(--color-primary) transition-all duration-300 origin-left",
       active ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0",
       !active && hoverGroup
         ? "group-hover:scale-x-100 group-hover:opacity-100"
@@ -83,8 +83,8 @@ export default function Navbar() {
       "relative inline-flex items-center px-3 xl:px-4 py-5",
       "text-[12.5px] xl:text-[13px] font-semibold uppercase tracking-[0.1em] transition-colors group",
       isActive(path)
-        ? "text-[var(--color-primary)]"
-        : "text-slate-700 hover:text-[var(--color-primary)]",
+        ? "text-(--color-primary)"
+        : "text-slate-700 hover:text-(--color-primary)",
     ].join(" ");
 
   /* Dropdown item */
@@ -92,8 +92,8 @@ export default function Navbar() {
     [
       "block px-5 py-2.5 text-[12px] font-semibold uppercase tracking-wider transition-colors",
       isActive(path)
-        ? "text-[var(--color-primary)] bg-white"
-        : "text-slate-600 hover:text-[var(--color-primary)] hover:bg-slate-50",
+        ? "text-(--color-primary) bg-white"
+        : "text-slate-600 hover:text-(--color-primary) hover:bg-slate-50",
     ].join(" ");
 
   /* Centred dropdown panel */
@@ -148,7 +148,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="hover:text-[var(--color-primary)] transition-colors"
+                  className="hover:text-(--color-primary) transition-colors"
                 >
                   {icon}
                 </a>
@@ -160,17 +160,17 @@ export default function Navbar() {
           <div className="flex items-center gap-4 text-[12px] text-slate-500 font-medium">
             <a
               href="mailto:info@girgangaparivartrust.com"
-              className="hidden md:flex items-center gap-1.5 hover:text-[var(--color-primary)] transition-colors"
+              className="hidden md:flex items-center gap-1.5 hover:text-(--color-primary) transition-colors"
             >
-              <FiMail size={15} className="text-[var(--color-secondary)]" />
+              <FiMail size={15} className="text-(--color-secondary)" />
               info@girgangaparivartrust.com
             </a>
             <span className="hidden md:block text-slate-300">|</span>
             <a
               href="tel:+919409692693"
-              className="flex items-center gap-1.5 hover:text-[var(--color-primary)] transition-colors"
+              className="flex items-center gap-1.5 hover:text-(--color-primary) transition-colors"
             >
-              <FiPhone size={15} className="text-[var(--color-secondary)]" />
+              <FiPhone size={15} className="text-(--color-secondary)" />
               +91 94096 92693
             </a>
           </div>
@@ -356,7 +356,7 @@ export default function Navbar() {
                 href="/donate"
                 className="btn-secondary relative inline-flex items-center justify-center
                   text-[11px] font-extrabold uppercase tracking-[0.15em] px-5 py-2
-                  border border-[var(--color-primary)] text-[var(--color-primary)]
+                  border border-(--color-primary) text-(--color-primary)
                   hover:border-transparent hover:text-white
                   rounded-sm overflow-hidden"
               >
@@ -391,7 +391,7 @@ export default function Navbar() {
             <path
               d="M0,6 C150,0 300,12 450,6 C600,0 750,12 900,6 C1050,0 1200,12 1200,6 L1200,12 L0,12 Z"
               fill="#10b981"
-              className="fill-[var(--color-primary)]"
+              className="fill-(--color-primary)"
             />
           </svg>
         </div>
@@ -406,7 +406,7 @@ export default function Navbar() {
                        ${menuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"}`}
       >
         {/* Mobile Top Bar */}
-        <div className="w-full bg-[#f0ede6] border-b border-[#e2ddd4] relative z-50 flex-shrink-0">
+        <div className="w-full bg-[#f0ede6] border-b border-[#e2ddd4] relative z-50 shrink-0">
           <div className="max-w-[1400px] mx-auto px-6 lg:px-12 h-10 flex items-center justify-between">
             <div className="flex items-center gap-5">
               <span className="hidden sm:block text-[12px] text-slate-500 font-medium tracking-wide">
@@ -441,7 +441,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="hover:text-[var(--color-primary)] transition-colors"
+                    className="hover:text-(--color-primary) transition-colors"
                   >
                     {icon}
                   </a>
@@ -451,17 +451,17 @@ export default function Navbar() {
             <div className="flex items-center gap-4 text-[12px] text-slate-500 font-medium">
               <a
                 href="mailto:info@girgangaparivartrust.com"
-                className="hidden md:flex items-center gap-1.5 hover:text-[var(--color-primary)] transition-colors"
+                className="hidden md:flex items-center gap-1.5 hover:text-(--color-primary) transition-colors"
               >
-                <FiMail size={15} className="text-[var(--color-secondary)]" />
+                <FiMail size={15} className="text-(--color-secondary)" />
                 info@girgangaparivartrust.com
               </a>
               <span className="hidden md:block text-slate-300">|</span>
               <a
                 href="tel:+919409692693"
-                className="flex items-center gap-1.5 hover:text-[var(--color-primary)] transition-colors"
+                className="flex items-center gap-1.5 hover:text-(--color-primary) transition-colors"
               >
-                <FiPhone size={15} className="text-[var(--color-secondary)]" />
+                <FiPhone size={15} className="text-(--color-secondary)" />
                 +91 94096 92693
               </a>
             </div>
@@ -469,7 +469,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Header: Logo + Close */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100 relative flex-shrink-0">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100 relative shrink-0">
           <Link
             href="/"
             onClick={() => setMenuOpen(false)}
@@ -495,7 +495,7 @@ export default function Navbar() {
             type="button"
             onClick={() => setMenuOpen(false)}
             aria-label="Close menu"
-            className="text-slate-600 hover:text-[var(--color-primary)]"
+            className="text-slate-600 hover:text-(--color-primary)"
           >
             <FiX size={28} />
           </button>
@@ -510,7 +510,7 @@ export default function Navbar() {
               <path
                 d="M0,6 C150,0 300,12 450,6 C600,0 750,12 900,6 C1050,0 1200,12 1200,6 L1200,12 L0,12 Z"
                 fill="#10b981"
-                className="fill-[var(--color-primary)]"
+                className="fill-(--color-primary)"
               />
             </svg>
           </div>
@@ -524,7 +524,7 @@ export default function Navbar() {
               href="/"
               onClick={() => setMenuOpen(false)}
               className={`block py-3.5 font-bold border-b border-slate-50 tracking-wide ${
-                isActive("/") ? "text-[var(--color-primary)]" : "text-slate-800"
+                isActive("/") ? "text-(--color-primary)" : "text-slate-800"
               }`}
             >
               Home
@@ -538,7 +538,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className={`block py-3.5 font-bold border-b border-slate-50 tracking-wide ${
                 isActive("/about-us")
-                  ? "text-[var(--color-primary)]"
+                  ? "text-(--color-primary)"
                   : "text-slate-800"
               }`}
             >
@@ -557,7 +557,7 @@ export default function Navbar() {
                 }}
                 className={`text-lg font-bold tracking-wide flex-1 ${
                   isWorkActive
-                    ? "text-[var(--color-primary)]"
+                    ? "text-(--color-primary)"
                     : "text-slate-800"
                 }`}
               >
@@ -585,7 +585,7 @@ export default function Navbar() {
                 mobileWorkOpen ? "max-h-40 py-2" : "max-h-0"
               }`}
             >
-              <ul className="pl-5 space-y-3 border-l-2 border-[var(--color-primary)] mt-1">
+              <ul className="pl-5 space-y-3 border-l-2 border-(--color-primary) mt-1">
                  <li>
                   <Link
                     href="/Our-Work"
@@ -633,7 +633,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className={`block py-3.5 font-bold border-b border-slate-50 tracking-wide ${
                 isActive("/impact")
-                  ? "text-[var(--color-primary)]"
+                  ? "text-(--color-primary)"
                   : "text-slate-800"
               }`}
             >
@@ -648,7 +648,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className={`block py-3.5 font-bold border-b border-slate-50 tracking-wide ${
                 isActive("/partner-with-us-csr")
-                  ? "text-[var(--color-primary)]"
+                  ? "text-(--color-primary)"
                   : "text-slate-800"
               }`}
             >
@@ -667,7 +667,7 @@ export default function Navbar() {
                 }}
                 className={`text-lg font-bold tracking-wide flex-1 ${
                   isMediaActive
-                    ? "text-[var(--color-primary)]"
+                    ? "text-(--color-primary)"
                     : "text-slate-800"
                 }`}
               >
@@ -695,7 +695,7 @@ export default function Navbar() {
                 mobileMediaOpen ? "max-h-60 py-2" : "max-h-0"
               }`}
             >
-              <ul className="pl-5 space-y-3 border-l-2 border-[var(--color-primary)] mt-1">
+              <ul className="pl-5 space-y-3 border-l-2 border-(--color-primary) mt-1">
                 <li>
                   <Link
                     href="/photos"
@@ -755,7 +755,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className={`block py-3.5 font-bold border-b border-slate-50 tracking-wide ${
                 isActive("/awards")
-                  ? "text-[var(--color-primary)]"
+                  ? "text-(--color-primary)"
                   : "text-slate-800"
               }`}
             >
@@ -770,7 +770,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
               className={`block py-3.5 text-lg font-bold border-b border-slate-50 tracking-wide ${
                 isActive("/contact")
-                  ? "text-[var(--color-primary)]"
+                  ? "text-(--color-primary)"
                   : "text-slate-800"
               }`}
             >
@@ -780,12 +780,12 @@ export default function Navbar() {
         </ul>
 
         {/* Bottom: contact info + donate CTA */}
-        <div className="px-6 pb-8 pt-4 border-t border-slate-100 space-y-3 flex-shrink-0">
+        <div className="px-6 pb-8 pt-4 border-t border-slate-100 space-y-3 shrink-0">
           <a
             href="tel:+919409692693"
             className="flex items-center gap-3 text-slate-700 font-semibold text-sm"
           >
-            <span className="bg-[var(--color-primary)] text-white p-2 rounded-lg">
+            <span className="bg-(--color-primary) text-white p-2 rounded-lg">
               <FiPhone size={15} />
             </span>
             +91 94096 92693
@@ -794,7 +794,7 @@ export default function Navbar() {
             href="mailto:info@girgangaparivartrust.com"
             className="flex items-center gap-3 text-slate-700 font-semibold text-sm"
           >
-            <span className="bg-[var(--color-primary)] text-white p-2 rounded-lg">
+            <span className="bg-(--color-primary) text-white p-2 rounded-lg">
               <FiMail size={15} />
             </span>
             info@girgangaparivartrust.com
@@ -802,8 +802,8 @@ export default function Navbar() {
           <Link
             href="/donate"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 w-full block text-center border border-[var(--color-primary)] text-[var(--color-primary)]
-                       hover:bg-[var(--color-primary)] hover:text-white font-extrabold py-3
+            className="mt-2 w-full block text-center border border-(--color-primary) text-(--color-primary)
+                       hover:bg-(--color-primary) hover:text-white font-extrabold py-3
                        uppercase tracking-[0.15em] text-sm transition-colors rounded-sm"
           >
             Donate

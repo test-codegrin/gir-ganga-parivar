@@ -35,12 +35,13 @@ export default function Slider() {
     "/logos/Hi-Bond.png",
     "/logos/Prashant-Casting.png",
     "/logos/Varmora-tiles.png",
+    "/logos/CHRobinson.png"
   ];
 
   return (
-    <div className=" section-padding w-full overflow-hidden bg-[var(--color-tertiary)] py-20">
+    <div className=" section-padding w-full overflow-hidden bg-(--color-tertiary) py-20">
       <div>
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-[var(--color-primary)] mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-center text-(--color-primary) mb-4">
           Our Partners
         </h1>
 

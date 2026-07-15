@@ -293,16 +293,16 @@ export default function AboutPage() {
             {/* LEFT */}
             <motion.div initial="hidden" animate="visible" variants={stagger}>
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
-                <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase text-center">
+                <div className="h-px w-8 bg-(--color-secondary)" />
+                <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase text-center">
                   About Girganga Parivar Trust
                 </span>
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                <div className="h-px w-8 bg-(--color-secondary)" />
               </div>
 
               <motion.h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-5 text-center lg:text-start">
                 Conserving{" "}
-                <span className="text-[var(--color-primary)]">Water,</span>
+                <span className="text-(--color-primary)">Water,</span>
                 <br />
                 Reviving Gujarat&#39;s Future
               </motion.h1>
@@ -379,9 +379,9 @@ export default function AboutPage() {
                     alt="Water conservation"
                     fill
                     className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
                   <div className="absolute bottom-3 left-3 bg-white rounded-xl shadow px-3 py-2">
-                    <p className="text-[10px] font-bold text-[var(--color-primary)]">
+                    <p className="text-[10px] font-bold text-(--color-primary)">
                       🌊 Gujarat · Saurashtra
                     </p>
                   </div>
@@ -413,7 +413,7 @@ export default function AboutPage() {
                     alt="Water conservation"
                     fill
                     className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
                 </motion.div>
                 <motion.div
                   transition={{ delay: 0.3 }}
@@ -430,7 +430,7 @@ export default function AboutPage() {
                   transition={{ delay: 1.1, duration: 0.5 }}
                   className="absolute top-[38%] left-[16%] bg-white rounded-2xl shadow-xl px-4 py-3 z-10 border border-gray-100"
                 >
-                  <p className="text-xs font-bold text-[var(--color-primary)]">
+                  <p className="text-xs font-bold text-(--color-primary)">
                     🌊 Gujarat · Saurashtra
                   </p>
                   <p className="text-[10px] text-gray-400 mt-0.5">Est. 2017</p>
@@ -443,7 +443,7 @@ export default function AboutPage() {
         {/* ══════════════════════════════════════════
     1.5 ABOUT US & COMPLIANCE
 ══════════════════════════════════════════ */}
-<section className="bg-[var(--color-tertiary)]">
+<section className="bg-(--color-tertiary)">
   <div className="container">
     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
       {/* LEFT — About Us */}
@@ -454,16 +454,16 @@ export default function AboutPage() {
         variants={stagger}
       >
         <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
-          <div className="h-px w-8 bg-[var(--color-secondary)]" />
-          <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+          <div className="h-px w-8 bg-(--color-secondary)" />
+          <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
             About Us
           </span>
-          <div className="h-px w-8 bg-[var(--color-secondary)]" />
+          <div className="h-px w-8 bg-(--color-secondary)" />
         </div>
 
         <h2 className="text-3xl md:text-4xl font-bold mb-5 leading-tight text-center lg:text-start">
           A Movement Rooted in{" "}
-          <span className="text-[var(--color-primary)]">Gujarat</span>
+          <span className="text-(--color-primary)">Gujarat</span>
         </h2>
 
         <p className="text-gray-500 text-sm leading-relaxed mb-6 text-center lg:text-start">
@@ -505,7 +505,7 @@ export default function AboutPage() {
               key={s.label}
               className="bg-white rounded-2xl p-4 text-center border border-gray-100 shadow-sm"
             >
-              <p className="text-2xl font-bold text-[var(--color-primary)]">
+              <p className="text-2xl font-bold text-(--color-primary)">
                 {s.value}
               </p>
               <p className="text-xs text-gray-500 mt-1">{s.label}</p>
@@ -522,16 +522,16 @@ export default function AboutPage() {
   variants={stagger}
 >
   <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
-    <div className="h-px w-8 bg-[var(--color-secondary)]" />
-    <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+    <div className="h-px w-8 bg-(--color-secondary)" />
+    <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
       Compliance & Credentials
     </span>
-    <div className="h-px w-8 bg-[var(--color-secondary)]" />
+    <div className="h-px w-8 bg-(--color-secondary)" />
   </div>
 
   <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-center lg:text-start">
     Registered &{" "}
-    <span className="text-[var(--color-primary)]">Recognised</span>
+    <span className="text-(--color-primary)">Recognised</span>
   </h2>
 
   <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4">
@@ -539,7 +539,7 @@ export default function AboutPage() {
       <motion.div
         key={badge.label}
         variants={fadeUp}
-        className="flex flex-col items-center text-center gap-3 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:border-[var(--color-primary)]/25 hover:-translate-y-0.5 transition-all duration-300"
+        className="flex flex-col items-center text-center gap-3 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:border-(--color-primary)/25 hover:-translate-y-0.5 transition-all duration-300"
       >
         <div className="w-full aspect-square max-w-[125px] rounded-xl  flex items-center justify-center p-3">
           <img
@@ -563,7 +563,7 @@ export default function AboutPage() {
         {/* ══════════════════════════════════════════
             2. OUR ORIGIN
         ══════════════════════════════════════════ */}
-        <section className="bg-[var(--color-tertiary)]">
+        <section className="bg-(--color-tertiary)">
           <div className="container">
             <div className="max-w-7xl mx-auto">
               <motion.div
@@ -576,16 +576,16 @@ export default function AboutPage() {
                 {/* LEFT CONTENT */}
                 <motion.div>
                   <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
-                    <div className="h-px w-8 bg-[var(--color-secondary)]" />
-                    <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+                    <div className="h-px w-8 bg-(--color-secondary)" />
+                    <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
                       Our Origin
                     </span>
-                    <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                    <div className="h-px w-8 bg-(--color-secondary)" />
                   </div>
 
                   <h2 className="text-3xl md:text-4xl font-bold mb-5 leading-tight text-center lg:text-start">
                     A Grassroots Movement <br />
-                    <span className="text-[var(--color-primary)]">
+                    <span className="text-(--color-primary)">
                       Born in 2017
                     </span>
                   </h2>
@@ -640,7 +640,7 @@ export default function AboutPage() {
                 <motion.div className="space-y-4">
                   <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
                     <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
-                      <span className="w-7 h-7 rounded-lg bg-[var(--color-tertiary)] flex items-center justify-center text-sm">
+                      <span className="w-7 h-7 rounded-lg bg-(--color-tertiary) flex items-center justify-center text-sm">
                         🐄
                       </span>
                       Founded with Gau Sevaz
@@ -653,7 +653,7 @@ export default function AboutPage() {
 
                   <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
                     <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
-                      <span className="w-7 h-7 rounded-lg bg-[var(--color-tertiary)] flex items-center justify-center text-sm">
+                      <span className="w-7 h-7 rounded-lg bg-(--color-tertiary) flex items-center justify-center text-sm">
                         💧
                       </span>
                       Evolved into Water Conservation
@@ -667,7 +667,7 @@ export default function AboutPage() {
 
                   <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
                     <h4 className="font-bold text-gray-800 mb-3 flex items-center gap-2">
-                      <span className="w-7 h-7 rounded-lg bg-[var(--color-tertiary)] flex items-center justify-center text-sm">
+                      <span className="w-7 h-7 rounded-lg bg-(--color-tertiary) flex items-center justify-center text-sm">
                         🚀
                       </span>
                       Today&apos;s Scale
@@ -700,13 +700,13 @@ export default function AboutPage() {
                     ].map((sdg) => (
                       <div
                         key={sdg.label}
-                        className="flex  items-center w-70 gap-2 px-2 py-2  rounded-2xl border border-[var(--color-primary)]/30 bg-white shadow-sm hover:shadow-md transition"
+                        className="flex  items-center w-70 gap-2 px-2 py-2  rounded-2xl border border-(--color-primary)/30 bg-white shadow-sm hover:shadow-md transition"
                       >
                         <img loading="lazy" src={sdg.img}
                           alt={sdg.label}
                           className="w-15 h-15 rounded-xl object-contain"
                         />
-                        <span className="text-sm md:text-base font-semibold text-[var(--color-primary)]">
+                        <span className="text-sm md:text-base font-semibold text-(--color-primary)">
                           {sdg.label}
                         </span>
                       </div>
@@ -732,18 +732,18 @@ export default function AboutPage() {
                 className="text-center mb-14"
               >
                 <div className="flex items-center justify-center gap-3 mb-3">
-                  <div className="h-px w-8 bg-[var(--color-secondary)]" />
-                  <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+                  <div className="h-px w-8 bg-(--color-secondary)" />
+                  <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
                     Our Journey
                   </span>
-                  <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                  <div className="h-px w-8 bg-(--color-secondary)" />
                 </div>
                 <motion.h2
                   className="text-3xl md:text-4xl font-bold"
                   style={{ fontFamily: "Poppins, sans-serif" }}
                 >
                   Timeline of{" "}
-                  <span className="text-[var(--color-primary)]">Impact</span>
+                  <span className="text-(--color-primary)">Impact</span>
                 </motion.h2>
                 <motion.p className="text-gray-500 text-sm mt-3 max-w-full mx-auto">
                   Since its establishment, Girganga Parivar Trust has steadily
@@ -780,14 +780,14 @@ export default function AboutPage() {
                     >
                       {/* Content card */}
                       <div
-                        className={`bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-lg hover:border-[var(--color-primary)]/25 transition-all duration-300 lg:[direction:ltr] ${
+                        className={`bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-lg hover:border-(--color-primary)/25 transition-all duration-300 lg:[direction:ltr] ${
                           i % 2 === 0 ? "lg:text-right" : ""
                         }`}
                       >
                         <div
   className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? "lg:flex-row-reverse" : ""}`}
 >
-  <span className="w-10 h-10 rounded-full bg-[var(--color-tertiary)] flex items-center justify-center shrink-0">
+  <span className="w-10 h-10 rounded-full bg-(--color-tertiary) flex items-center justify-center shrink-0">
     {item.type === "image" ? (
       <img
         loading="lazy"
@@ -797,11 +797,11 @@ export default function AboutPage() {
       />
     ) : (
       item.icon && (
-        <item.icon className="text-lg text-[var(--color-primary)]" />
+        <item.icon className="text-lg text-(--color-primary)" />
       )
     )}
   </span>
-  <span className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)] bg-[var(--color-tertiary)] px-3 py-1 rounded-full">
+  <span className="text-xs font-bold tracking-[0.2em] uppercase text-(--color-primary) bg-(--color-tertiary) px-3 py-1 rounded-full">
     {item.year}
   </span>
 </div>
@@ -814,7 +814,7 @@ export default function AboutPage() {
                       </div>
 
                       {/* Centre dot — desktop */}
-                      <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-[var(--color-primary)] border-4 border-white shadow-md z-10" />
+                      <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-(--color-primary) border-4 border-white shadow-md z-10" />
 
                       {/* Empty col opposite */}
                       <div className="hidden lg:block" />
@@ -829,11 +829,11 @@ export default function AboutPage() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
                 variants={fadeUp}
-                className="mt-16 rounded-3xl overflow-hidden bg-[var(--color-primary)] p-8 lg:p-12 relative"
+                className="mt-16 rounded-3xl overflow-hidden bg-(--color-primary) p-8 lg:p-12 relative"
               >
                 {/* Background circles */}
-                <div className="absolute -top-12 -right-12 w-56 h-56 rounded-full bg-[var(--color-secondary)]/10" />
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[var(--color-secondary)]/10" />
+                <div className="absolute -top-12 -right-12 w-56 h-56 rounded-full bg-(--color-secondary)/10" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-(--color-secondary)/10" />
 
                 <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
                   {/* LEFT CONTENT */}
@@ -847,7 +847,7 @@ export default function AboutPage() {
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                       Jal Katha 2026 —<br />
-                      <span className="text-[var(--color-secondary)]">
+                      <span className="text-(--color-secondary)">
                         World Record Initiative
                       </span>
                     </h3>
@@ -868,7 +868,7 @@ export default function AboutPage() {
 
                   {/* RIGHT LIST */}
                   <div className="space-y-3">
-                    <p className="text-[var(--color-secondary)] text-xs font-bold uppercase tracking-widest mb-3">
+                    <p className="text-(--color-secondary) text-xs font-bold uppercase tracking-widest mb-3">
                       5 International World Record Recognitions
                     </p>
 
@@ -877,7 +877,7 @@ export default function AboutPage() {
                         key={rec}
                         className="flex items-center gap-3 bg-white/10 rounded-xl px-4 py-3"
                       >
-                        <span className="text-[var(--color-secondary)] font-black text-lg">
+                        <span className="text-(--color-secondary) font-black text-lg">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span className="text-white text-sm font-medium">
@@ -900,16 +900,16 @@ export default function AboutPage() {
             {/* Vision */}
             <div className="text-center max-w-3xl mx-auto">
               <div className="flex items-center justify-center gap-3 mb-3">
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
-                <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+                <div className="h-px w-8 bg-(--color-secondary)" />
+                <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
                   Vision for the Future
                 </span>
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                <div className="h-px w-8 bg-(--color-secondary)" />
               </div>
 
               <h2 className="text-3xl md:text-4xl font-bold mb-5">
                 Building a{" "}
-                <span className="text-[var(--color-primary)]">
+                <span className="text-(--color-primary)">
                   Water Secure India
                 </span>
               </h2>
@@ -959,7 +959,7 @@ export default function AboutPage() {
                     key={i}
                     className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-lg transition text-center"
                   >
-                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-[var(--color-tertiary)] flex items-center justify-center">
+                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-(--color-tertiary) flex items-center justify-center">
                       {item.type === "image" ? (
                         <img loading="lazy" src={item.src}
                           alt="icon"
@@ -967,12 +967,12 @@ export default function AboutPage() {
                         />
                       ) : (
                         Icon && (
-                          <Icon className="text-4xl text-[var(--color-primary)]" />
+                          <Icon className="text-4xl text-(--color-primary)" />
                         )
                       )}
                     </div>
 
-                    <p className="font-bold text-sm text-[var(--color-primary)]">
+                    <p className="font-bold text-sm text-(--color-primary)">
                       {item.year}
                     </p>
                     <p className="text-xs text-gray-500 mt-1">{item.theme}</p>
@@ -986,11 +986,11 @@ export default function AboutPage() {
               {/* LEFT CONTENT */}
               <div>
                 <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
-                  <div className="h-px w-8 bg-[var(--color-secondary)]" />
-                  <span className="text-[var(--color-secondary)] text-xs font-bold text-center tracking-[0.22em] uppercase">
+                  <div className="h-px w-8 bg-(--color-secondary)" />
+                  <span className="text-(--color-secondary) text-xs font-bold text-center tracking-[0.22em] uppercase">
                     Leadership & Governance
                   </span>
-                  <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                  <div className="h-px w-8 bg-(--color-secondary)" />
                 </div>
 
                 <p className="text-gray-500 text-sm leading-relaxed mb-4 text-center lg:text-start">
@@ -1002,7 +1002,7 @@ export default function AboutPage() {
                   the organization’s mission.
                 </p>
 
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[var(--color-primary)] text-center lg:text-start">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-(--color-primary) text-center lg:text-start">
                   Founder & President
                 </h3>
 
@@ -1026,7 +1026,7 @@ export default function AboutPage() {
                   security across rural regions.
                 </p>
 
-                <div className="mt-6 border-l-4 border-[var(--color-primary)] pl-4 italic text-gray-600 text-sm">
+                <div className="mt-6 border-l-4 border-(--color-primary) pl-4 italic text-gray-600 text-sm">
                   “Leadership at GGPT is not about hierarchy; it is about
                   working with communities—structure by structure, village by
                   village.”
@@ -1035,7 +1035,7 @@ export default function AboutPage() {
 
               {/* RIGHT IMAGE (REPLACED CARD) */}
               <div className="flex justify-center lg:justify-end">
-                <div className="relative w-60 h-60 md:w-100 md:h-100 rounded-full bg-[var(--color-primary)] p-2 shadow-2xl ">
+                <div className="relative w-60 h-60 md:w-100 md:h-100 rounded-full bg-(--color-primary) p-2 shadow-2xl ">
                   {/* Profile Image */}
                   <img loading="lazy" src="/image/About page/SNI_7828.JPG"
                     alt="Dilipbhai Sakhiya"
@@ -1054,16 +1054,16 @@ export default function AboutPage() {
   className="relative overflow-hidden bg-white border border-gray-100 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-shadow duration-300"
 >
   {/* Decorative accent */}
-  <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-[var(--color-tertiary)]" />
-  <div className="absolute -bottom-14 -left-14 w-36 h-36 rounded-full bg-[var(--color-secondary)]/10" />
+  <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-(--color-tertiary)" />
+  <div className="absolute -bottom-14 -left-14 w-36 h-36 rounded-full bg-(--color-secondary)/10" />
 
   <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
     {/* LEFT — Icon + eyebrow */}
     <div className="flex flex-col items-center lg:items-start shrink-0">
-      <div className="w-16 h-16 rounded-2xl bg-[var(--color-primary)] flex items-center justify-center text-white shadow-lg shadow-emerald-900/20 mb-3">
+      <div className="w-16 h-16 rounded-2xl bg-(--color-primary) flex items-center justify-center text-white shadow-lg shadow-emerald-900/20 mb-3">
         <Globe2 size={28} strokeWidth={2} />
       </div>
-      <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.2em] uppercase text-center lg:text-start">
+      <span className="text-(--color-secondary) text-xs font-bold tracking-[0.2em] uppercase text-center lg:text-start">
         Global Outreach
       </span>
     </div>
@@ -1080,7 +1080,7 @@ export default function AboutPage() {
       <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mt-0.5">
         USA
       </p>
-      <p className="text-sm text-[var(--color-primary)] font-semibold mt-2">
+      <p className="text-sm text-(--color-primary) font-semibold mt-2">
         International Outreach & Resource Mobilization Coordinator
       </p>
 
@@ -1094,7 +1094,7 @@ export default function AboutPage() {
         ].map((tag) => (
           <span
             key={tag}
-            className="text-[11px] font-medium px-3 py-1.5 rounded-full bg-[var(--color-tertiary)] text-[var(--color-primary)] border border-[var(--color-primary)]/10"
+            className="text-[11px] font-medium px-3 py-1.5 rounded-full bg-(--color-tertiary) text-(--color-primary) border border-(--color-primary)/10"
           >
             {tag}
           </span>
@@ -1106,7 +1106,7 @@ export default function AboutPage() {
     <div className="flex justify-center lg:justify-end shrink-0">
       <a
         href="tel:+14109710291"
-        className="group inline-flex items-center gap-2.5 bg-[var(--color-primary)] text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-md hover:shadow-lg hover:brightness-110 transition-all"
+        className="group inline-flex items-center gap-2.5 bg-(--color-primary) text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-md hover:shadow-lg hover:brightness-110 transition-all"
       >
         <span className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center">
           <Phone size={15} />
@@ -1123,16 +1123,16 @@ export default function AboutPage() {
             <div>
               <div className="text-center mb-12">
                 <div className="flex items-center justify-center gap-3 mb-3">
-                  <div className="h-px w-8 bg-[var(--color-secondary)]" />
-                  <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+                  <div className="h-px w-8 bg-(--color-secondary)" />
+                  <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
                     Core Values
                   </span>
-                  <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                  <div className="h-px w-8 bg-(--color-secondary)" />
                 </div>
 
                 <h3 className="text-3xl font-bold">
                   Principles that{" "}
-                  <span className="text-[var(--color-primary)]">
+                  <span className="text-(--color-primary)">
                     Guide Our Work
                   </span>
                 </h3>
@@ -1180,7 +1180,7 @@ export default function AboutPage() {
 
                     {/* Content */}
                     <div className="p-6">
-                      <h4 className="font-bold text-lg mb-2 group-hover:text-[var(--color-primary)] transition">
+                      <h4 className="font-bold text-lg mb-2 group-hover:text-(--color-primary) transition">
                         {item.title}
                       </h4>
 
@@ -1212,9 +1212,9 @@ export default function AboutPage() {
                   style={{ minHeight: 320 }}
                 >
                   {/* outer dashed ring */}
-                  <div className="absolute w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] rounded-full border-2 border-dashed border-[var(--color-primary)] animate-[spin_30s_linear_infinite]" />
+                  <div className="absolute w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] rounded-full border-2 border-dashed border-(--color-primary) animate-[spin_30s_linear_infinite]" />
                   {/* inner ring */}
-                  <div className="absolute w-[240px] h-[240px] sm:w-[290px] sm:h-[290px] md:w-[360px] md:h-[360px] rounded-full border border-[var(--color-primary)]/50" />
+                  <div className="absolute w-[240px] h-[240px] sm:w-[290px] sm:h-[290px] md:w-[360px] md:h-[360px] rounded-full border border-(--color-primary)/50" />
 
                   <div className="relative w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] md:w-[320px] md:h-[320px] rounded-full overflow-hidden shadow-2xl shadow-emerald-900/20 border-4 border-white z-10">
                     <Image src="/image/About page/mission (1).jpeg"
@@ -1229,7 +1229,7 @@ export default function AboutPage() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.4, type: "spring" }}
-                    className="absolute top-2 right-2 sm:top-6 sm:right-4 md:top-8 md:right-8 z-20 w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] md:w-[90px] md:h-[90px] rounded-full bg-[var(--color-primary)] text-white flex flex-col items-center justify-center shadow-xl shadow-emerald-600/30"
+                    className="absolute top-2 right-2 sm:top-6 sm:right-4 md:top-8 md:right-8 z-20 w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] md:w-[90px] md:h-[90px] rounded-full bg-(--color-primary) text-white flex flex-col items-center justify-center shadow-xl shadow-emerald-600/30"
                   >
                     <span className="font-playfair text-lg sm:text-xl md:text-2xl font-bold leading-none">
                       90%
@@ -1247,7 +1247,7 @@ export default function AboutPage() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.55, type: "spring" }}
-                    className="absolute bottom-2 left-2 sm:bottom-6 sm:left-4 md:bottom-8 md:left-8 z-20 w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] md:w-[90px] md:h-[90px] rounded-full bg-[var(--color-secondary)] text-[var(--color-primary)] flex flex-col items-center justify-center shadow-xl shadow-yellow-500/30"
+                    className="absolute bottom-2 left-2 sm:bottom-6 sm:left-4 md:bottom-8 md:left-8 z-20 w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] md:w-[90px] md:h-[90px] rounded-full bg-(--color-secondary) text-(--color-primary) flex flex-col items-center justify-center shadow-xl shadow-yellow-500/30"
                   >
                     <span className="font-playfair text-lg sm:text-xl md:text-2xl font-bold leading-none">
                       580+
@@ -1271,7 +1271,7 @@ export default function AboutPage() {
                   {/* Heading */}
                   <h2 className="font-playfair text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                     Mission &amp; Vision <br />
-                    <span className="text-[var(--color-primary)]">
+                    <span className="text-(--color-primary)">
                       For Gujarat
                     </span>
                   </h2>
@@ -1281,7 +1281,7 @@ export default function AboutPage() {
                   {/* Mission + Vision cards */}
                   <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div className="bg-emerald-50 rounded-2xl p-4 sm:p-5 border border-emerald-100">
-                      <div className="w-10 h-10 bg-[var(--color-primary)] mx-auto lg:mx-0 rounded-lg flex items-center justify-center  text-white mb-3">
+                      <div className="w-10 h-10 bg-(--color-primary) mx-auto lg:mx-0 rounded-lg flex items-center justify-center  text-white mb-3">
                         <Target size={20} strokeWidth={2.5} />
                       </div>
                       <h4 className="font-bold text-gray-800 mb-2 text-sm">
@@ -1296,7 +1296,7 @@ export default function AboutPage() {
                       </p>
                     </div>
                     <div className="bg-yellow-50 rounded-2xl p-4 sm:p-5 border border-yellow-100">
-                      <div className="w-10 h-10 bg-[var(--color-secondary)] rounded-lg flex items-center mx-auto lg:mx-0 justify-center text-[var(--color-primary)] mb-3">
+                      <div className="w-10 h-10 bg-(--color-secondary) rounded-lg flex items-center mx-auto lg:mx-0 justify-center text-(--color-primary) mb-3">
                         <Eye size={20} strokeWidth={2.5} />
                       </div>
                       <h4 className="font-bold text-gray-800 mb-2 text-sm">

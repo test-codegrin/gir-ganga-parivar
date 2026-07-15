@@ -125,23 +125,23 @@ function ContactCards() {
         <motion.div
           variants={fadeUp}
           key={i}
-          className="group relative overflow-hidden rounded-2xl border border-[var(--color-primary)] bg-[var(--color-tertiary)]
-      hover:bg-[var(--color-primary)] transition-all duration-500
+          className="group relative overflow-hidden rounded-2xl border border-(--color-primary) bg-(--color-tertiary)
+      hover:bg-(--color-primary) transition-all duration-500
       p-6 flex flex-col gap-3 shadow-sm text-center"
         >
           {/* Icon */}
           <div
             className="w-16 h-16 rounded-full
   flex items-center justify-center mx-auto
-  bg-[var(--color-primary)]/10 group-hover:bg-white/20 
-  text-[var(--color-primary)] group-hover:text-white 
+  bg-(--color-primary)/10 group-hover:bg-white/20 
+  text-(--color-primary) group-hover:text-white 
   transition-all duration-500"
           >
             {card.icon}
           </div>
           {/* Label */}
           <p
-            className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--color-primary)]/60
+            className="text-xs font-bold tracking-[0.2em] uppercase text-(--color-primary)/60
         group-hover:text-white/70 transition-colors duration-500"
           >
             {card.label}
@@ -166,7 +166,7 @@ function ContactCards() {
             rel="noopener noreferrer"
             className="mt-auto self-end w-8 h-8 rounded-full border border-[var(--color-primary)
         group-hover:border-white/40 flex items-center justify-center
-        text-[var(--color-primary)] group-hover:text-white transition-all duration-500"
+        text-(--color-primary) group-hover:text-white transition-all duration-500"
           >
             <svg
               viewBox="0 0 24 24"
@@ -187,7 +187,7 @@ function ContactCards() {
 /* ─── Input Style ───────────────────────────────── */
 
 const inputClass =
-  "w-full px-4 py-3 rounded-lg border-0 border-b-2 border-[var(--color-primary)] bg-[var(--color-tertiary)] text-gray-800 text-sm placeholder-gray-400  focus:outline-none transition-all duration-300";
+  "w-full px-4 py-3 rounded-lg border-0 border-b-2 border-(--color-primary) bg-(--color-tertiary) text-gray-800 text-sm placeholder-gray-400  focus:outline-none transition-all duration-300";
 
 /* ─── Label Input Wrapper ───────────────────────── */
 
@@ -200,7 +200,7 @@ function Field({
 }) {
   return (
     <div className="relative">
-      <label className="block text-[10px] font-bold tracking-[0.18em] uppercase text-[var(--color-primary)] mb-1 ml-1">
+      <label className="block text-[10px] font-bold tracking-[0.18em] uppercase text-(--color-primary) mb-1 ml-1">
         {label}
       </label>
       {children}
@@ -273,8 +273,8 @@ function ContactForm() {
           type="submit"
           className="btn-secondary w-full group relative inline-flex items-center justify-center gap-2
             font-semibold text-sm px-8 py-4 cursor-pointer rounded-xl
-            bg-[var(--color-secondary)] text-[var(--color-primary)]
-            hover:text-[var(--color-secondary)] overflow-hidden tracking-wide"
+            bg-(--color-secondary) text-(--color-primary)
+            hover:text-(--color-secondary) overflow-hidden tracking-wide"
         >
           <span className="relative z-10 flex gap-2 items-center">
             Send Message <SendIcon />
@@ -381,7 +381,7 @@ function VolunteerForm() {
                     setSelected(opt);
                     setOpen(false);
                   }}
-                  className="px-4 py-3 text-sm cursor-pointer hover:bg-[var(--color-primary)]/5 transition-colors"
+                  className="px-4 py-3 text-sm cursor-pointer hover:bg-(--color-primary)/5 transition-colors"
                 >
                   {opt}
                 </li>
@@ -403,8 +403,8 @@ function VolunteerForm() {
         type="submit"
         className="btn-secondary w-full group relative inline-flex items-center justify-center gap-2
           font-semibold text-sm px-8 py-4 cursor-pointer rounded-xl
-          bg-[var(--color-secondary)] text-[var(--color-primary)]
-          hover:text-[var(--color-secondary)] overflow-hidden tracking-wide"
+          bg-(--color-secondary) text-(--color-primary)
+          hover:text-(--color-secondary) overflow-hidden tracking-wide"
       >
         <span className="relative z-10 flex gap-2 items-center">
           Submit Volunteer Application
@@ -499,7 +499,7 @@ function PartnershipForm() {
                     setSelected(opt);
                     setOpen(false);
                   }}
-                  className="px-4 py-3 text-sm cursor-pointer hover:bg-[var(--color-primary)]/5 transition-colors"
+                  className="px-4 py-3 text-sm cursor-pointer hover:bg-(--color-primary)/5 transition-colors"
                 >
                   {opt}
                 </li>
@@ -521,8 +521,8 @@ function PartnershipForm() {
         type="submit"
         className="btn-secondary w-full group relative inline-flex items-center justify-center gap-2
           font-semibold text-sm px-8 py-4 cursor-pointer rounded-xl
-          bg-[var(--color-secondary)] text-[var(--color-primary)]
-          hover:text-[var(--color-secondary)] overflow-hidden tracking-wide"
+          bg-(--color-secondary) text-(--color-primary)
+          hover:text-(--color-secondary) overflow-hidden tracking-wide"
       >
         <span className="relative z-10 flex gap-2 items-center">
           Submit Partnership Request
@@ -559,10 +559,10 @@ export default function Contact() {
           >
             <motion.p
               variants={fadeUp}
-              className="text-[var(--color-secondary)] text-[10px] font-black tracking-[0.35em] uppercase flex items-center justify-center gap-3"
+              className="text-(--color-secondary) text-[10px] font-black tracking-[0.35em] uppercase flex items-center justify-center gap-3"
             >
-              <span className="w-10 h-px bg-[var(--color-secondary)]" />
-              Form <span className="w-10 h-px bg-[var(--color-secondary)]" />
+              <span className="w-10 h-px bg-(--color-secondary)" />
+              Form <span className="w-10 h-px bg-(--color-secondary)" />
             </motion.p>
 
             <motion.h1
@@ -570,7 +570,7 @@ export default function Contact() {
               className="text-5xl md:text-6xl font-black leading-tight"
             >
               <span className="">
-                Contact <span className="text-[var(--color-primary)]">US</span>
+                Contact <span className="text-(--color-primary)">US</span>
               </span>{" "}
             </motion.h1>
 
@@ -614,9 +614,9 @@ export default function Contact() {
                   aria-label={label}
                 >
                   <span
-                    className="w-9 h-9 rounded-lg bg-[var(--color-tertiary)] border border-[var(--color-primary)]/30
-                      flex items-center justify-center text-[var(--color-primary)]
-                      hover:bg-[var(--color-primary)] hover:text-white transition-all duration-300"
+                    className="w-9 h-9 rounded-lg bg-(--color-tertiary) border border-(--color-primary)/30
+                      flex items-center justify-center text-(--color-primary)
+                      hover:bg-(--color-primary) hover:text-white transition-all duration-300"
                   >
                     {icon}
                   </span>
@@ -659,7 +659,7 @@ export default function Contact() {
 
                   {/* Overlay label */}
                   <div className="absolute bottom-5 left-5 bg-white/90 backdrop-blur-sm rounded-xl px-4  py-2.5 shadow-md">
-                    <p className="text-[10px] font-black tracking-widest uppercase text-[var(--color-primary)]/60 mb-0.5">
+                    <p className="text-[10px] font-black tracking-widest uppercase text-(--color-primary)/60 mb-0.5">
                       Location
                     </p>
                     <p className="text-xs font-bold text-gray-800">
@@ -674,17 +674,17 @@ export default function Contact() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7 }}
-                  className="container flex flex-col bg-[var(--color-tertiary)]"
+                  className="container flex flex-col bg-(--color-tertiary)"
                 >
                   {/* Tab switcher */}
-                  <div className="flex flex-wrap  gap-1 mb-8 p-1 bg-white rounded-xl border border-[var(--color-primary)] shadow-sm">
+                  <div className="flex flex-wrap  gap-1 mb-8 p-1 bg-white rounded-xl border border-(--color-primary) shadow-sm">
                     {tabs.map((tab) => (
                       <button
                         key={tab.key}
                         onClick={() => setFormType(tab.key)}
-                        className={`relative flex-1 px-3 py-2.5 border border-[var(--color-primary)] rounded-lg text-xs md:text-base font-bold tracking-wide transition-all duration-300 cursor-pointer ${
+                        className={`relative flex-1 px-3 py-2.5 border border-(--color-primary) rounded-lg text-xs md:text-base font-bold tracking-wide transition-all duration-300 cursor-pointer ${
                           formType === tab.key
-                            ? "bg-[var(--color-primary)] text-white shadow-sm"
+                            ? "bg-(--color-primary) text-white shadow-sm"
                             : "text-gray-500 hover:text-gray-700"
                         }`}
                       >

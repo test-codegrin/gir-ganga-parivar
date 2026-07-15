@@ -119,7 +119,7 @@ function Lightbox({ video, onClose }: { video: Video; onClose: () => void }) {
           {/* Footer */}
           <div className="px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-start gap-3">
             <div className="min-w-0">
-              <p className="text-xs font-bold text-[var(--color-secondary)] uppercase mb-0.5">
+              <p className="text-xs font-bold text-(--color-secondary) uppercase mb-0.5">
                 {video.tag}
               </p>
               <p className="font-semibold text-gray-800 text-sm sm:text-base leading-snug line-clamp-2">
@@ -129,7 +129,7 @@ function Lightbox({ video, onClose }: { video: Video; onClose: () => void }) {
 
             <button
               onClick={onClose}
-              className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition"
+              className="shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition"
             >
               <X size={16} />
             </button>
@@ -155,13 +155,13 @@ function VideoCard({ video, onPlay }: { video: Video; onPlay: () => void }) {
       className="flex flex-col sm:flex-row rounded-xl overflow-hidden bg-white border border-gray-200 shadow-sm cursor-pointer hover:shadow-xl transition"
     >
       {/* Thumbnail — top on mobile, right on sm+ */}
-      <div className="relative w-full sm:w-48 md:w-56 flex-shrink-0 order-first sm:order-last">
+      <div className="relative w-full sm:w-48 md:w-56 shrink-0 order-first sm:order-last">
         {/* Fixed-height on mobile so card doesn't collapse */}
         <div className="relative h-44 sm:h-full min-h-[160px]">
           <Image src={thumb} alt={video.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-[var(--color-primary)] w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+            <div className="bg-(--color-primary) w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
               <Play size={18} />
             </div>
           </div>
@@ -170,7 +170,7 @@ function VideoCard({ video, onPlay }: { video: Video; onPlay: () => void }) {
 
       {/* Content */}
       <div className="p-4 sm:p-6 flex flex-col justify-center flex-1 min-w-0">
-        <span className="text-xs font-bold text-[var(--color-secondary)] uppercase mb-1.5">
+        <span className="text-xs font-bold text-(--color-secondary) uppercase mb-1.5">
           {video.tag}
         </span>
 
@@ -182,7 +182,7 @@ function VideoCard({ video, onPlay }: { video: Video; onPlay: () => void }) {
           {video.description}
         </p>
 
-        <div className="flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)]">
+        <div className="flex items-center gap-2 text-sm font-semibold text-(--color-primary)">
           <Play size={14} />
           Watch Video
         </div>
@@ -203,7 +203,7 @@ export default function VideosPage() {
       <SmoothScroll>
         <div className="bg-white min-h-screen text-gray-900">
           {/* ── HERO ── */}
-          <section className="relative py-12 sm:py-16 bg-[var(--bg-tersery)]">
+          <section className="relative py-12 sm:py-16 bg-(--bg-tersery)">
             <div className="containers px-4 sm:px-6 text-center">
               <motion.h1
                 initial={{ opacity: 0, y: 40 }}
@@ -212,7 +212,7 @@ export default function VideosPage() {
                 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 sm:mb-4 leading-tight"
               >
                 Water{" "}
-                <span className="text-[var(--color-primary)]">Revolution</span>
+                <span className="text-(--color-primary)">Revolution</span>
               </motion.h1>
 
               <motion.p
@@ -230,7 +230,7 @@ export default function VideosPage() {
           {/* ── SECTION TITLE ── */}
           <div className="containers px-4 sm:px-6 mb-6 sm:mb-10 flex justify-between items-center border-b border-gray-200 pb-4">
             <div className="flex items-center gap-3">
-              <span className="w-1 h-6 bg-[var(--color-secondary)] rounded-full" />
+              <span className="w-1 h-6 bg-(--color-secondary) rounded-full" />
               <h2 className="text-lg sm:text-xl font-bold">Latest Videos</h2>
             </div>
 
@@ -238,7 +238,7 @@ export default function VideosPage() {
               href="https://www.youtube.com/@girgangaparivartrust"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs sm:text-sm text-gray-600 hover:text-[var(--color-primary)] transition"
+              className="flex items-center gap-1.5 text-xs sm:text-sm text-gray-600 hover:text-(--color-primary) transition"
             >
               View All <ArrowRight size={14} />
             </a>
@@ -269,7 +269,7 @@ export default function VideosPage() {
             viewport={{ once: true }}
             className="containers px-4 sm:px-6 pb-16 sm:pb-24"
           >
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-100 rounded-2xl sm:rounded-3xl text-center py-12 sm:py-16 px-6 sm:px-8">
+            <div className="bg-linear-to-r from-blue-50 to-indigo-100 rounded-2xl sm:rounded-3xl text-center py-12 sm:py-16 px-6 sm:px-8">
               <p className="text-xs uppercase text-gray-500 mb-3 tracking-widest">
                 Gir Ganga Parivar Trust
               </p>

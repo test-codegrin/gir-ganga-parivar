@@ -151,7 +151,7 @@ function Lightbox({
             e.stopPropagation();
             handleDownload();
           }}
-          className="w-11 h-11 flex items-center justify-center rounded-full bg-white/10 border border-white/20 text-white hover:bg-[var(--color-primary)] transition"
+          className="w-11 h-11 flex items-center justify-center rounded-full bg-white/10 border border-white/20 text-white hover:bg-(--color-primary) transition"
         >
           <FaDownload />
         </button>
@@ -167,7 +167,7 @@ function Lightbox({
       {/* Prev */}
       <button
         onClick={prev}
-        className="absolute left-4 sm:left-8 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 border border-white/20 text-white hover:bg-[var(--color-primary)] transition"
+        className="absolute left-4 sm:left-8 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 border border-white/20 text-white hover:bg-(--color-primary) transition"
       >
         <FaArrowLeft />
       </button>
@@ -175,7 +175,7 @@ function Lightbox({
       {/* Next */}
       <button
         onClick={next}
-        className="absolute right-4 sm:right-8 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 border border-white/20 text-white hover:bg-[var(--color-primary)] transition"
+        className="absolute right-4 sm:right-8 w-11 h-11 flex items-center justify-center rounded-full bg-white/10 border border-white/20 text-white hover:bg-(--color-primary) transition"
       >
         <FaArrowRight />
       </button>
@@ -202,10 +202,10 @@ function Lightbox({
 /* ─── Section Label ─── */
 function SectionLabel({ label }: { label: string }) {
   return (
-    <p className="text-[var(--color-secondary)] text-[10px] font-bold tracking-[0.3em] uppercase mb-2 flex items-center justify-center lg:justify-start gap-3">
-      <span className="w-8 h-[2px] bg-[var(--color-secondary)]" />
+    <p className="text-(--color-secondary) text-[10px] font-bold tracking-[0.3em] uppercase mb-2 flex items-center justify-center lg:justify-start gap-3">
+      <span className="w-8 h-[2px] bg-(--color-secondary)" />
       {label}
-      <span className="w-8 h-[2px] bg-[var(--color-secondary)]" />
+      <span className="w-8 h-[2px] bg-(--color-secondary)" />
     </p>
   );
 }
@@ -263,18 +263,18 @@ export default function Media() {
       {/* ── HERO ── */}
       <section className="container">
         <div className="text-center mb-2">
-          <p className="text-[var(--color-secondary)] text-[10px] font-black tracking-[0.35em] uppercase mb-3 flex items-center justify-center gap-3">
-            <span className="w-8 h-px bg-[var(--color-secondary)]" />
+          <p className="text-(--color-secondary) text-[10px] font-black tracking-[0.35em] uppercase mb-3 flex items-center justify-center gap-3">
+            <span className="w-8 h-px bg-(--color-secondary)" />
             Media & News
-            <span className="w-8 h-px bg-[var(--color-secondary)]" />
+            <span className="w-8 h-px bg-(--color-secondary)" />
           </p>
           <h1 className="text-gray-900 text-4xl md:text-5xl font-black leading-tight">
             Recognition,{" "}
-            <span className="text-[var(--color-primary)]">
+            <span className="text-(--color-primary)">
               Stories & Impact
             </span>
           </h1>
-          <div className="w-16 h-1 bg-[var(--color-primary)] mx-auto mt-5" />
+          <div className="w-16 h-1 bg-(--color-primary) mx-auto mt-5" />
         </div>
       </section>
 
@@ -287,7 +287,7 @@ export default function Media() {
               <SectionLabel label="Event In The Spotlight" />
               <h2 className="text-black text-3xl sm:text-4xl lg:text-5xl font-black uppercase text-center lg:text-start">
                 NEWS{" "}
-                <span className="text-[var(--color-primary)]">
+                <span className="text-(--color-primary)">
                   ARTICLES <br /> GALLERY
                 </span>
               </h2>
@@ -305,7 +305,7 @@ export default function Media() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
                     className={`relative group cursor-pointer rounded-xl overflow-hidden bg-gray-100 transition-all duration-300 ${isActive
-                        ? "ring-2 ring-[var(--color-primary)] ring-offset-2 scale-[0.96]"
+                        ? "ring-2 ring-(--color-primary) ring-offset-2 scale-[0.96]"
                         : "hover:scale-[0.96] hover:ring-1 hover:ring-gray-300 hover:ring-offset-1"
                       }`}
                     onClick={() => setFeaturedIndex(index)}
@@ -317,7 +317,7 @@ export default function Media() {
                         className="object-cover transition-transform duration-500 group-hover:scale-110" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
                       {/* Active tint */}
                       {isActive && (
-                        <div className="absolute inset-0 bg-[var(--color-primary)]/25" />
+                        <div className="absolute inset-0 bg-(--color-primary)/25" />
                       )}
                       {/* Hover tint */}
                       {!isActive && (
@@ -370,7 +370,7 @@ export default function Media() {
           <SectionLabel label="Event" />
           <div className="flex items-center justify-center lg:justify-start gap-4">
             <h2 className="text-black text-3xl sm:text-4xl lg:text-5xl font-black whitespace-nowrap">
-              Event <span className="text-[var(--color-primary)]">Photos</span>
+              Event <span className="text-(--color-primary)">Photos</span>
             </h2>
           </div>
         </div>
@@ -396,7 +396,7 @@ export default function Media() {
             {infinitePhotos.map((photo, i) => (
               <div
                 key={i}
-                className="group relative w-[300px] md:w-[400px] h-[350px] md:h-[450px] rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 border border-gray-100"
+                className="group relative w-[300px] md:w-[400px] h-[350px] md:h-[450px] rounded-2xl overflow-hidden cursor-pointer shrink-0 border border-gray-100"
                 onClick={() => {
                   const realIndex = i % eventPhotos.length;
                   setLightbox({
@@ -409,7 +409,7 @@ export default function Media() {
                   alt={`Event photo ${i}`}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-70 group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-70 group-hover:opacity-90" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/40">
                     <FaSearchPlus className="text-white text-base" />

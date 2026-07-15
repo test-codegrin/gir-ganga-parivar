@@ -82,7 +82,7 @@ export default function DonationCheckout() {
 
   if (!cartItem) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-5 bg-[var(--color-tertiary)]">
+      <div className="min-h-screen flex flex-col items-center justify-center gap-5 bg-(--color-tertiary)">
         <div className="w-20 h-20 rounded-full bg-white border-2 border-[var(--color-dark)] flex items-center justify-center shadow-md">
           <span className="text-4xl">🛒</span>
         </div>
@@ -91,7 +91,7 @@ export default function DonationCheckout() {
         </h2>
         <Link
           href="/donate"
-          className="bg-[var(--color-primary)] text-white px-8 py-3 rounded-2xl font-black text-sm hover:bg-[#007fa3] transition-all shadow-lg"
+          className="bg-(--color-primary) text-white px-8 py-3 rounded-2xl font-black text-sm hover:bg-[#007fa3] transition-all shadow-lg"
         >
           Browse Donations →
         </Link>
@@ -103,7 +103,7 @@ export default function DonationCheckout() {
   const formatted = (n: number) => "₹" + n.toLocaleString("en-IN");
 
   const inputBase =
-    "w-full border border-[var(--color-dark)] rounded-xl px-4 py-3 text-sm bg-[var(--color-tertiary)] focus:bg-white focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] outline-none transition-all duration-200 text-gray-800 placeholder-gray-400";
+    "w-full border border-[var(--color-dark)] rounded-xl px-4 py-3 text-sm bg-(--color-tertiary) focus:bg-white focus:ring-2 focus:ring-(--color-primary) focus:border-(--color-primary) outline-none transition-all duration-200 text-gray-800 placeholder-gray-400";
   const labelBase =
     "block text-[10px] font-black text-gray-400 uppercase tracking-[0.25em] mb-1.5";
 
@@ -195,15 +195,15 @@ export default function DonationCheckout() {
 
   return (
     <SmoothScroll>
-      <div className=" min-h-screen bg-[var(--color-tertiary)]">
+      <div className=" min-h-screen bg-(--color-tertiary)">
         {/* ── Progress Bar ── */}
 
         <div className="container bg-white border-b border-[var(--color-dark)] container">
           <div className="mx-auto justify-self-center items-center">
-            <p className="text-[var(--color-secondary)] text-[10px] font-black uppercase tracking-[0.35em] flex items-center justify-center gap-2 mb-2">
-              <span className="w-5 h-px bg-[var(--color-secondary)]" />
+            <p className="text-(--color-secondary) text-[10px] font-black uppercase tracking-[0.35em] flex items-center justify-center gap-2 mb-2">
+              <span className="w-5 h-px bg-(--color-secondary)" />
               Donation Check Out
-              <span className="w-5 h-px bg-[var(--color-secondary)]" />
+              <span className="w-5 h-px bg-(--color-secondary)" />
             </p>
             <div className="flex items-baseline justify-center  gap-3">
               <h1 className="text-3xl md:text-4xl font-black text-gray-900  tracking-tight">
@@ -218,7 +218,7 @@ export default function DonationCheckout() {
           <div className="lg:col-span-3 space-y-6 container">
             {/* Personal Info */}
             <div className="bg-white rounded-3xl border border-[var(--color-dark)] shadow-sm overflow-hidden">
-              <div className="bg-[var(--color-primary)] px-7 py-5 flex items-center gap-3">
+              <div className="bg-(--color-primary) px-7 py-5 flex items-center gap-3">
                 <div className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center">
                   <span className="text-white text-lg">👤</span>
                 </div>
@@ -324,7 +324,7 @@ export default function DonationCheckout() {
 
             {/* Billing Address */}
             <div className="bg-white rounded-3xl border border-[var(--color-dark)] shadow-sm overflow-hidden">
-              <div className="bg-[var(--color-primary)] px-7 py-5 flex items-center gap-3">
+              <div className="bg-(--color-primary) px-7 py-5 flex items-center gap-3">
                 <div className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center">
                   <span className="text-white text-lg">📍</span>
                 </div>
@@ -354,7 +354,7 @@ export default function DonationCheckout() {
       pr-10
       h-12
       leading-tight
-      focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]
+      focus:outline-none focus:ring-2 focus:ring-(--color-primary)
     `}
                     value={country}
                     onMouseDown={() => setOpen((prev) => !prev)}
@@ -484,7 +484,7 @@ export default function DonationCheckout() {
             <div className="sticky top-6 space-y-4">
               {/* Donation Summary */}
               <div className="bg-white rounded-3xl border border-[var(--color-dark)] shadow-sm overflow-hidden">
-                <div className="bg-[var(--color-primary)] px-6 py-4 flex items-center gap-2">
+                <div className="bg-(--color-primary) px-6 py-4 flex items-center gap-2">
                   <div className="w-1 h-5 bg-white/50 rounded-full" />
                   <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white">
                     Donation Summary
@@ -494,7 +494,7 @@ export default function DonationCheckout() {
                 <div className="px-3 lg:px-7  p-6">
                   {/* Item row */}
                   <div className="flex items-center gap-4 pb-5 border-b border-[var(--color-dark)]">
-                    <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-[var(--color-dark)] flex-shrink-0 bg-[var(--color-tertiary)]">
+                    <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-[var(--color-dark)] shrink-0 bg-(--color-tertiary)">
                       <Image src={cartItem.img}
                         alt={cartItem.title}
                         width={100}
@@ -509,7 +509,7 @@ export default function DonationCheckout() {
                         One-time donation
                       </p>
                     </div>
-                    <span className="text-sm font-black text-[var(--color-primary)] flex-shrink-0">
+                    <span className="text-sm font-black text-(--color-primary) shrink-0">
                       {formatted(rawAmount)}
                     </span>
                   </div>
@@ -525,11 +525,11 @@ export default function DonationCheckout() {
                   </div>
 
                   {/* Total */}
-                  <div className="mt-4 bg-[var(--color-tertiary)] border border-[var(--color-dark)] rounded-2xl px-5 py-4 flex justify-between items-center">
+                  <div className="mt-4 bg-(--color-tertiary) border border-[var(--color-dark)] rounded-2xl px-5 py-4 flex justify-between items-center">
                     <span className="text-sm font-black text-gray-700 uppercase tracking-wider">
                       Total
                     </span>
-                    <span className="text-2xl font-black text-[var(--color-primary)] tabular-nums">
+                    <span className="text-2xl font-black text-(--color-primary) tabular-nums">
                       {formatted(rawAmount)}
                     </span>
                   </div>
@@ -539,8 +539,8 @@ export default function DonationCheckout() {
               {/* Payment Method */}
               <div className="bg-white rounded-3xl border border-[var(--color-dark)] shadow-sm px-3 lg:px-7 py-5">
                 <p className={labelBase}>Payment Method</p>
-                <div className="flex items-center gap-3 bg-[var(--color-tertiary)] rounded-2xl px-4 py-3.5 border border-[var(--color-dark)] mt-2">
-                  <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <div className="flex items-center gap-3 bg-(--color-tertiary) rounded-2xl px-4 py-3.5 border border-[var(--color-dark)] mt-2">
+                  <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center shrink-0">
                     <span className="text-white text-base">💳</span>
                   </div>
                   <div>
@@ -564,7 +564,7 @@ export default function DonationCheckout() {
                     label: (
                       <>
                         I agree to the{" "}
-                        <span className="text-[var(--color-primary)] font-bold underline underline-offset-2 cursor-pointer">
+                        <span className="text-(--color-primary) font-bold underline underline-offset-2 cursor-pointer">
                           terms and conditions
                         </span>
                       </>
@@ -589,10 +589,10 @@ export default function DonationCheckout() {
                   >
                     <div
                       onClick={item.toggle}
-                      className={`w-5 h-5 rounded-lg border-2 flex-shrink-0 mt-0.5 flex items-center justify-center transition-all cursor-pointer ${
+                      className={`w-5 h-5 rounded-lg border-2 shrink-0 mt-0.5 flex items-center justify-center transition-all cursor-pointer ${
                         item.checked
-                          ? "bg-[var(--color-primary)] border-[var(--color-primary)]"
-                          : "border-[var(--color-dark)] group-hover:border-[var(--color-primary)]"
+                          ? "bg-(--color-primary) border-(--color-primary)"
+                          : "border-[var(--color-dark)] group-hover:border-(--color-primary)"
                       }`}
                     >
                       {item.checked && (
@@ -628,8 +628,8 @@ export default function DonationCheckout() {
                   disabled={loading}
                   className={`btn-primary w-full group relative inline-flex items-center justify-center gap-2
       font-semibold text-base px-10 py-4 cursor-pointer
-      bg-[var(--color-primary)] text-[var(--color-secondary)]
-      hover:text-[var(--color-primary)] overflow-hidden ${
+      bg-(--color-primary) text-(--color-secondary)
+      hover:text-(--color-primary) overflow-hidden ${
         loading ? "opacity-50 cursor-not-allowed" : ""
       }`}
                 >

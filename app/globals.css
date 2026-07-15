@@ -88,7 +88,7 @@ body {
     tracking-[0.14em] sm:tracking-[0.16em]
     px-6 sm:px-9 py-3 sm:py-4
     rounded-[3px]
-    bg-[var(--color-secondary)]
+    bg-(--color-secondary)
     text-[var(--color-greenish)]
     text-[10px] sm:text-[clamp(10px,1vw,12px)]
     cursor-pointer
@@ -123,7 +123,7 @@ body {
 
   .btn-secondary-overlay {
     @apply absolute inset-0
-    bg-[var(--color-primary)]
+    bg-(--color-primary)
     -translate-x-[110%]
     transition-transform duration-500;
   }
@@ -144,7 +144,7 @@ body {
 
   .btn-primary-overlay {
     @apply absolute inset-0
-    bg-[var(--color-secondary)]
+    bg-(--color-secondary)
     -translate-x-[110%]
     transition-transform duration-500;
   }
@@ -156,20 +156,20 @@ body {
   /* Outline Button primary */
   .btn-primary-outline {
     @apply relative inline-flex items-center gap-2
-    border-2 border-[var(--color-primary)]
-    text-[var(--color-primary)]
+    border-2 border-(--color-primary)
+    text-(--color-primary)
     font-semibold text-base
     px-10 py-4 rounded-lg
     shadow-lg shadow-black/25
     overflow-hidden
     transition-transform duration-300
     hover:-translate-y-0.5
-    hover:text-[var(--color-secondary)];
+    hover:text-(--color-secondary);
   }
 
   .btn-primary-outline-overlay {
     @apply absolute inset-0
-    bg-[var(--color-primary)]
+    bg-(--color-primary)
     -translate-x-[110%]
     transition-transform duration-500;
   }
@@ -182,19 +182,19 @@ body {
   .btn-secondary-outline {
     @apply relative inline-flex items-center gap-2
     border-2 border-[var(--color-secondary)]
-    text-[var(--color-secondary)]
+    text-(--color-secondary)
     font-semibold text-base
     px-10 py-4 rounded-lg
     shadow-lg shadow-black/25
     overflow-hidden
     transition-transform duration-300
     hover:-translate-y-0.5
-    hover:text-[var(--color-primary)];
+    hover:text-(--color-primary);
   }
 
   .btn-secondary-outline-overlay {
     @apply absolute inset-0
-    bg-[var(--color-secondary)]
+    bg-(--color-secondary)
     -translate-x-[110%]
     transition-transform duration-500;
   }

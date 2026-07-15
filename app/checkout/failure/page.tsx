@@ -42,14 +42,14 @@ function FailureContent() {
     "block text-[10px] font-black text-gray-400 uppercase tracking-[0.25em] mb-1.5";
 
   return (
-    <div className=" min-h-screen bg-[var(--color-tertiary)] pb-12">
+    <div className=" min-h-screen bg-(--color-tertiary) pb-12">
       {/* ── Page Header ── */}
       <div className="container bg-white border-b border-[var(--color-dark)] container">
         <div className="mx-auto justify-self-center items-center">
-          <p className="text-[var(--color-secondary)] text-[10px] font-black uppercase tracking-[0.35em] flex items-center justify-center gap-2 mb-2">
-            <span className="w-5 h-px bg-[var(--color-secondary)]" />
+          <p className="text-(--color-secondary) text-[10px] font-black uppercase tracking-[0.35em] flex items-center justify-center gap-2 mb-2">
+            <span className="w-5 h-px bg-(--color-secondary)" />
             Donation Check Out
-            <span className="w-5 h-px bg-[var(--color-secondary)]" />
+            <span className="w-5 h-px bg-(--color-secondary)" />
           </p>
           <div className="flex items-baseline justify-center  gap-3">
             <h1 className="text-3xl md:text-4xl font-black text-gray-900  tracking-tight">
@@ -82,7 +82,7 @@ function FailureContent() {
                 We were unable to complete your transaction. No funds were debited. If your account was charged, it will be refunded automatically by your bank within 3-5 business days.
               </p>
 
-              <div className="bg-[var(--color-tertiary)] border border-[var(--color-dark)] rounded-2xl p-5 space-y-3">
+              <div className="bg-(--color-tertiary) border border-[var(--color-dark)] rounded-2xl p-5 space-y-3">
                 <div className="flex justify-between items-center text-xs">
                   <span className="text-gray-400 font-bold uppercase tracking-wider">Transaction ID</span>
                   <span className="font-mono text-gray-800 font-bold select-all">{txnid}</span>
@@ -124,7 +124,7 @@ function FailureContent() {
           <div className="sticky top-6 space-y-4">
             {/* Donation Summary */}
             <div className="bg-white rounded-3xl border border-[var(--color-dark)] shadow-sm overflow-hidden">
-              <div className="bg-[var(--color-primary)] px-6 py-4 flex items-center gap-2">
+              <div className="bg-(--color-primary) px-6 py-4 flex items-center gap-2">
                 <div className="w-1 h-5 bg-white/50 rounded-full" />
                 <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white">
                   Donation Summary
@@ -135,7 +135,7 @@ function FailureContent() {
                 {cartItem ? (
                   <>
                     <div className="flex items-center gap-4 pb-5 border-b border-[var(--color-dark)]">
-                      <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-[var(--color-dark)] flex-shrink-0 bg-[var(--color-tertiary)]">
+                      <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-[var(--color-dark)] shrink-0 bg-(--color-tertiary)">
                         <Image
                           src={cartItem.img}
                           alt={cartItem.title}
@@ -153,7 +153,7 @@ function FailureContent() {
                           One-time donation
                         </p>
                       </div>
-                      <span className="text-sm font-black text-[var(--color-primary)] flex-shrink-0">
+                      <span className="text-sm font-black text-(--color-primary) shrink-0">
                         {formatted(rawAmount)}
                       </span>
                     </div>
@@ -174,11 +174,11 @@ function FailureContent() {
                 )}
 
                 {/* Total */}
-                <div className="mt-4 bg-[var(--color-tertiary)] border border-[var(--color-dark)] rounded-2xl px-5 py-4 flex justify-between items-center">
+                <div className="mt-4 bg-(--color-tertiary) border border-[var(--color-dark)] rounded-2xl px-5 py-4 flex justify-between items-center">
                   <span className="text-sm font-black text-gray-700 uppercase tracking-wider">
                     Total
                   </span>
-                  <span className="text-2xl font-black text-[var(--color-primary)] tabular-nums">
+                  <span className="text-2xl font-black text-(--color-primary) tabular-nums">
                     {formatted(rawAmount)}
                   </span>
                 </div>
@@ -188,8 +188,8 @@ function FailureContent() {
             {/* Payment Method */}
             <div className="bg-white rounded-3xl border border-[var(--color-dark)] shadow-sm px-3 lg:px-7 py-5">
               <p className={labelBase}>Payment Method</p>
-              <div className="flex items-center gap-3 bg-[var(--color-tertiary)] rounded-2xl px-4 py-3.5 border border-[var(--color-dark)] mt-2">
-                <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+              <div className="flex items-center gap-3 bg-(--color-tertiary) rounded-2xl px-4 py-3.5 border border-[var(--color-dark)] mt-2">
+                <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center shrink-0">
                   <span className="text-white text-base">💳</span>
                 </div>
                 <div>
@@ -233,7 +233,7 @@ export default function DonationFailure() {
   return (
     <SmoothScroll>
       <Suspense fallback={
-        <div className="min-h-screen bg-[var(--color-tertiary)] flex items-center justify-center">
+        <div className="min-h-screen bg-(--color-tertiary) flex items-center justify-center">
           <div className="text-center space-y-3">
             <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-red-500 mx-auto"></div>
             <p className="text-xs font-black text-gray-400 uppercase tracking-wider">Loading transaction details...</p>

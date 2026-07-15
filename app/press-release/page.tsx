@@ -74,11 +74,11 @@ export default function Products() {
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[var(--color-secondary)] text-[10px] font-black tracking-[0.38em] uppercase mb-3 flex items-center justify-center gap-3"
+            className="text-(--color-secondary) text-[10px] font-black tracking-[0.38em] uppercase mb-3 flex items-center justify-center gap-3"
           >
-            <span className="w-8 h-px bg-[var(--color-secondary)]" />
+            <span className="w-8 h-px bg-(--color-secondary)" />
             Press Coverage
-            <span className="w-8 h-px bg-[var(--color-secondary)]" />
+            <span className="w-8 h-px bg-(--color-secondary)" />
           </motion.p>
 
           <motion.h1
@@ -87,7 +87,7 @@ export default function Products() {
             className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900"
           >
             Press{" "}
-            <span className="text-[var(--color-primary)]">Photo Galleries</span>
+            <span className="text-(--color-primary)">Photo Galleries</span>
           </motion.h1>
         </section>
 

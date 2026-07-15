@@ -21,9 +21,9 @@ const STATS = [
     suffix: "+",
     label: "Water structures developed",
     accent: "#009dc4",
-    bg: "bg-[var(--color-primary)]/10",
-    border: "border-[var(--color-primary)]/60",
-    iconBg: "bg-[var(--color-primary)]",
+    bg: "bg-(--color-primary)/10",
+    border: "border-(--color-primary)/60",
+    iconBg: "bg-(--color-primary)",
     iconColor: "text-white",
   },
   {
@@ -32,9 +32,9 @@ const STATS = [
     suffix: "+",
     label: "Acres recharged",
     accent: "#009dc4",
-    bg: "bg-[var(--color-primary)]/10",
-    border: "border-[var(--color-primary)]/60",
-    iconBg: "bg-[var(--color-primary)]",
+    bg: "bg-(--color-primary)/10",
+    border: "border-(--color-primary)/60",
+    iconBg: "bg-(--color-primary)",
     iconColor: "text-white",
   },
   {
@@ -43,9 +43,9 @@ const STATS = [
     suffix: "+",
     label: "People impacted",
     accent: "#009dc4",
-    bg: "bg-[var(--color-primary)]/10",
-    border: "border-[var(--color-primary)]/60",
-    iconBg: "bg-[var(--color-primary)]",
+    bg: "bg-(--color-primary)/10",
+    border: "border-(--color-primary)/60",
+    iconBg: "bg-(--color-primary)",
     iconColor: "text-white",
   },
   {
@@ -53,9 +53,9 @@ const STATS = [
     number: impactMetrics.ruralVillages.value,
     label: "Rural villages reached",
     accent: "#009dc4",
-    bg: "bg-[var(--color-primary)]/10",
-    border: "border-[var(--color-primary)]/60",
-    iconBg: "bg-[var(--color-primary)]",
+    bg: "bg-(--color-primary)/10",
+    border: "border-(--color-primary)/60",
+    iconBg: "bg-(--color-primary)",
     iconColor: "text-white",
   },
 ];
@@ -98,7 +98,7 @@ function StatCard({
     <>
       <SmoothScroll>
         <div
-          className={`relative group bg-gradient-to-br ${stat.bg} border-2 ${stat.border} rounded-tr-4xl rounded-bl-4xl p-8 overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-1`}
+          className={`relative group bg-linear-to-br ${stat.bg} border-2 ${stat.border} rounded-tr-4xl rounded-bl-4xl p-8 overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-1`}
           style={{
             transitionDelay: `${index * 80}ms`,
             opacity: inView ? 1 : 0,
@@ -428,22 +428,22 @@ export default function OurWorkPage() {
         <section className="container mx-auto">
           <div className="text-center mb-10">
             <p
-              className="text-[var(--color-secondary)]
+              className="text-(--color-secondary)
  text-[10px] font-bold tracking-[0.3em] uppercase mb-3 flex items-center justify-center gap-3"
             >
               <span
-                className="w-8 h-px bg-[var(--color-secondary)]
+                className="w-8 h-px bg-(--color-secondary)
 "
               />
               Map
               <span
-                className="w-8 h-px bg-[var(--color-secondary)]
+                className="w-8 h-px bg-(--color-secondary)
 "
               />
             </p>
             <h1 className="text-black text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
               Structures Created by{" "}
-              <span className="text-[var(--color-primary)]">
+              <span className="text-(--color-primary)">
                 Girganga Parivar Trust
               </span>
             </h1>
@@ -451,10 +451,10 @@ export default function OurWorkPage() {
 
           {/* Toolbar */}
           <div className="flex flex-wrap items-center gap-3 mb-5">
-            <div className="flex items-center gap-2 border-2 border-[var(--color-primary)] rounded-xl px-4 py-2.5 bg-[var(--color-primary)]/5 focus-within:border-[var(--color-primary)] focus-within:bg-white transition-colors flex-1 max-w-xs">
+            <div className="flex items-center gap-2 border-2 border-(--color-primary) rounded-xl px-4 py-2.5 bg-(--color-primary)/5 focus-within:border-(--color-primary) focus-within:bg-white transition-colors flex-1 max-w-xs">
               <Search
                 size={15}
-                className="text-[var(--color-primary)] shrink-0"
+                className="text-(--color-primary) shrink-0"
               />
               <input
                 type="text"
@@ -469,8 +469,8 @@ export default function OurWorkPage() {
               onClick={() => setShowLakes((v) => !v)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 text-sm font-semibold transition-all ${
                 showLakes
-                  ? "bg-[var(--color-primary)] border-[var(--color-primary)] text-white shadow-lg "
-                  : "bg-white border-[var(--color-primary)]/20 text-[var(--color-primary)] hover:border-[var(--color-primary)]"
+                  ? "bg-(--color-primary) border-(--color-primary) text-white shadow-lg "
+                  : "bg-white border-(--color-primary)/20 text-(--color-primary) hover:border-(--color-primary)"
               }`}
             >
               <Waves size={15} strokeWidth={1.5} />
@@ -481,8 +481,8 @@ export default function OurWorkPage() {
               onClick={() => setShowDams((v) => !v)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 text-sm font-semibold transition-all ${
                 showDams
-                  ? "bg-[var(--color-primary)] border-[var(--color-primary)] text-white shadow-lg"
-                  : "bg-white border-[var(--color-primary)]/20 text-[var(--color-primary)] hover:border-[var(--color-primary)]"
+                  ? "bg-(--color-primary) border-(--color-primary) text-white shadow-lg"
+                  : "bg-white border-(--color-primary)/20 text-(--color-primary) hover:border-(--color-primary)"
               }`}
             >
               <MapPin size={15} strokeWidth={1.5} />
@@ -491,7 +491,7 @@ export default function OurWorkPage() {
 
             <button
               onClick={() => setShowPanel((v) => !v)}
-              className="ml-auto flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 border-[var(--color-primary)]/20 text-[var(--color-primary)] text-sm font-semibold hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)]/5 transition-all"
+              className="ml-auto flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 border-(--color-primary)/20 text-(--color-primary) text-sm font-semibold hover:border-(--color-primary) hover:bg-(--color-primary)/5 transition-all"
             >
               {showPanel ? <EyeOff size={15} /> : <Eye size={15} />}
               {showPanel ? "Hide Panel" : "Show Panel"}
@@ -502,8 +502,8 @@ export default function OurWorkPage() {
           <div className="relative rounded-3xl overflow-hidden border-2 border-emerald-600/15 shadow-2xl shadow-emerald-600/10">
             {!mounted && (
               <div className="h-[580px] flex flex-col items-center justify-center bg-emerald-50">
-                <div className="w-8 h-8 border-2 border-[var(--color-primary)] border-t-transparent rounded-full animate-spin mb-3" />
-                <p className="text-[var(--color-primary)] text-sm font-medium">
+                <div className="w-8 h-8 border-2 border-(--color-primary) border-t-transparent rounded-full animate-spin mb-3" />
+                <p className="text-(--color-primary) text-sm font-medium">
                   Loading map…
                 </p>
               </div>
@@ -517,7 +517,7 @@ export default function OurWorkPage() {
             {/* Floating side panel */}
             {mounted && showPanel && (
               <div className="absolute top-4 right-4 z-[1000] w-56 bg-white rounded-2xl shadow-xl border border-emerald-600/15 overflow-hidden">
-                <div className="bg-[var(--color-primary)] px-4 py-3 flex items-center gap-2">
+                <div className="bg-(--color-primary) px-4 py-3 flex items-center gap-2">
                   <MapPin size={14} className="text-white" strokeWidth={1.5} />
                   <p className="text-white text-xs font-bold uppercase tracking-widest">
                     Categories
@@ -525,20 +525,20 @@ export default function OurWorkPage() {
                 </div>
                 <div
                   onClick={() => setShowLakes((v) => !v)}
-                  className={`flex items-center justify-between px-4 py-3.5 border-b border-[var(--color-primary)]/10 cursor-pointer transition-colors ${showLakes ? "bg-emerald-600/5" : "bg-white hover:bg-emerald-600/5"}`}
+                  className={`flex items-center justify-between px-4 py-3.5 border-b border-(--color-primary)/10 cursor-pointer transition-colors ${showLakes ? "bg-emerald-600/5" : "bg-white hover:bg-emerald-600/5"}`}
                 >
                   <div className="flex items-center gap-2.5">
                     <Waves
                       size={14}
-                      className="text-[var(--color-primary)]"
+                      className="text-(--color-primary)"
                       strokeWidth={1.5}
                     />
-                    <span className="text-sm font-semibold text-[var(--color-primary)]">
+                    <span className="text-sm font-semibold text-(--color-primary)">
                       Lake ({LAKES.length})
                     </span>
                   </div>
                   <span
-                    className={`w-3 h-3 rounded-full border-2 transition-colors ${showLakes ? "bg-[var(--color-primary)] border-[var(--color-primary)]" : "bg-white border-gray-300"}`}
+                    className={`w-3 h-3 rounded-full border-2 transition-colors ${showLakes ? "bg-(--color-primary) border-(--color-primary)" : "bg-white border-gray-300"}`}
                   />
                 </div>
                 <div
@@ -548,19 +548,19 @@ export default function OurWorkPage() {
                   <div className="flex items-center gap-2.5">
                     <MapPin
                       size={14}
-                      className="text-[var(--color-primary)]"
+                      className="text-(--color-primary)"
                       strokeWidth={1.5}
                     />
-                    <span className="text-sm font-semibold text-[var(--color-primary)]">
+                    <span className="text-sm font-semibold text-(--color-primary)">
                       Check Dam ({CHECK_DAMS.length})
                     </span>
                   </div>
                   <span
-                    className={`w-3 h-3 rounded-full border-2 transition-colors ${showDams ? "bg-[var(--color-primary)] border-[var(--color-primary)]" : "bg-white border-gray-300"}`}
+                    className={`w-3 h-3 rounded-full border-2 transition-colors ${showDams ? "bg-(--color-primary) border-(--color-primary)" : "bg-white border-gray-300"}`}
                   />
                 </div>
                 <div className="px-4 py-2.5 bg-emerald-600/5 border-t border-emerald-600/10">
-                  <p className="text-[10px] text-[var(--color-primary)]/60 font-bold uppercase tracking-widest text-center">
+                  <p className="text-[10px] text-(--color-primary)/60 font-bold uppercase tracking-widest text-center">
                     GGPT · Gujarat, India
                   </p>
                 </div>
@@ -570,10 +570,10 @@ export default function OurWorkPage() {
             {/* Search badge */}
             {mounted && searchQuery && (
               <div className="absolute bottom-4 left-4 z-[1000] bg-white border border-emerald-600/20 rounded-xl px-4 py-2.5 shadow-lg flex items-center gap-2">
-                <Search size={13} className="text-[var(--color-primary)]" />
+                <Search size={13} className="text-(--color-primary)" />
                 <span className="text-xs text-gray-600 font-medium">
                   {filteredCount} result(s) for{" "}
-                  <span className="text-[var(--color-primary)] font-bold">
+                  <span className="text-(--color-primary) font-bold">
                     {searchQuery}
                   </span>
                 </span>
@@ -604,22 +604,22 @@ export default function OurWorkPage() {
               }}
             >
               <p
-                className="text-[var(--color-secondary)]
+                className="text-(--color-secondary)
  text-[10px] font-bold tracking-[0.3em] uppercase mb-3 flex items-center justify-center gap-3"
               >
                 <span
-                  className="w-8 h-px bg-[var(--color-secondary)]
+                  className="w-8 h-px bg-(--color-secondary)
 "
                 />
                 Proven Impact
                 <span
-                  className="w-8 h-px bg-[var(--color-secondary)]
+                  className="w-8 h-px bg-(--color-secondary)
 "
                 />
               </p>
               <h1 className="text-black text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
                 Measurable transformation <br />
-                <span className="text-[var(--color-primary)]">
+                <span className="text-(--color-primary)">
                   across Gujarat, India
                 </span>
               </h1>
@@ -677,22 +677,22 @@ export default function OurWorkPage() {
             >
               <div>
                 <p
-                  className="text-[var(--color-secondary)]
+                  className="text-(--color-secondary)
  text-[10px] font-bold tracking-[0.3em] uppercase mb-3 flex items-center justify-center gap-3"
                 >
                   <span
-                    className="w-8 h-px bg-[var(--color-secondary)]
+                    className="w-8 h-px bg-(--color-secondary)
 "
                   />
                   What People Say
                   <span
-                    className="w-8 h-px bg-[var(--color-secondary)]
+                    className="w-8 h-px bg-(--color-secondary)
 "
                   />
                 </p>
                 <h1 className="text-black text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-center lg:text-start">
                   Success{" "}
-                  <span className="text-[var(--color-primary)]"> Stories</span>
+                  <span className="text-(--color-primary)"> Stories</span>
                 </h1>
               </div>
               <p className="text-gray-400 text-sm lg:max-w-md leading-relaxed md:text-right text-center lg:text-start">
@@ -711,8 +711,8 @@ export default function OurWorkPage() {
                     onClick={() => setActive(i)}
                     className={`group text-left rounded-2xl px-6 py-5 border-2 transition-all duration-300 ${
                       active === i
-                        ? "bg-[var(--color-primary)] border-[var(--color-primary)] shadow-lg shadow-emerald-600/25"
-                        : "bg-white border-gray-100 hover:border-emerald-600/30 hover:bg-[var(--color-primary)]/50"
+                        ? "bg-(--color-primary) border-(--color-primary) shadow-lg shadow-emerald-600/25"
+                        : "bg-white border-gray-100 hover:border-emerald-600/30 hover:bg-(--color-primary)/50"
                     }`}
                     style={{
                       opacity: inView ? 1 : 0,
@@ -723,17 +723,17 @@ export default function OurWorkPage() {
                     }}
                   >
                     <div
-                      className={`text-3xl font-black mb-1 transition-colors ${active === i ? "text-[var(--color-secondary)]/30" : "text-[var(--color-primary)]/20"}`}
+                      className={`text-3xl font-black mb-1 transition-colors ${active === i ? "text-(--color-secondary)/30" : "text-(--color-primary)/20"}`}
                     >
                       {s.num}
                     </div>
                     <p
-                      className={`font-black text-sm transition-colors ${active === i ? "text-[var(--color-secondary)]" : "text-gray-800"}`}
+                      className={`font-black text-sm transition-colors ${active === i ? "text-(--color-secondary)" : "text-gray-800"}`}
                     >
                       {s.name}
                     </p>
                     <p
-                      className={`text-xs mt-0.5 transition-colors ${active === i ? "text-[var(--color-secondary)]/60" : "text-gray-400"}`}
+                      className={`text-xs mt-0.5 transition-colors ${active === i ? "text-(--color-secondary)/60" : "text-gray-400"}`}
                     >
                       {s.role}
                     </p>
@@ -743,7 +743,7 @@ export default function OurWorkPage() {
 
               {/* Right — big active card */}
               <div
-                className="relative bg-[var(--color-primary)] rounded-3xl overflow-hidden p-5 md:p-10 flex flex-col justify-between min-h-[340px]"
+                className="relative bg-(--color-primary) rounded-3xl overflow-hidden p-5 md:p-10 flex flex-col justify-between min-h-[340px]"
                 style={{
                   opacity: inView ? 1 : 0,
                   transform: inView ? "translateX(0)" : "translateX(24px)",
@@ -753,14 +753,14 @@ export default function OurWorkPage() {
                 }}
               >
                 {/* Big number watermark */}
-                <span className="absolute right-8 top-6 text-[8rem] font-black text-[var(--color-secondary)]/[0.04] leading-none select-none pointer-events-none">
+                <span className="absolute right-8 top-6 text-[8rem] font-black text-(--color-secondary)/[0.04] leading-none select-none pointer-events-none">
                   {STORIES[active].num}
                 </span>
 
                 {/* Large open-quote */}
                 <div className="relative z-10">
                   <div
-                    className="text-[var(--color-secondary)]
+                    className="text-(--color-secondary)
  text-7xl font-black leading-none mb-4 font-serif"
                   >
                     &ldquo;
@@ -773,20 +773,20 @@ export default function OurWorkPage() {
                 {/* Author row */}
                 <div className="relative z-10 flex flex-wrap items-center gap-4 mt-10 pt-8 border-t border-white/10">
                   <div
-                    className="w-12 h-12 bg-[var(--color-secondary)]
+                    className="w-12 h-12 bg-(--color-secondary)
  rounded-2xl flex items-center justify-center text-black font-black text-sm shrink-0"
                   >
                     {STORIES[active].initials}
                   </div>
                   <div>
                     <p
-                      className="text-[var(--color-secondary)]
+                      className="text-(--color-secondary)
  font-black"
                     >
                       {STORIES[active].name}
                     </p>
                     <p
-                      className="text-[var(--color-secondary)]
+                      className="text-(--color-secondary)
  text-xs mt-0.5"
                     >
                       {STORIES[active].role} · {STORIES[active].location}
@@ -798,7 +798,7 @@ export default function OurWorkPage() {
                       <button
                         key={i}
                         onClick={() => setActive(i)}
-                        className={`rounded-full transition-all duration-300 ${active === i ? "w-6 h-2 bg-[var(--color-secondary)]" : "w-2 h-2 bg-white/20 hover:bg-white/40"}`}
+                        className={`rounded-full transition-all duration-300 ${active === i ? "w-6 h-2 bg-(--color-secondary)" : "w-2 h-2 bg-white/20 hover:bg-white/40"}`}
                       />
                     ))}
                   </div>
@@ -808,7 +808,7 @@ export default function OurWorkPage() {
 
             {/* ── Bottom featured strip ── */}
             <div
-              className="mt-6  border border-[var(--color-primary)] rounded-2xl px-8 py-6 flex flex-col lg:flex-row items-center gap-6 justify-between transition-all duration-700"
+              className="mt-6  border border-(--color-primary) rounded-2xl px-8 py-6 flex flex-col lg:flex-row items-center gap-6 justify-between transition-all duration-700"
               style={{
                 opacity: inView ? 1 : 0,
                 transform: inView ? "translateY(0)" : "translateY(20px)",
@@ -816,13 +816,13 @@ export default function OurWorkPage() {
               }}
             >
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-[var(--color-primary)] rounded-xl flex items-center justify-center text-white shrink-0 text-lg font-black">
+                <div className="w-10 h-10 bg-(--color-primary) rounded-xl flex items-center justify-center text-white shrink-0 text-lg font-black">
                   &ldquo;
                 </div>
                 <p className="text-gray-700 text-sm italic leading-relaxed max-w-xl">
                   After deepening the check dam, water stayed till summer. Our
                   borewells revived, and migration stopped.
-                  <span className="block text-[var(--color-primary)] font-black not-italic mt-1">
+                  <span className="block text-(--color-primary) font-black not-italic mt-1">
                     — Chhaganbhai Patel, Rajkot
                   </span>
                 </p>
@@ -840,8 +840,8 @@ export default function OurWorkPage() {
                     type="submit"
                     className="btn-primary  group relative  gap-2
       font-semibold text-xs md:text-base px-10 py-4 cursor-pointer
-      bg-[var(--color-primary)] text-[var(--color-secondary)]
-      hover:text-[var(--color-primary)] overflow-hidden"
+      bg-(--color-primary) text-(--color-secondary)
+      hover:text-(--color-primary) overflow-hidden"
                   >
                     <span className="relative z-10 flex gap-2 items-center">
                       Contribute Now →
@@ -875,13 +875,13 @@ export default function OurWorkPage() {
             {/* Heading */}
             <div className="mb-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
               <div>
-                <p className="text-[var(--color-primary)] text-[10px] font-bold tracking-[0.25em] uppercase mb-3 flex items-center gap-3 justify-center lg:justify-start">
-                  <span className="w-8 h-px bg-[var(--color-primary)]" />
+                <p className="text-(--color-primary) text-[10px] font-bold tracking-[0.25em] uppercase mb-3 flex items-center gap-3 justify-center lg:justify-start">
+                  <span className="w-8 h-px bg-(--color-primary)" />
                   Explore More
                 </p>
                 <h2 className="text-black text-4xl sm:text-5xl font-bold leading-tight text-center lg:text-start">
                   Know More{" "}
-                  <span className="text-[var(--color-primary)]">About Us</span>
+                  <span className="text-(--color-primary)">About Us</span>
                 </h2>
               </div>
               <p className="text-gray-500 text-sm leading-relaxed text-center lg:text-start lg:max-w-xs">
@@ -926,10 +926,10 @@ export default function OurWorkPage() {
                         alt={label}
                         fill
                         className="object-cover h-auto group-hover:scale-105 transition-transform duration-500 brightness-75" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#111815] via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-[#111815] via-transparent to-transparent" />
 
                       {/* Icon badge */}
-                      <div className="absolute top-4 right-4 w-9 h-9 bg-[var(--color-primary)] rounded-lg flex items-center justify-center shadow-md">
+                      <div className="absolute top-4 right-4 w-9 h-9 bg-(--color-primary) rounded-lg flex items-center justify-center shadow-md">
                         <Icon
                           className="text-white"
                           size={16}
@@ -953,12 +953,12 @@ export default function OurWorkPage() {
                       </p>
 
                       <span
-                        className="mt-4 inline-flex items-center gap-2 text-[var(--color-secondary)]
+                        className="mt-4 inline-flex items-center gap-2 text-(--color-secondary)
  text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       >
                         Explore
                         <span
-                          className="w-5 h-px bg-[var(--color-secondary)]
+                          className="w-5 h-px bg-(--color-secondary)
  group-hover:w-8 transition-all duration-300"
                         />
                       </span>
@@ -977,16 +977,16 @@ export default function OurWorkPage() {
           <div className="max-w-7xl justify-self-center">
             <motion.div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-3">
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
-                <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+                <div className="h-px w-8 bg-(--color-secondary)" />
+                <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
                   Geographic Reach
                 </span>
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                <div className="h-px w-8 bg-(--color-secondary)" />
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
                 Impact{" "}
-                <span className="text-[var(--color-primary)]">Highlights</span>
+                <span className="text-(--color-primary)">Highlights</span>
               </h2>
 
               <p className="text-gray-500 mt-3 text-sm sm:text-base max-w-xl mx-auto">
@@ -1010,8 +1010,8 @@ export default function OurWorkPage() {
               {/* Highlights */}
               <motion.div className="space-y-4">
                 {/* Item 1 */}
-                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all duration-300 group">
-                  <div className="bg-[var(--color-primary)] w-1.5 rounded-full flex-shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
+                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-(--color-primary)/30 hover:shadow-md transition-all duration-300 group">
+                  <div className="bg-(--color-primary) w-1.5 rounded-full shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">
                       Water Recharge Capacity
@@ -1027,8 +1027,8 @@ export default function OurWorkPage() {
                 </div>
 
                 {/* Item 2 */}
-                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all duration-300 group">
-                  <div className="bg-[var(--color-secondary)] w-1.5 rounded-full flex-shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
+                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-(--color-primary)/30 hover:shadow-md transition-all duration-300 group">
+                  <div className="bg-(--color-secondary) w-1.5 rounded-full shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">
                       Rural Villages Reached
@@ -1046,8 +1046,8 @@ export default function OurWorkPage() {
                 </div>
 
                 {/* Item 3 */}
-                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all duration-300 group">
-                  <div className="bg-[var(--color-accent)] w-1.5 rounded-full flex-shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
+                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-(--color-primary)/30 hover:shadow-md transition-all duration-300 group">
+                  <div className="bg-[var(--color-accent)] w-1.5 rounded-full shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">
                       Water Structures Built
@@ -1063,8 +1063,8 @@ export default function OurWorkPage() {
                 </div>
 
                 {/* Item 4 */}
-                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all duration-300 group">
-                  <div className="bg-[var(--color-greenish)] w-1.5 rounded-full flex-shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
+                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-(--color-primary)/30 hover:shadow-md transition-all duration-300 group">
+                  <div className="bg-[var(--color-greenish)] w-1.5 rounded-full shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">
                       Mission Target

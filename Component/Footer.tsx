@@ -13,7 +13,7 @@ import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
 
 export default function Footer() {
   return (
-    <footer className=" relative w-full overflow-hidden bg-[var(--color-tertiary)] text-black">
+    <footer className=" relative w-full overflow-hidden bg-(--color-tertiary) text-black">
       {/* ── Dark overlay so text is readable over image ── */}
       <div className="absolute inset-0" />
 
@@ -21,7 +21,7 @@ export default function Footer() {
       <div className="relative z-10 text-black">
         {/* Thin greenish divider */}
         <div
-          className="h-px mx-8 lg:mx-16 bg-gradient-to-r from-transparent via
+          className="h-px mx-8 lg:mx-16 bg-linear-to-r from-transparent via
         
         to-transparent mb-14"
         />
@@ -33,7 +33,7 @@ export default function Footer() {
             <div className="flex flex-col">
               <Link href="/">
                 <div className="flex items-center  mb-5 cursor-pointer">
-                  <div className="rounded-xl p-1 flex-shrink-0 backdrop-blur-sm">
+                  <div className="rounded-xl p-1 shrink-0 backdrop-blur-sm">
                     <Image src="/image/logo.png"
                       alt="Girganga Parivar Trust"
                       width={66}
@@ -44,7 +44,7 @@ export default function Footer() {
                     <p className="text-black font-black text-base leading-tight">
                       Girganga
                     </p>
-                    <p className="text-[var(--color-primary)]  font-bold text-sm">
+                    <p className="text-(--color-primary)  font-bold text-sm">
                       Parivar Trust
                     </p>
                   </div>
@@ -91,9 +91,9 @@ export default function Footer() {
                     className="btn-secondary group"
                   >
                     <span
-                      className="relative z-10 btn-secondary w-9 h-9 rounded-lg bg-[var(--color-tertiary)] border-2 border-[var(--color-primary)]
-                      backdrop-blur-sm flex items-center justify-center text-[var(--color-primary)]
-                     hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-white"
+                      className="relative z-10 btn-secondary w-9 h-9 rounded-lg bg-(--color-tertiary) border-2 border-(--color-primary)
+                      backdrop-blur-sm flex items-center justify-center text-(--color-primary)
+                     hover:bg-(--color-primary) hover:border-(--color-primary) hover:text-white"
                     >
                       {icon}
                     </span>
@@ -107,7 +107,7 @@ export default function Footer() {
             {/* Quick Links */}
             <div>
               <h3 className="text-black font-bold text-sm uppercase tracking-widest mb-5 flex items-center gap-2">
-                <span className="w-5 h-0.5 bg-[var(--color-primary)] rounded-full inline-block" />
+                <span className="w-5 h-0.5 bg-(--color-primary) rounded-full inline-block" />
                 Quick Links
               </h3>
               <ul className="space-y-3">
@@ -121,11 +121,11 @@ export default function Footer() {
                   <li key={label}>
                     <Link
                       href={href}
-                      className="text-black text-sm hover:text-[var(--color-primary)] hover:pl-1.5
+                      className="text-black text-sm hover:text-(--color-primary) hover:pl-1.5
                                  transition-all duration-200 inline-flex items-center gap-1.5 group"
                     >
                       <span
-                        className="w-0 group-hover:w-2 h-px bg-[var(--color-primary)]
+                        className="w-0 group-hover:w-2 h-px bg-(--color-primary)
                                        transition-all duration-200 inline-block"
                       />
                       {label}
@@ -139,7 +139,7 @@ export default function Footer() {
 
             <div>
               <h3 className="text-black font-bold text-sm uppercase tracking-widest mb-5 flex items-center gap-2">
-                <span className="w-5 h-0.5 bg-[var(--color-primary)] rounded-full inline-block" />
+                <span className="w-5 h-0.5 bg-(--color-primary) rounded-full inline-block" />
                 Our Work
               </h3>
               <ul className="space-y-3">
@@ -152,11 +152,11 @@ export default function Footer() {
                   <li key={label}>
                     <Link
                       href={href}
-                      className="text-black text-sm hover:text-[var(--color-primary)] hover:pl-1.5
+                      className="text-black text-sm hover:text-(--color-primary) hover:pl-1.5
                                  transition-all duration-200 inline-flex items-center gap-1.5 group"
                     >
                       <span
-                        className="w-0 group-hover:w-2 h-px bg-[var(--color-primary)]
+                        className="w-0 group-hover:w-2 h-px bg-(--color-primary)
                                        transition-all duration-200 inline-block"
                       />
                       {label}
@@ -169,7 +169,7 @@ export default function Footer() {
             {/* Get Involved + Contact */}
             <div>
               <h3 className="text-black font-bold text-sm uppercase tracking-widest mb-5 flex items-center gap-2">
-                <span className="w-5 h-0.5 bg-[var(--color-primary)] rounded-full inline-block" />
+                <span className="w-5 h-0.5 bg-(--color-primary) rounded-full inline-block" />
                 Get Involved
               </h3>
               <ul className="space-y-3 mb-8">
@@ -181,11 +181,11 @@ export default function Footer() {
                   <li key={label}>
                     <Link
                       href={href}
-                      className="text-black text-sm hover:text-[var(--color-primary)] hover:pl-1.5
+                      className="text-black text-sm hover:text-(--color-primary) hover:pl-1.5
                                  transition-all duration-200 inline-flex items-center gap-1.5 group"
                     >
                       <span
-                        className="w-0 group-hover:w-2 h-px bg-[var(--color-primary)]
+                        className="w-0 group-hover:w-2 h-px bg-(--color-primary)
                                        transition-all duration-200 inline-block"
                       />
                       {label}
@@ -198,21 +198,21 @@ export default function Footer() {
               <div className="space-y-3">
                 <a
                   href="tel:+919409692693"
-                  className="flex items-center gap-2.5 text-black text-sm hover:text-[var(--color-primary)] transition-colors"
+                  className="flex items-center gap-2.5 text-black text-sm hover:text-(--color-primary) transition-colors"
                 >
                   <FiPhone
                     size={13}
-                    className="text-[var(--color-primary)] flex-shrink-0"
+                    className="text-(--color-primary) shrink-0"
                   />
                   +91 94096 92693
                 </a>
                 <a
                   href="mailto:info@girgangaparivartrust.com"
-                  className="flex items-center gap-2.5 text-black text-sm hover:text-[var(--color-primary)] transition-colors"
+                  className="flex items-center gap-2.5 text-black text-sm hover:text-(--color-primary) transition-colors"
                 >
                   <FiMail
                     size={13}
-                    className="text-[var(--color-primary)] flex-shrink-0"
+                    className="text-(--color-primary) shrink-0"
                   />
                   info@girgangaparivartrust.com
                 </a>
@@ -220,7 +220,7 @@ export default function Footer() {
                   <div className="flex items-start gap-2.5 text-black text-sm cursor-pointer select-none">
                     <FiMapPin
                       size={13}
-                      className="text-[var(--color-primary)] flex-shrink-0 mt-0.5"
+                      className="text-(--color-primary) shrink-0 mt-0.5"
                     />
                     <span>
                       Decora Capital, 5th Floor, Nr. McDonalds, Above HDFC Bank,
@@ -240,10 +240,10 @@ export default function Footer() {
           >
             <p>Registered Non-Profit Trust · All Rights Reserved</p>
             <p className="flex flex-wrap items-center justify-center gap-1.5">
-              Made with <span className="text-[var(--color-primary)]">♥</span>{" "}
+              Made with <span className="text-(--color-primary)">♥</span>{" "}
               for Water Conservation ·{" "}
               <Link href="/">
-                <span className="text-[var(--color-primary)] ">
+                <span className="text-(--color-primary) ">
                   Girganga Parivar Trust © 2026
                 </span>
               </Link>

@@ -179,17 +179,17 @@ export default function HomePage() {
           <div className="container relative z-[1] flex flex-col items-center justify-self-center text-center">
             {/* Eyebrow */}
             <div className="flex items-center gap-3 mb-4 sm:mb-6">
-              <div className="h-px w-8 sm:w-10 bg-[var(--color-secondary)]" />
-              <span className="text-[10px] sm:text-xs font-bold tracking-[0.25em] text-[var(--color-secondary)] uppercase">
+              <div className="h-px w-8 sm:w-10 bg-(--color-secondary)" />
+              <span className="text-[10px] sm:text-xs font-bold tracking-[0.25em] text-(--color-secondary) uppercase">
                 Girganga Parivar Trust
               </span>
-              <div className="h-px w-8 sm:w-10 bg-[var(--color-secondary)]" />
+              <div className="h-px w-8 sm:w-10 bg-(--color-secondary)" />
             </div>
 
             {/* Heading */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-4 sm:mb-6 max-w-5xl">
               Building a{" "}
-              <span className="text-[var(--color-secondary)]">
+              <span className="text-(--color-secondary)">
                 Water-Secure
               </span>{" "}
               Future for Rural India.
@@ -206,7 +206,7 @@ export default function HomePage() {
               <motion.div className="flex  gap-4 justify-center ">
                 <Link
                   href="/partner-with-us-csr"
-                  className="btn-secondary-outline w-70 justify-center group inline-flex items-center gap-2 font-semibold text-base px-9 py-4 bg-transparent hover:text-[var(--color-primary)] text-[var(--color-secondary)]"
+                  className="btn-secondary-outline w-70 justify-center group inline-flex items-center gap-2 font-semibold text-base px-9 py-4 bg-transparent hover:text-(--color-primary) text-(--color-secondary)"
                 >
                   <span className="relative z-10">
                     {" "}
@@ -220,7 +220,7 @@ export default function HomePage() {
               <motion.div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                 <Link
                   href="/support-a-structure"
-                  className="btn-secondary-outline w-70 justify-center group inline-flex items-center gap-2 font-semibold text-base px-9 py-4 bg-transparent hover:text-[var(--color-primary)] text-[var(--color-secondary)]"
+                  className="btn-secondary-outline w-70 justify-center group inline-flex items-center gap-2 font-semibold text-base px-9 py-4 bg-transparent hover:text-(--color-primary) text-(--color-secondary)"
                 >
                   <span className="relative z-10">
                     {" "}
@@ -234,7 +234,7 @@ export default function HomePage() {
               <motion.div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                 <Link
                   href="/contact"
-                  className="btn-secondary-outline w-70 justify-center group inline-flex items-center gap-2 font-semibold text-base px-9 py-4 bg-transparent hover:text-[var(--color-primary)] text-[var(--color-secondary)]"
+                  className="btn-secondary-outline w-70 justify-center group inline-flex items-center gap-2 font-semibold text-base px-9 py-4 bg-transparent hover:text-(--color-primary) text-(--color-secondary)"
                 >
                   <span className="relative z-10"> Contact Us &#8594;</span>
 
@@ -257,18 +257,18 @@ export default function HomePage() {
               className="text-center mb-12"
             >
               <div className="flex items-center justify-center gap-3 mb-3">
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
-                <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+                <div className="h-px w-8 bg-(--color-secondary)" />
+                <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
                   Numbers That Matter
                 </span>
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                <div className="h-px w-8 bg-(--color-secondary)" />
               </div>
               <h2
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 Our Impact,{" "}
-                <span className="text-[var(--color-primary)]">
+                <span className="text-(--color-primary)">
                   by the Numbers
                 </span>
               </h2>
@@ -285,12 +285,12 @@ export default function HomePage() {
                   className="group relative bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                 >
                   {/* Hover BG */}
-                  <div className="absolute inset-0 bg-[var(--color-tertiary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                  <div className="absolute inset-0 bg-(--color-tertiary) opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
 
                   <div className="relative z-10">
                     <div className="text-2xl mb-2">{stat.icon}</div>
                     <p
-                      className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-primary)] leading-none mb-1"
+                      className="text-2xl sm:text-3xl lg:text-4xl font-bold text-(--color-primary) leading-none mb-1"
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                       {isVisible ? (
@@ -302,7 +302,7 @@ export default function HomePage() {
                     <p className="text-gray-500 text-xs sm:text-sm font-medium leading-snug mt-1">
                       {stat.label}
                     </p>
-                    <div className="mt-3 h-0.5 w-8 bg-[var(--color-secondary)] rounded-full group-hover:w-16 transition-all duration-400" />
+                    <div className="mt-3 h-0.5 w-8 bg-(--color-secondary) rounded-full group-hover:w-16 transition-all duration-400" />
                   </div>
                 </motion.div>
               ))}
@@ -313,22 +313,22 @@ export default function HomePage() {
         {/* ══════════════════════════════════════════════
           SECTION 3 — OUR APPROACH
       ══════════════════════════════════════════════ */}
-        <section className="bg-[var(--color-tertiary)]/50">
+        <section className="bg-(--color-tertiary)/50">
           <div className="container">
             <motion.div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-3">
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
-                <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+                <div className="h-px w-8 bg-(--color-secondary)" />
+                <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
                   How We Work
                 </span>
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                <div className="h-px w-8 bg-(--color-secondary)" />
               </div>
               <h2
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 Our{" "}
-                <span className="text-[var(--color-primary)]">Approach</span>
+                <span className="text-(--color-primary)">Approach</span>
               </h2>
             </motion.div>
 
@@ -339,9 +339,9 @@ export default function HomePage() {
                   className="group bg-white rounded-2xl p-7 sm:p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-400 relative overflow-hidden"
                 >
                   {/* Top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-t-2xl" />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-(--color-primary) to-[var(--color-secondary)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-t-2xl" />
 
-                  <div className="w-14 h-14 rounded-xl bg-[var(--color-tertiary)] flex items-center justify-center text-[var(--color-primary)] mb-5 group-hover:bg-[var(--color-primary)] group-hover:text-white transition-colors duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-(--color-tertiary) flex items-center justify-center text-(--color-primary) mb-5 group-hover:bg-(--color-primary) group-hover:text-white transition-colors duration-300">
                     {ap.icon}
                   </div>
                   <h3
@@ -366,16 +366,16 @@ export default function HomePage() {
           <div className="container">
             <motion.div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-3">
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
-                <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+                <div className="h-px w-8 bg-(--color-secondary)" />
+                <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
                   Geographic Reach
                 </span>
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                <div className="h-px w-8 bg-(--color-secondary)" />
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
                 Impact{" "}
-                <span className="text-[var(--color-primary)]">Highlights</span>
+                <span className="text-(--color-primary)">Highlights</span>
               </h2>
 
               <p className="text-gray-500 mt-3 text-sm sm:text-base max-w-xl mx-auto">
@@ -399,8 +399,8 @@ export default function HomePage() {
               {/* Highlights */}
               <motion.div className="space-y-4">
                 {/* Item 1 */}
-                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all duration-300 group">
-                  <div className="bg-[var(--color-primary)] w-1.5 rounded-full flex-shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
+                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-(--color-primary)/30 hover:shadow-md transition-all duration-300 group">
+                  <div className="bg-(--color-primary) w-1.5 rounded-full shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">
                       Water Recharge Capacity
@@ -416,8 +416,8 @@ export default function HomePage() {
                 </div>
 
                 {/* Item 2 */}
-                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all duration-300 group">
-                  <div className="bg-[var(--color-secondary)] w-1.5 rounded-full flex-shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
+                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-(--color-primary)/30 hover:shadow-md transition-all duration-300 group">
+                  <div className="bg-(--color-secondary) w-1.5 rounded-full shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">
                       Rural Villages Reached
@@ -434,8 +434,8 @@ export default function HomePage() {
                 </div>
 
                 {/* Item 3 */}
-                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all duration-300 group">
-                  <div className="bg-[var(--color-accent)] w-1.5 rounded-full flex-shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
+                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-(--color-primary)/30 hover:shadow-md transition-all duration-300 group">
+                  <div className="bg-[var(--color-accent)] w-1.5 rounded-full shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">
                       Water Structures Built
@@ -451,8 +451,8 @@ export default function HomePage() {
                 </div>
 
                 {/* Item 4 */}
-                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all duration-300 group">
-                  <div className="bg-[var(--color-greenish)] w-1.5 rounded-full flex-shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
+                <div className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-(--color-primary)/30 hover:shadow-md transition-all duration-300 group">
+                  <div className="bg-[var(--color-greenish)] w-1.5 rounded-full shrink-0 self-stretch min-h-[3rem] group-hover:w-2 transition-all duration-300" />
                   <div>
                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-0.5">
                       Mission Target
@@ -475,7 +475,7 @@ export default function HomePage() {
         {/* ══════════════════════════════════════════════
           SECTION — TRUST STRIP
       ══════════════════════════════════════════════ */}
-        <section className="bg-[var(--color-tertiary)]/50">
+        <section className="bg-(--color-tertiary)/50">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -484,17 +484,17 @@ export default function HomePage() {
               className="text-center mb-12"
             >
               <div className="flex items-center justify-center gap-3 mb-3">
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
-                <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+                <div className="h-px w-8 bg-(--color-secondary)" />
+                <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
                   Trusted at Scale
                 </span>
-                <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                <div className="h-px w-8 bg-(--color-secondary)" />
               </div>
               <h2
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900"
               >
                 Our Growing{" "}
-                <span className="text-[var(--color-primary)]">Footprint</span>
+                <span className="text-(--color-primary)">Footprint</span>
               </h2>
             </motion.div>
 
@@ -555,22 +555,22 @@ export default function HomePage() {
       ══════════════════════════════════════════════ */}
         <section className="relative overflow-hidden">
           {/* BG */}
-          <div className="absolute inset-0 bg-cover bg-center bg-[var(--color-primary)] " />{" "}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-secondary)]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute inset-0 bg-cover bg-center bg-(--color-primary) " />{" "}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-(--color-secondary)/10 rounded-full blur-3xl pointer-events-none" />
           <div className="container relative z-[2]">
             <div className="max-w-3xl mx-auto text-center">
               <motion.div>
                 <div className="flex items-center justify-center gap-3 mb-4">
-                  <div className="h-px w-8 bg-[var(--color-secondary)]" />
-                  <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+                  <div className="h-px w-8 bg-(--color-secondary)" />
+                  <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
                     Join the Movement
                   </span>
-                  <div className="h-px w-8 bg-[var(--color-secondary)]" />
+                  <div className="h-px w-8 bg-(--color-secondary)" />
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5">
                   Be Part of India&apos;s Largest{" "}
-                  <span className="text-[var(--color-secondary)]">
+                  <span className="text-(--color-secondary)">
                     Water Revival
                   </span>
                 </h2>

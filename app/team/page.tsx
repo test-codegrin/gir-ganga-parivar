@@ -57,7 +57,7 @@ function CustomSelect({
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
       >
         <span className={selected ? "text-slate-800" : "text-slate-400"}>
           {selected || placeholder}
@@ -122,7 +122,7 @@ export default function Contact() {
   const [sent, setSent] = useState(false);
 
   const inputClass =
-    "w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]";
+    "w-full px-4 py-3 rounded-xl border border-slate-200 text-sm bg-slate-50 focus:outline-none focus:ring-2 focus:ring-(--color-primary)";
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -174,16 +174,16 @@ export default function Contact() {
     <section className="container py-10">
       <motion.div className="text-center mb-12 space-y-5">
         <div className="flex items-center justify-center gap-3 mb-3">
-          <div className="h-px w-8 bg-[var(--color-secondary)]" />
-          <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+          <div className="h-px w-8 bg-(--color-secondary)" />
+          <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
             Volunteer With Us
           </span>
-          <div className="h-px w-8 bg-[var(--color-secondary)]" />
+          <div className="h-px w-8 bg-(--color-secondary)" />
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
           Join the Movement{" "}
-          <span className="text-[var(--color-primary)]">for Water </span>{" "}
+          <span className="text-(--color-primary)">for Water </span>{" "}
           Conservation
         </h2>
         <p className="text-center text-gray-500 max-w-7xl justify-self-center">
@@ -372,7 +372,7 @@ export default function Contact() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[var(--color-primary)] text-white py-3 rounded-xl font-bold"
+            className="w-full bg-(--color-primary) text-white py-3 rounded-xl font-bold"
           >
             {loading ? "Submitting..." : "Submit Application"}
           </button>

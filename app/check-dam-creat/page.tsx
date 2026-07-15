@@ -104,7 +104,7 @@ function HeroSlider() {
             fill
             className="w-full h-full object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
 
           {/* Caption */}
           <motion.div
@@ -113,7 +113,7 @@ function HeroSlider() {
             transition={{ delay: 0.3 }}
             className="absolute bottom-0 left-0 right-0 p-7"
           >
-            <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-400 bg-[var(--color-tertiary)] border border-amber-400/30 px-3 py-1 rounded-full">
+            <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-400 bg-(--color-tertiary) border border-amber-400/30 px-3 py-1 rounded-full">
               {images[current].tag}
             </span>
             <h3 className="text-white text-xl font-bold mt-3 leading-snug">
@@ -179,7 +179,7 @@ function GalleryCard({ img, i }: { img: { src: string; title: string; tag: strin
         style={{ position: "absolute", inset: 0 }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
 
       {/* Dark layer */}
-      <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/10 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-400" />
+      <div className="absolute inset-0 bg-linear-to-t from-stone-900/90 via-stone-900/10 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-400" />
 
       {/* Tag */}
       <div className="absolute top-4 left-4 z-10">
@@ -213,10 +213,10 @@ export default function Media() {
           >
             <div className="text-center lg:text-start">
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
-                <div className="w-8 h-8 rounded-full bg-[var(--color-tertiary)] border border-[var(--color-primary)] flex items-center justify-center">
-                  <Droplets size={15} className="text-[var(--color-primary)]" />
+                <div className="w-8 h-8 rounded-full bg-(--color-tertiary) border border-(--color-primary) flex items-center justify-center">
+                  <Droplets size={15} className="text-(--color-primary)" />
                 </div>
-                <span className="text-[10px] tracking-[0.35em] uppercase font-bold text-[var(--color-secondary)]">
+                <span className="text-[10px] tracking-[0.35em] uppercase font-bold text-(--color-secondary)">
                   Project Gallery
                 </span>
               </div>
@@ -224,7 +224,7 @@ export default function Media() {
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-stone-900 tracking-tight">
                 Our Check
                 <br />
-                <span className="text-[var(--color-primary)]">Dam Work</span>
+                <span className="text-(--color-primary)">Dam Work</span>
               </h1>
             </div>
 
@@ -262,7 +262,7 @@ export default function Media() {
                   alt={img.title}
                   fill
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 absolute inset-0" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/75 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <h3 className="text-white text-sm font-semibold leading-tight">
                     {img.title}
@@ -283,16 +283,16 @@ export default function Media() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-[10px] tracking-[0.35em] uppercase font-bold text-[var(--color-secondary)] mb-4 flex items-center justify-center lg:justify-start gap-3">
-                <span className="w-8 h-px bg-[var(--color-secondary)]" />
+              <p className="text-[10px] tracking-[0.35em] uppercase font-bold text-(--color-secondary) mb-4 flex items-center justify-center lg:justify-start gap-3">
+                <span className="w-8 h-px bg-(--color-secondary)" />
                 Explore More
-                <span className="w-8 h-px bg-[var(--color-secondary)]" />
+                <span className="w-8 h-px bg-(--color-secondary)" />
               </p>
 
               <h2 className="text-4xl sm:text-5xl font-bold text-stone-900 leading-tight mb-6 text-center lg:text-start">
                 Know More
                 <br />
-                <p className="text-[var(--color-primary)] not-italic">
+                <p className="text-(--color-primary) not-italic">
                   About Us
                 </p>
               </h2>
@@ -317,7 +317,7 @@ export default function Media() {
                   alt="Check Dam Location"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-stone-900/70 via-transparent to-transparent" />
 
                 {/* Floating label */}
                 <div className="absolute bottom-6 left-6 right-6">
@@ -332,7 +332,7 @@ export default function Media() {
                         </h3>
                       </div>
                       <Link href="/Our-Work">
-                        <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] hover:bg-[var(--color-secondary)]  transition flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-full bg-(--color-primary) hover:bg-(--color-secondary)  transition flex items-center justify-center">
                           <ArrowUpRight
                             size={16}
                             className="text-white hover:text-black"

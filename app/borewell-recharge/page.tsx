@@ -373,21 +373,21 @@ export default function BorewellRecharge() {
         {/* ── TITLE & DESCRIPTION ── */}
         <div className="container mx-auto px-5 sm:px-8 pt-12 pb-10 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-10 bg-[var(--color-secondary)]" />
-            <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.2em] uppercase">
+            <div className="h-px w-10 bg-(--color-secondary)" />
+            <span className="text-(--color-secondary) text-xs font-bold tracking-[0.2em] uppercase">
               Urban Water Conservation
             </span>
-            <div className="h-px w-10 bg-[var(--color-secondary)]" />
+            <div className="h-px w-10 bg-(--color-secondary)" />
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
             Borewell Recharge -{" "}
-            <span className="text-[var(--color-primary)]">
+            <span className="text-(--color-primary)">
               Urban Water Conservation Initiative
             </span>
           </h1>
 
-          <div className="w-16 h-1 bg-[var(--color-primary)] rounded-full mx-auto mb-7" />
+          <div className="w-16 h-1 bg-(--color-primary) rounded-full mx-auto mb-7" />
 
           <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
             Girganga Parivar Trust is actively expanding its water conservation
@@ -400,7 +400,7 @@ export default function BorewellRecharge() {
             efficiently channelled back into the aquifers, reducing surface
             runoff and improving long-term water security. To date, the Trust
             has successfully completed{" "}
-            <span className="font-bold text-[var(--color-primary)]">
+            <span className="font-bold text-(--color-primary)">
               1,370 borewell recharge structures
             </span>
             , significantly contributing to urban water resilience and
@@ -408,19 +408,19 @@ export default function BorewellRecharge() {
           </p>
         </div>
          {/* ── VIDEO SECTION ── */}
-        <div className="bg-[var(--color-tertiary)] py-16 px-4 sm:px-8">
+        <div className="bg-(--color-tertiary) py-16 px-4 sm:px-8">
           {/* Section header */}
           <div className="container mx-auto text-center mb-10">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="h-px w-10 bg-[var(--color-secondary)]" />
-              <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.2em] uppercase">
+              <div className="h-px w-10 bg-(--color-secondary)" />
+              <span className="text-(--color-secondary) text-xs font-bold tracking-[0.2em] uppercase">
                 Field Documentation
               </span>
-              <div className="h-px w-10 bg-[var(--color-secondary)]" />
+              <div className="h-px w-10 bg-(--color-secondary)" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold leading-tight mb-4">
               Watch Our Work in{" "}
-              <span className="text-[var(--color-primary)]">Action</span>
+              <span className="text-(--color-primary)">Action</span>
             </h2>
           </div>
 

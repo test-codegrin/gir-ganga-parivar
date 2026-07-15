@@ -26,11 +26,11 @@ const stagger = { show: { transition: { staggerChildren: 0.12 } } };
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center justify-center gap-3 mb-4">
-      <span className="block w-7 h-px bg-[var(--color-secondary)]" />
-      <span className="text-[0.65rem] font-bold tracking-[0.25em] uppercase text-[var(--color-secondary)] font-[var(--font)]">
+      <span className="block w-7 h-px bg-(--color-secondary)" />
+      <span className="text-[0.65rem] font-bold tracking-[0.25em] uppercase text-(--color-secondary) font-[var(--font)]">
         {children}
       </span>
-      <span className="block w-7 h-px bg-[var(--color-secondary)]" />
+      <span className="block w-7 h-px bg-(--color-secondary)" />
     </div>
   );
 }
@@ -50,7 +50,7 @@ function SectionHeader({
     <div className="text-center mb-10 space-y-5">
       <Eyebrow>{eyebrow}</Eyebrow>
       <h2 className="font-[var(--font)] text-[clamp(2rem,3.5vw,3rem)] font-bold leading-[1.15] text-gray-900 mb-4">
-        {title} <span className="text-[var(--color-primary)]">{highlight}</span>
+        {title} <span className="text-(--color-primary)">{highlight}</span>
       </h2>
       {subtitle && (
         <p className="text-gray-500 text-[0.92rem] leading-[1.8] mx-auto font-[var(--font)]">
@@ -62,14 +62,14 @@ function SectionHeader({
         real-world environmental action in rural communities.
       </p>
 
-      <div className="w-12 h-[3px] bg-[var(--color-secondary)] rounded-full mx-auto mt-5" />
+      <div className="w-12 h-[3px] bg-(--color-secondary) rounded-full mx-auto mt-5" />
     </div>
   );
 }
 
 function Tag({
   children,
-  bg = "bg-[var(--color-tertiary)]",
+  bg = "bg-(--color-tertiary)",
   color = "text-[var(--color-greenish)]",
 }: {
   children: React.ReactNode;
@@ -96,10 +96,10 @@ function Field({
 }) {
   return (
     <div className={`flex flex-col gap-1.5 ${full ? "col-span-2" : ""}`}>
-      <label className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-[var(--color-primary)] font-[var(--font)]">
+      <label className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-(--color-primary) font-[var(--font)]">
         {label}
       </label>
-      <div className="flex items-center gap-2 bg-[var(--color-tertiary)] rounded-xl px-4 py-2.5 border border-transparent">
+      <div className="flex items-center gap-2 bg-(--color-tertiary) rounded-xl px-4 py-2.5 border border-transparent">
         {children}
       </div>
     </div>
@@ -189,8 +189,8 @@ const govFeatures = [
 const eduCards = [
   {
     Icon: GraduationCap,
-    iconBg: "bg-[var(--color-tertiary)]",
-    iconColor: "text-[var(--color-primary)]",
+    iconBg: "bg-(--color-tertiary)",
+    iconColor: "text-(--color-primary)",
     iconColorHex: "var(--color-primary)",
     title: "Student Field Exposure & Learning Visits",
     desc: "Educational institutions can organize field visits to GGPT project locations where students can observe water conservation structures such as check dams and groundwater recharge systems. These visits help students understand practical approaches to watershed development and rural water management.",
@@ -218,7 +218,7 @@ const eduCards = [
   {
     Icon: Briefcase,
     iconBg: "bg-[var(--color-dark)]",
-    iconColor: "text-[var(--color-primary)]",
+    iconColor: "text-(--color-primary)",
     iconColorHex: "var(--color-primary)",
     title: "Internships & Student Engagement",
     desc: "Students from various disciplines such as environmental science, rural development, engineering, and social sciences can participate in internships and field projects with GGPT. These opportunities provide hands-on experience in community engagement, environmental management, and development practices.",
@@ -273,9 +273,9 @@ export default function Support() {
           {/* ══════════════════════════════════
           1 · HERO
       ══════════════════════════════════ */}
-          <section className="bg-[var(--color-primary)] grid relative overflow-hidden">
+          <section className="bg-(--color-primary) grid relative overflow-hidden">
             <div className="container">
-              <div className="absolute inset-0 pointer-events-none bg-text-[var(--color-primary)]" />
+              <div className="absolute inset-0 pointer-events-none bg-text-(--color-primary)" />
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center justify-self-center relative z-10 max-w-7xl w-full">
                 {/* LEFT */}
@@ -296,7 +296,7 @@ export default function Support() {
                     Working Together
                     <br />
                     For{" "}
-                    <span className="text-[var(--color-secondary)] italic">
+                    <span className="text-(--color-secondary) italic">
                       Sustainable
                     </span>
                     <br />
@@ -410,7 +410,7 @@ export default function Support() {
                   <motion.div
                     key={i}
                     variants={fadeUp}
-                    className="bg-[var(--color-tertiary)] rounded-2xl p-7 border border-[rgba(0,157,196,0.12)] relative"
+                    className="bg-(--color-tertiary) rounded-2xl p-7 border border-[rgba(0,157,196,0.12)] relative"
                     whileHover={{
                       y: -6,
                       boxShadow: "0 20px 40px rgba(0,157,196,.12)",
@@ -458,7 +458,7 @@ export default function Support() {
               </motion.div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Alignment{" "}
-                <span className="text-[var(--color-primary)]">
+                <span className="text-(--color-primary)">
                   with Global Sustainability
                 </span>{" "}
                 Goals
@@ -480,7 +480,7 @@ export default function Support() {
                       height={400}
                       className="w-full h-auto object-contain mb-4 rounded-2xl" quality={75} />
 
-                    <h3 className="text-xl font-semibold mb-2 text-[var(--color-primary)]">
+                    <h3 className="text-xl font-semibold mb-2 text-(--color-primary)">
                       {item.title}
                     </h3>
 
@@ -494,7 +494,7 @@ export default function Support() {
           {/* ══════════════════════════════════
           4 · GOVERNMENT COLLABORATION
       ══════════════════════════════════ */}
-          <section className="bg-[var(--color-tertiary)] container">
+          <section className="bg-(--color-tertiary) container">
             <div className="max-w-[1200px] mx-auto">
               <motion.div
                 initial="hidden"
@@ -523,12 +523,12 @@ export default function Support() {
                     <motion.div
                       key={i}
                       variants={fadeUp}
-                      className="bg-white rounded-[18px] px-7 py-6 border-l-4 border-[var(--color-primary)] space-y-5"
+                      className="bg-white rounded-[18px] px-7 py-6 border-l-4 border-(--color-primary) space-y-5"
                       whileHover={{ x: 6 }}
                       transition={{ type: "tween", duration: 0.25 }}
                     >
                       <h4 className="font-semibold text-[0.95rem] flex gap-3 items-center  text-gray-900 mb-2.5 font-[var(--font)]">
-                        <div className="text-[var(--color-primary)] bg-[var(--color-tertiary)] p-2 border border-[var(--color-primary)]">
+                        <div className="text-(--color-primary) bg-(--color-tertiary) p-2 border border-(--color-primary)">
                           {f.icon}
                         </div>
 
@@ -551,7 +551,7 @@ export default function Support() {
                   whileInView="show"
                   viewport={{ once: true }}
                   variants={fadeUp}
-                  className="rounded-3xl p-10 text-white bg-[var(--color-primary)]"
+                  className="rounded-3xl p-10 text-white bg-(--color-primary)"
                 >
                   <h3 className="font-[var(--font)] font-bold text-[1.6rem] mb-4">
                     Strengthening Public–Community Partnerships
@@ -579,7 +579,7 @@ export default function Support() {
                         key={i}
                         className="text-[0.82rem] text-white/[0.88] flex gap-2.5 items-start font-[var(--font)]"
                       >
-                        <span className="text-[var(--color-secondary)] font-bold">
+                        <span className="text-(--color-secondary) font-bold">
                           ✓
                         </span>
                         {item}
@@ -624,7 +624,7 @@ export default function Support() {
                     <motion.div
                       key={i}
                       variants={fadeUp}
-                      className="bg-[var(--color-tertiary)] rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-[rgba(0,157,196,0.1)]"
+                      className="bg-(--color-tertiary) rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-[rgba(0,157,196,0.1)]"
                       whileHover={{
                         y: -5,
                         boxShadow: "0 16px 40px rgba(0,157,196,.10)",
@@ -659,7 +659,7 @@ export default function Support() {
                             key={j}
                             className="text-xs sm:text-sm text-gray-500 flex gap-2 items-start font-[var(--font)]"
                           >
-                            <span className="text-[var(--color-secondary)] font-bold shrink-0">
+                            <span className="text-(--color-secondary) font-bold shrink-0">
                               –
                             </span>
                             {item}
@@ -673,9 +673,9 @@ export default function Support() {
                 {/* Bottom Wide Card */}
                 <motion.div
                   variants={fadeUp}
-                  className="col-span-1 sm:col-span-2 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 text-white bg-[var(--color-primary)]"
+                  className="col-span-1 sm:col-span-2 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 text-white bg-(--color-primary)"
                 >
-                  <h4 className="font-[var(--font)] font-bold text-[var(--color-secondary)] text-xl sm:text-2xl lg:text-[1.8rem] mb-3 sm:mb-4">
+                  <h4 className="font-[var(--font)] font-bold text-(--color-secondary) text-xl sm:text-2xl lg:text-[1.8rem] mb-3 sm:mb-4">
                     Building the Next Generation of Water Stewards
                   </h4>
 

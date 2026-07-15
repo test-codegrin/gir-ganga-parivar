@@ -186,15 +186,15 @@ export default function Photos() {
         {/* Header */}
         <section className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-3">
-            <div className="h-px w-8 bg-[var(--color-secondary)]" />
-            <span className="text-[var(--color-secondary)] text-xs font-bold tracking-[0.22em] uppercase">
+            <div className="h-px w-8 bg-(--color-secondary)" />
+            <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
              Gallery
             </span>
-            <div className="h-px w-8 bg-[var(--color-secondary)]" />
+            <div className="h-px w-8 bg-(--color-secondary)" />
           </div>
           <h1 className="text-black text-4xl sm:text-5xl font-bold">
             Some Of Our{" "}
-            <span className="text-[var(--color-primary)]">Photo Galleries</span>
+            <span className="text-(--color-primary)">Photo Galleries</span>
           </h1>
         </section>
 

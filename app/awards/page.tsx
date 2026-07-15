@@ -177,7 +177,7 @@ function AwardCard({
         </div>
 
         {/* Year ribbon */}
-        <span className="absolute top-3 right-3 z-10 text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/90 text-[var(--color-primary)] shadow-sm">
+        <span className="absolute top-3 right-3 z-10 text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/90 text-(--color-primary) shadow-sm">
           {award.year}
         </span>
 
@@ -193,11 +193,11 @@ function AwardCard({
 
       {/* Body */}
       <div className="flex flex-col flex-1 px-5 py-6 gap-2 bg-white">
-        <span className="self-start text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full border border-[var(--color-primary)] select-none bg-[var(--color-primary)]/10 text-[var(--color-primary)]">
+        <span className="self-start text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full border border-(--color-primary) select-none bg-(--color-primary)/10 text-(--color-primary)">
           {award.badge}
         </span>
 
-        <h3 className="text-gray-900 font-bold text-lg leading-snug mt-2 group-hover:text-[var(--color-primary)] transition-colors duration-300">
+        <h3 className="text-gray-900 font-bold text-lg leading-snug mt-2 group-hover:text-(--color-primary) transition-colors duration-300">
           {award.title}
         </h3>
 
@@ -211,7 +211,7 @@ function AwardCard({
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--color-primary)] mt-2 hover:gap-2.5 transition-all duration-300 w-fit"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-(--color-primary) mt-2 hover:gap-2.5 transition-all duration-300 w-fit"
           >
             Read Coverage <FiExternalLink size={13} />
           </a>
@@ -232,14 +232,14 @@ export default function AwardsSection() {
       <section className="container relative w-full text-center overflow-hidden">
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="text-center">
-            <p className="text-[var(--color-secondary)] text-[10px] font-bold tracking-[0.3em] uppercase mb-3 flex items-center justify-center gap-3">
-              <span className="w-8 h-px bg-[var(--color-secondary)]" />
+            <p className="text-(--color-secondary) text-[10px] font-bold tracking-[0.3em] uppercase mb-3 flex items-center justify-center gap-3">
+              <span className="w-8 h-px bg-(--color-secondary)" />
               Recognition & Honours
-              <span className="w-8 h-px bg-[var(--color-secondary)]" />
+              <span className="w-8 h-px bg-(--color-secondary)" />
             </p>
             <h1 className="text-black text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
               Awards Received by{" "}
-              <span className="text-[var(--color-primary)]">
+              <span className="text-(--color-primary)">
                 Girganga Parivar
               </span>
             </h1>
@@ -248,7 +248,7 @@ export default function AwardsSection() {
               to water conservation, river rejuvenation, and sustainable
               environmental initiatives across Gujarat.
             </p>
-            <div className="w-16 h-0.5 bg-[var(--color-primary)] mx-auto mt-10 rounded-full" />
+            <div className="w-16 h-0.5 bg-(--color-primary) mx-auto mt-10 rounded-full" />
           </div>
         </div>
       </section>
@@ -276,7 +276,7 @@ export default function AwardsSection() {
                 className="text-center rounded-2xl py-6 px-3 bg-white shadow-sm border border-[#e6f4ee]"
               >
                 <p
-                  className="font-extrabold text-[var(--color-primary)]"
+                  className="font-extrabold text-(--color-primary)"
                   style={{
                     fontSize: "clamp(1.4rem, 3vw, 2rem)",
                   }}
@@ -308,10 +308,10 @@ export default function AwardsSection() {
               href={newsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl px-6 sm:px-8 py-6 bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/20 hover:bg-[var(--color-primary)]/10 transition-colors duration-300"
+              className="group flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl px-6 sm:px-8 py-6 bg-(--color-primary)/5 border border-(--color-primary)/20 hover:bg-(--color-primary)/10 transition-colors duration-300"
             >
               <div className="text-center sm:text-left">
-                <p className="text-[10px] font-bold tracking-widest uppercase text-[var(--color-secondary)] mb-1">
+                <p className="text-[10px] font-bold tracking-widest uppercase text-(--color-secondary) mb-1">
                   Featured in the Press
                 </p>
                 <p className="text-gray-900 font-semibold text-sm sm:text-base">
@@ -319,7 +319,7 @@ export default function AwardsSection() {
                   for Water Conservation
                 </p>
               </div>
-              <span className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-primary)] shrink-0 group-hover:gap-3 transition-all duration-300">
+              <span className="inline-flex items-center gap-2 text-sm font-bold text-(--color-primary) shrink-0 group-hover:gap-3 transition-all duration-300">
                 Read the Story <FiExternalLink size={16} />
               </span>
             </a>

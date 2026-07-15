@@ -52,10 +52,10 @@ const CountUp = ({ end, duration = 2000, suffix = "" }: CountUpProps) => {
 /* ─── Eyebrow Label ───────────────────────────────── */
 function Eyebrow({ text }: { text: string }) {
   return (
-    <p className="inline-flex items-center justify-center gap-3 text-[10px] font-bold tracking-[0.35em] uppercase text-[var(--color-secondary)] mb-4">
-      <span className="w-8 h-px bg-[var(--color-secondary)]" />
+    <p className="inline-flex items-center justify-center gap-3 text-[10px] font-bold tracking-[0.35em] uppercase text-(--color-secondary) mb-4">
+      <span className="w-8 h-px bg-(--color-secondary)" />
       {text}
-      <span className="w-8 h-px bg-[var(--color-secondary)]" />
+      <span className="w-8 h-px bg-(--color-secondary)" />
     </p>
   );
 }
@@ -177,7 +177,7 @@ const SectionBlock = ({
   useNextImage = false,
 }: SectionBlockProps) => (
   <>
-    <section className="bg-[var(--color-tertiary)]">
+    <section className="bg-(--color-tertiary)">
       <div className="mx-auto">
         <div className="container">
           <div
@@ -187,8 +187,8 @@ const SectionBlock = ({
             <div className="w-full lg:w-[42%] space-y-5">
               {/* eyebrow */}
               <div className="flex items-center justify-center lg:justify-start gap-3">
-                <span className="w-8 h-px bg-[var(--color-secondary)]" />
-                <span className="text-[var(--color-primary)] text-[10px] font-bold tracking-[0.25em] uppercase ">
+                <span className="w-8 h-px bg-(--color-secondary)" />
+                <span className="text-(--color-primary) text-[10px] font-bold tracking-[0.25em] uppercase ">
                   {eyebrow}
                 </span>
               </div>
@@ -197,7 +197,7 @@ const SectionBlock = ({
                 {title}
               </h2>
 
-              <p className="text-[var(--color-primary)] text-sm font-medium text-center lg:text-start">
+              <p className="text-(--color-primary) text-sm font-medium text-center lg:text-start">
                 {subtitle}
               </p>
 
@@ -252,15 +252,15 @@ function StatCard({
     >
       {/* top accent bar */}
       <span
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[var(--color-primary)] rounded-full
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-(--color-primary) rounded-full
         group-hover:w-full transition-all duration-500"
       />
 
-      <span className="text-[var(--color-secondary)] text-[10px] font-bold tracking-widest uppercase mb-3 opacity-60">
+      <span className="text-(--color-secondary) text-[10px] font-bold tracking-widest uppercase mb-3 opacity-60">
         0{index + 1}
       </span>
 
-      <h3 className="text-3xl xl:text-4xl font-extrabold text-[var(--color-primary)] leading-none mb-2">
+      <h3 className="text-3xl xl:text-4xl font-extrabold text-(--color-primary) leading-none mb-2">
         <CountUp end={value} suffix={suffix ?? ""} />
       </h3>
 
@@ -289,15 +289,15 @@ function GrowthStatCard({
       transition-all duration-300"
     >
       <span
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[var(--color-primary)] rounded-full
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-(--color-primary) rounded-full
         group-hover:w-full transition-all duration-500"
       />
 
-      <span className="text-[var(--color-secondary)] text-[10px] font-bold tracking-widest uppercase mb-3 opacity-60">
+      <span className="text-(--color-secondary) text-[10px] font-bold tracking-widest uppercase mb-3 opacity-60">
         0{index + 1}
       </span>
 
-      <h3 className="text-2xl xl:text-3xl font-extrabold text-[var(--color-primary)] leading-none mb-2">
+      <h3 className="text-2xl xl:text-3xl font-extrabold text-(--color-primary) leading-none mb-2">
         {value}
       </h3>
 
@@ -318,14 +318,14 @@ function GrowthTimelineTable({
     <div className="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm">
       {/* Desktop / tablet table */}
       <div className="hidden sm:block">
-        <div className="grid grid-cols-3 bg-[var(--color-primary)]/5 px-6 md:px-8 py-4">
-          <span className="text-[11px] md:text-xs font-bold tracking-widest uppercase text-[var(--color-primary)]">
+        <div className="grid grid-cols-3 bg-(--color-primary)/5 px-6 md:px-8 py-4">
+          <span className="text-[11px] md:text-xs font-bold tracking-widest uppercase text-(--color-primary)">
             Year
           </span>
-          <span className="text-[11px] md:text-xs font-bold tracking-widest uppercase text-[var(--color-primary)] text-center">
+          <span className="text-[11px] md:text-xs font-bold tracking-widest uppercase text-(--color-primary) text-center">
             Structures
           </span>
-          <span className="text-[11px] md:text-xs font-bold tracking-widest uppercase text-[var(--color-primary)] text-right">
+          <span className="text-[11px] md:text-xs font-bold tracking-widest uppercase text-(--color-primary) text-right">
             Villages
           </span>
         </div>
@@ -333,15 +333,15 @@ function GrowthTimelineTable({
           {data.map((row, i) => (
             <div
               key={i}
-              className="grid grid-cols-3 px-6 md:px-8 py-5 items-center hover:bg-[var(--color-tertiary)] transition-colors duration-300"
+              className="grid grid-cols-3 px-6 md:px-8 py-5 items-center hover:bg-(--color-tertiary) transition-colors duration-300"
             >
               <span className="text-sm font-semibold text-gray-900">
                 {row.year}
               </span>
-              <span className="text-base md:text-lg font-extrabold text-[var(--color-primary)] text-center">
+              <span className="text-base md:text-lg font-extrabold text-(--color-primary) text-center">
                 <CountUp end={row.structures} />
               </span>
-              <span className="text-base md:text-lg font-extrabold text-[var(--color-secondary)] text-right">
+              <span className="text-base md:text-lg font-extrabold text-(--color-secondary) text-right">
                 <CountUp end={row.villages} />
               </span>
             </div>
@@ -356,7 +356,7 @@ function GrowthTimelineTable({
             <p className="text-sm font-bold text-gray-900 mb-3">{row.year}</p>
             <div className="flex items-center justify-around">
               <div className="text-center">
-                <p className="text-xl font-extrabold text-[var(--color-primary)]">
+                <p className="text-xl font-extrabold text-(--color-primary)">
                   <CountUp end={row.structures} />
                 </p>
                 <p className="text-[10px] uppercase tracking-widest text-gray-400 mt-1">
@@ -365,7 +365,7 @@ function GrowthTimelineTable({
               </div>
               <div className="w-px h-8 bg-gray-100" />
               <div className="text-center">
-                <p className="text-xl font-extrabold text-[var(--color-secondary)]">
+                <p className="text-xl font-extrabold text-(--color-secondary)">
                   <CountUp end={row.villages} />
                 </p>
                 <p className="text-[10px] uppercase tracking-widest text-gray-400 mt-1">
@@ -390,12 +390,12 @@ function ImpactCard({ title, items }: { title: string; items: string[] }) {
       {/* gradient sweep on hover */}
       <span
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
-        bg-gradient-to-br from-[var(--color-primary)]/5 to-transparent rounded-3xl pointer-events-none"
+        bg-linear-to-br from-(--color-primary)/5 to-transparent rounded-3xl pointer-events-none"
       />
 
       <div className="relative z-10">
-        <div className="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center mb-4">
-          <span className="w-3 h-3 rounded-full bg-[var(--color-primary)]" />
+        <div className="w-10 h-10 rounded-xl bg-(--color-primary)/10 flex items-center justify-center mb-4">
+          <span className="w-3 h-3 rounded-full bg-(--color-primary)" />
         </div>
         <h3 className="text-lg font-bold text-gray-900 mb-5">{title}</h3>
         <ul className="space-y-3">
@@ -404,7 +404,7 @@ function ImpactCard({ title, items }: { title: string; items: string[] }) {
               key={i}
               className="flex items-start gap-3 text-sm text-gray-500 leading-relaxed"
             >
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-secondary)] shrink-0" />
+              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-(--color-secondary) shrink-0" />
               {item}
             </li>
           ))}
@@ -482,14 +482,14 @@ export default function JalMandirSection() {
     <>
       <SmoothScroll>
         {/* ── 1. IMPACT DASHBOARD ─────────────────────────── */}
-        <section className="container bg-[var(--color-tertiary)]">
+        <section className="container bg-(--color-tertiary)">
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="text-center mb-16">
               <Eyebrow text="By the Numbers" />
               <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
                 Impact{" "}
-                <span className="text-[var(--color-primary)]">Dashboard</span>
+                <span className="text-(--color-primary)">Dashboard</span>
               </h2>
               <p className="text-gray-400 mt-4 max-w-lg mx-auto text-sm leading-relaxed">
                 Community-driven water conservation restoring groundwater,
@@ -502,7 +502,7 @@ export default function JalMandirSection() {
             <div className="flex justify-center mb-20">
               <div className="relative">
                 {/* glow behind image */}
-                <div className="absolute -inset-4 rounded-3xl bg-[var(--color-primary)]/10 blur-2xl" />
+                <div className="absolute -inset-4 rounded-3xl bg-(--color-primary)/10 blur-2xl" />
                 <Image src="/image/home/GUJRAT MAP MAIN.jpg"
                   alt="Impact Dashboard"
                   width={680}
@@ -529,7 +529,7 @@ export default function JalMandirSection() {
               <Eyebrow text="District Overview" />
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
                 Our Impact &{" "}
-                <span className="text-[var(--color-primary)]">
+                <span className="text-(--color-primary)">
                   Water Conservation Insights
                 </span>
               </h2>
@@ -553,11 +553,11 @@ export default function JalMandirSection() {
               ].map((card, i) => (
                 <div
                   key={i}
-                  className="group bg-[var(--color-tertiary)] rounded-3xl overflow-hidden border border-gray-100
+                  className="group bg-(--color-tertiary) rounded-3xl overflow-hidden border border-gray-100
                 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="px-6 pt-6 pb-3 flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-[var(--color-primary)]" />
+                    <span className="w-2 h-2 rounded-full bg-(--color-primary)" />
                     <h3 className="text-sm font-semibold text-gray-700">
                       {card.title}
                     </h3>
@@ -576,13 +576,13 @@ export default function JalMandirSection() {
         </section>
 
         {/* ── 3. IMPACT DETAILS ───────────────────────────── */}
-        <section className="container bg-[var(--color-tertiary)]">
+        <section className="container bg-(--color-tertiary)">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-14">
               <Eyebrow text="What We've Achieved" />
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
                 Measurable{" "}
-                <span className="text-[var(--color-primary)]">
+                <span className="text-(--color-primary)">
                   Change on the Ground
                 </span>
               </h2>
@@ -615,7 +615,7 @@ export default function JalMandirSection() {
               <Eyebrow text="Cumulative Progress" />
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
                 Growth{" "}
-                <span className="text-[var(--color-primary)]">at a Glance</span>
+                <span className="text-(--color-primary)">at a Glance</span>
               </h2>
               <p className="text-gray-400 mt-3 text-sm max-w-lg mx-auto">
                 Our cumulative footprint across water conservation, farmer
@@ -639,13 +639,13 @@ export default function JalMandirSection() {
         </section>
 
         {/* ── 3.6 ANNUAL GROWTH TIMELINE ──────────────────── */}
-        <section className="container bg-[var(--color-tertiary)]">
+        <section className="container bg-(--color-tertiary)">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
               <Eyebrow text="Year on Year" />
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
                 Annual{" "}
-                <span className="text-[var(--color-primary)]">
+                <span className="text-(--color-primary)">
                   Growth Timeline
                 </span>
               </h2>
@@ -706,10 +706,10 @@ export default function JalMandirSection() {
 
               <div className="justify-self-center lg:justify-self-start text-center lg:text-start">
                 <div className="md:inline-flex items-center md:gap-3">
-                  <span className="w-8 h-px md:bg-[var(--color-primary)]" />
+                  <span className="w-8 h-px md:bg-(--color-primary)" />
                   <p className="font-bold text-base text-gray-900">
                     This is not just water conservation.{" "}
-                    <span className="text-[var(--color-primary)]">
+                    <span className="text-(--color-primary)">
                       It is rural revival.
                     </span>
                   </p>
@@ -748,14 +748,14 @@ export default function JalMandirSection() {
           useNextImage={true}
         />
 
-        <section className="container bg-[var(--color-tertiary)] py-16">
+        <section className="container bg-(--color-tertiary) py-16">
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="text-center mb-14">
               <Eyebrow text="Visual Evidence" />
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
                 Stories of{" "}
-                <span className="text-[var(--color-primary)]">Transformation</span>
+                <span className="text-(--color-primary)">Transformation</span>
               </h2>
               <p className="text-gray-400 mt-4 max-w-lg mx-auto text-sm leading-relaxed">
                 See the real difference community-driven water conservation makes on the ground.
@@ -766,7 +766,7 @@ export default function JalMandirSection() {
               {additionalTransformations.map((item, i) => (
                 <div key={i}>
                   <div
-                    className="relative overflow-hidden shadow-2xl shadow-black/40 rounded-[2rem]"
+                    className="relative overflow-hidden shadow-2xl shadow-black/40 rounded-4xl"
                     style={{ aspectRatio: "16/10" }}
                   >
                     <BeforeAfterImage

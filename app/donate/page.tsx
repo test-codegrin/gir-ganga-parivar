@@ -170,37 +170,37 @@ export default function Donate() {
           {/* Section Label */}
           <div className=" items-center gap-3 mb-4">
             <p
-              className="text-[var(--color-secondary)]
+              className="text-(--color-secondary)
  text-[10px] font-bold tracking-[0.3em] uppercase mb-3 flex text-center items-center justify-center gap-3"
             >
               <span
-                className="w-8 h-px bg-[var(--color-secondary)]
+                className="w-8 h-px bg-(--color-secondary)
 "
               />
               Water Conservation Fund
               <span
-                className="w-8 h-px bg-[var(--color-secondary)]
+                className="w-8 h-px bg-(--color-secondary)
 "
               />
             </p>
             <h1 className="text-black text-4xl sm:text-5xl md:text-6xl text-center font-bold leading-tight">
               General{" "}
-              <span className="text-[var(--color-primary)]"> Donation</span>
+              <span className="text-(--color-primary)"> Donation</span>
             </h1>
-            <div className="w-16 h-1 bg-[var(--color-primary)] mx-auto mt-6 mb-8" />
+            <div className="w-16 h-1 bg-(--color-primary) mx-auto mt-6 mb-8" />
           </div>
 
           {/* Main Card */}
-          <div className="border border-[var(--color-primary)] rounded-3xl p-5 md:p-12 grid md:grid-cols-2 gap-10 items-center">
+          <div className="border border-(--color-primary) rounded-3xl p-5 md:p-12 grid md:grid-cols-2 gap-10 items-center">
             {/* LEFT: Amount Display */}
             <div>
               {/* Live amount display */}
               <div className="mb-8">
-                <p className="text-[var(--color-primary)] text-xs tracking-widest uppercase mb-2">
+                <p className="text-(--color-primary) text-xs tracking-widest uppercase mb-2">
                   Your Contribution
                 </p>
                 <div className="flex items-start gap-2">
-                  <span className="text-[var(--color-primary)] text-3xl font-black mt-1">
+                  <span className="text-(--color-primary) text-3xl font-black mt-1">
                     ₹
                   </span>
                   <span className="text-5xl font-black text-black tracking-tight">
@@ -209,7 +209,7 @@ export default function Donate() {
                       : amount.toLocaleString("en-IN")}
                   </span>
                 </div>
-                <div className="mt-3 h-px w-full bg-[var(--color-primary)]" />
+                <div className="mt-3 h-px w-full bg-(--color-primary)" />
               </div>
 
               {/* Preset Buttons */}
@@ -220,8 +220,8 @@ export default function Donate() {
                     onClick={() => handlePreset(v)}
                     className={`py-3 rounded-xl text-sm font-bold border transition-all duration-200 ${
                       !isCustom && amount === v
-                        ? "bg-[var(--color-primary)] border-[var(--color-tertiary)] text-[var(--color-secondary)]  shadow-lg"
-                        : "bg-[var(--color-tertiary)] border-[var(--color-primary)] text-[var(--color-primary)]"
+                        ? "bg-(--color-primary) border-(--color-tertiary) text-(--color-secondary)  shadow-lg"
+                        : "bg-(--color-tertiary) border-(--color-primary) text-(--color-primary)"
                     }`}
                   >
                     ₹{v.toLocaleString("en-IN")}
@@ -234,12 +234,12 @@ export default function Donate() {
                 onClick={handleCustom}
                 className={`w-full rounded-xl border-2 border-dashed px-4 py-3 flex items-center gap-2 cursor-text transition-all duration-200 mb-8 ${
                   isCustom
-                    ? "border-[var(--color-primary)]"
-                    : "border-[var(--color-primary)] bg-[var(--color-tertiary)]"
+                    ? "border-(--color-primary)"
+                    : "border-(--color-primary) bg-(--color-tertiary)"
                 }`}
               >
                 <span
-                  className={`font-bold text-lg ${isCustom ? "text-[var(--color-primary)]" : "text-[var(--color-primary)]"}`}
+                  className={`font-bold text-lg ${isCustom ? "text-(--color-primary)" : "text-(--color-primary)"}`}
                 >
                   ₹
                 </span>
@@ -249,7 +249,7 @@ export default function Donate() {
                   value={customAmount}
                   onChange={(e) => setCustomAmount(e.target.value)}
                   onFocus={handleCustom}
-                  className="bg-transparent outline-none text-[var(--color-primary)] text-sm font-semibold w-full placeholder-zinc-400"
+                  className="bg-transparent outline-none text-(--color-primary) text-sm font-semibold w-full placeholder-zinc-400"
                 />
               </div>
 
@@ -285,9 +285,9 @@ export default function Donate() {
             {/* RIGHT: Info Panel */}
             <div className="flex flex-col gap-6">
               {/* Mission Statement */}
-              <div className="border border-zinc-800 rounded-2xl bg-[var(--color-tertiary)] p-6 relative overflow-hidden">
+              <div className="border border-zinc-800 rounded-2xl bg-(--color-tertiary) p-6 relative overflow-hidden">
                 <p className="text-4xl mb-3">💧</p>
-                <p className="text-[var(--color-secondary)] font-bold text-lg leading-snug mb-2">
+                <p className="text-(--color-secondary) font-bold text-lg leading-snug mb-2">
                   Raise Funds For Clean & Healthy Water
                 </p>
                 <p className="text-zinc-500 text-sm leading-relaxed">
@@ -299,12 +299,12 @@ export default function Donate() {
 
               {/* Trust badge */}
               <div className="flex items-center gap-3  border border-zinc-800 rounded-xl px-4 py-3">
-                <div className="w-8 h-8 rounded-full bg-[var(--color-tertiary)] flex items-center justify-center flex-shrink-0">
-                  <span className="text-[var(--color-primary)] text-sm">✓</span>
+                <div className="w-8 h-8 rounded-full bg-(--color-tertiary) flex items-center justify-center shrink-0">
+                  <span className="text-(--color-primary) text-sm">✓</span>
                 </div>
                 <p className="text-zinc-500 text-xs leading-snug">
                   Tax deductible under{" "}
-                  <span className="text-[var(--color-primary)] font-bold">
+                  <span className="text-(--color-primary) font-bold">
                     Section 80G
                   </span>{" "}
                   · 100% funds reach the field
@@ -321,24 +321,24 @@ export default function Donate() {
           {/* Header */}
           <div className="mb-16 text-center">
             <p
-              className="text-[var(--color-secondary)]
+              className="text-(--color-secondary)
  text-[10px] font-bold tracking-[0.3em] uppercase mb-3 flex items-center justify-center gap-3"
             >
               <span
-                className="w-8 h-px bg-[var(--color-secondary)]
+                className="w-8 h-px bg-(--color-secondary)
 "
               />
               Water Conservation Initiative
               <span
-                className="w-8 h-px bg-[var(--color-secondary)]
+                className="w-8 h-px bg-(--color-secondary)
 "
               />
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-black leading-none tracking-tight mb-6">
               Build A {""}
-              <span className="text-[var(--color-primary)]">Checkdam</span>
+              <span className="text-(--color-primary)">Checkdam</span>
             </h1>
-            <div className="w-16 h-1 bg-[var(--color-primary)] mx-auto mb-6" />
+            <div className="w-16 h-1 bg-(--color-primary) mx-auto mb-6" />
             <p className="text-stone-400 text-lg max-w-xl mx-auto leading-relaxed">
               Every drop saved is a life secured. Choose your level of impact
               and help us restore water to drought-prone communities.
@@ -350,11 +350,11 @@ export default function Donate() {
             {donateData.map((item, index) => (
               <div
                 key={item.id}
-                className="group relative border border-[var(--color-primary)] text-center md:text-start  shadow-md rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col justify-between gap-6"
+                className="group relative border border-(--color-primary) text-center md:text-start  shadow-md rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col justify-between gap-6"
               >
                 {/* Title + Amount */}
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-black text-[var(--color-primary)] leading-tight mb-1">
+                  <h3 className="text-2xl md:text-3xl font-black text-(--color-primary) leading-tight mb-1">
                     {item.title}
                   </h3>
                   <p className="text-xl sm:text-3xl md:text-4xl font-black text-black">
@@ -380,8 +380,8 @@ export default function Donate() {
                       type="submit"
                       className="btn-primary w-full group relative inline-flex items-center justify-center gap-2
                   font-semibold text-base px-10 py-4 cursor-pointer
-                  bg-[var(--color-primary)] text-[var(--color-secondary)]
-                  hover:text-[var(--color-primary)] overflow-hidden"
+                  bg-(--color-primary) text-(--color-secondary)
+                  hover:text-(--color-primary) overflow-hidden"
                     >
                       <span className="relative z-10 flex gap-2 items-center">
                         Donate →
@@ -418,23 +418,23 @@ export default function Donate() {
 
       {/* Section - 3 */}
       <section className="container py-16">
-        <div className="bg-white border border-[var(--color-primary)] rounded-3xl p-6 sm:p-10">
+        <div className="bg-white border border-(--color-primary) rounded-3xl p-6 sm:p-10">
           {/* Header */}
           <div className="text-center mb-12">
-            <p className="text-[var(--color-secondary)] text-[10px] font-bold tracking-[0.35em] uppercase flex items-center justify-center gap-3 mb-3">
-              <span className="w-8 h-px bg-[var(--color-secondary)]" />
+            <p className="text-(--color-secondary) text-[10px] font-bold tracking-[0.35em] uppercase flex items-center justify-center gap-3 mb-3">
+              <span className="w-8 h-px bg-(--color-secondary)" />
               Water Conservation Initiative
-              <span className="w-8 h-px bg-[var(--color-secondary)]" />
+              <span className="w-8 h-px bg-(--color-secondary)" />
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight capitalize">
               Donation to <br />{" "}
-              <span className="text-[var(--color-primary)] ">
+              <span className="text-(--color-primary) ">
                 Maintain checkdam
               </span>
               <br />
-              <span className="text-[var(--color-secondary)]"></span>
+              <span className="text-(--color-secondary)"></span>
             </h1>
-            <div className="w-16 h-1 bg-[var(--color-primary)] mx-auto mt-5" />
+            <div className="w-16 h-1 bg-(--color-primary) mx-auto mt-5" />
           </div>
 
           {/* Cards Grid */}
@@ -442,20 +442,20 @@ export default function Donate() {
             {maintaindonateData.map((item, index) => (
               <div
                 key={item.id}
-                className="group relative bg-white border border-[var(--color-tertiary)] text-center lg:text-start rounded-tr-4xl rounded-bl-4xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-xl hover:shadow-[#009dc4]/10 hover:border-[#009dc4] transition-all duration-300"
+                className="group relative bg-white border border-(--color-tertiary) text-center lg:text-start rounded-tr-4xl rounded-bl-4xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-xl hover:shadow-[#009dc4]/10 hover:border-[#009dc4] transition-all duration-300"
               >
                 {/* Top accent bar */}
-                <div className="h-1 w-full bg-gradient-to-r from-[var(--color-primary)] via-[#f1cf69] to-[var(--color-primary)]" />
+                <div className="h-1 w-full bg-linear-to-r from-(--color-primary) via-[#f1cf69] to-(--color-primary)" />
 
                 {/* Card Body */}
                 <div className="p-6 flex flex-col flex-grow gap-4">
                   {/* Title */}
-                  <h3 className="text-lg font-black text-gray-900 leading-snug group-hover:text-[var(--color-primary)] transition-colors duration-200">
+                  <h3 className="text-lg font-black text-gray-900 leading-snug group-hover:text-(--color-primary) transition-colors duration-200">
                     {item.title}
                   </h3>
 
                   {/* Divider */}
-                  <div className="h-px bg-[var(--color-tertiary)]" />
+                  <div className="h-px bg-(--color-tertiary)" />
 
                   {/* Description */}
                   <p className="text-gray-500 text-xs leading-relaxed flex-grow">
@@ -463,11 +463,11 @@ export default function Donate() {
                   </p>
 
                   {/* Amount */}
-                  <div className="bg-[var(--color-tertiary)] rounded-xl px-4 py-3 text-center">
-                    <p className="text-[9px] text-[var(--color-primary)] font-bold tracking-widest uppercase mb-1">
+                  <div className="bg-(--color-tertiary) rounded-xl px-4 py-3 text-center">
+                    <p className="text-[9px] text-(--color-primary) font-bold tracking-widest uppercase mb-1">
                       Donation Amount
                     </p>
-                    <p className="text-[var(--color-primary)] font-black text-xl">
+                    <p className="text-(--color-primary) font-black text-xl">
                       {item.amount}
                     </p>
                   </div>
@@ -485,8 +485,8 @@ export default function Donate() {
                         type="submit"
                         className="btn-primary w-full group relative inline-flex items-center justify-center gap-2
       font-semibold text-base px-10 py-4 cursor-pointer
-      bg-[var(--color-primary)] text-[var(--color-secondary)]
-      hover:text-[var(--color-primary)] overflow-hidden"
+      bg-(--color-primary) text-(--color-secondary)
+      hover:text-(--color-primary) overflow-hidden"
                       >
                         <span className="relative z-10 flex gap-2 items-center">
                           Donate →
@@ -544,16 +544,16 @@ export default function Donate() {
         <div className=" space-y-10">
           {/* Header */}
           <div className="text-center">
-            <p className="text-[var(--color-secondary)] text-[10px] font-bold tracking-[0.35em] uppercase flex items-center justify-center gap-3 mb-3">
-              <span className="w-8 h-px bg-[var(--color-secondary)]" />
+            <p className="text-(--color-secondary) text-[10px] font-bold tracking-[0.35em] uppercase flex items-center justify-center gap-3 mb-3">
+              <span className="w-8 h-px bg-(--color-secondary)" />
               Field Equipment Fund
-              <span className="w-8 h-px bg-[var(--color-secondary)]" />
+              <span className="w-8 h-px bg-(--color-secondary)" />
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
               Donation For{" "}
-              <span className="text-[var(--color-primary)]">Equipment</span>
+              <span className="text-(--color-primary)">Equipment</span>
             </h1>
-            <div className="w-16 h-1 bg-[var(--color-primary)] mx-auto mt-4" />
+            <div className="w-16 h-1 bg-(--color-primary) mx-auto mt-4" />
           </div>
 
           {/* Cards */}
@@ -561,7 +561,7 @@ export default function Donate() {
             {donationequipment.map((item) => (
               <div
                 key={item.id}
-                className="group bg-white border border-[var(--color-primary)] text-center   rounded-2xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-xl hover:shadow-[#009dc4]/10 hover:border-[#009dc4] transition-all duration-300"
+                className="group bg-white border border-(--color-primary) text-center   rounded-2xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-xl hover:shadow-[#009dc4]/10 hover:border-[#009dc4] transition-all duration-300"
               >
                 {/* Image */}
                 <div className="relative overflow-hidden h-48">
@@ -570,7 +570,7 @@ export default function Donate() {
                     fill
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
                   {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
 
                   {/* Amount badge on image */}
                   <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm rounded-xl px-3 py-1.5 text-center">
@@ -582,7 +582,7 @@ export default function Donate() {
 
                 {/* Body */}
                 <div className="p-5 flex flex-col flex-grow gap-3">
-                  <h3 className="text-base font-black text-gray-900 group-hover:text-[var(--color-primary)] transition-colors duration-200 leading-snug">
+                  <h3 className="text-base font-black text-gray-900 group-hover:text-(--color-primary) transition-colors duration-200 leading-snug">
                     {item.title}
                   </h3>
 
@@ -604,8 +604,8 @@ export default function Donate() {
                         type="submit"
                         className="btn-primary w-full group relative inline-flex items-center justify-center gap-2
       font-semibold text-base px-10 py-4 cursor-pointer
-      bg-[var(--color-primary)] text-[var(--color-secondary)]
-      hover:text-[var(--color-primary)] overflow-hidden"
+      bg-(--color-primary) text-(--color-secondary)
+      hover:text-(--color-primary) overflow-hidden"
                       >
                         <span className="relative z-10 flex gap-2 items-center">
                           Donate →
@@ -646,16 +646,16 @@ export default function Donate() {
           <div className="mb-12">
             <div className="flex items-center justify-center gap-3 mb-3">
               <p
-                className="text-[var(--color-secondary)]
+                className="text-(--color-secondary)
  text-[10px] font-bold tracking-[0.3em] uppercase mb-3 flex items-center justify-center gap-3"
               >
                 <span
-                  className="w-8 h-px bg-[var(--color-secondary)]
+                  className="w-8 h-px bg-(--color-secondary)
 "
                 />
                 Secure Transfer
                 <span
-                  className="w-8 h-px bg-[var(--color-secondary)]
+                  className="w-8 h-px bg-(--color-secondary)
 "
                 />
               </p>
@@ -663,7 +663,7 @@ export default function Donate() {
 
             <h1 className="text-black text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-center">
               Bank{" "}
-              <span className="text-[var(--color-primary)]">Information</span>
+              <span className="text-(--color-primary)">Information</span>
             </h1>
           </div>
           <div></div>
@@ -673,9 +673,9 @@ export default function Donate() {
             {/* Card shadow layer */}
             <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-3xl bg-primary" />
 
-            <div className="relative bg-white rounded-3xl border border-[var(--color-primary)] overflow-hidden shadow-sm">
+            <div className="relative bg-white rounded-3xl border border-(--color-primary) overflow-hidden shadow-sm">
               {/* Top accent bar */}
-              <div className="w-full bg-gradient-to-r from-primary via-primary to-primary" />
+              <div className="w-full bg-linear-to-r from-primary via-primary to-primary" />
 
               <div className=" md:p-10 space-y-0 divide-y divide-gray-100">
                 {bankDetails.map((item, index) => (
@@ -704,7 +704,7 @@ export default function Donate() {
 
               {/* Bottom section */}
               <div className="px-8 md:px-10 pb-8">
-                <div className="flex items-center justify-center gap-3 p-4 rounded-2xl font-semibold text-[var(--color-primary)] bg-[var(--color-tertiary)] border border-[var(--color-primary)]">
+                <div className="flex items-center justify-center gap-3 p-4 rounded-2xl font-semibold text-(--color-primary) bg-(--color-tertiary) border border-(--color-primary)">
                   Contact us to get a receipt after payment.
                 </div>
               </div>

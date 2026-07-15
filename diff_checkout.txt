@@ -111,7 +111,7 @@ index 40cf0bb..608f4c3 100644
 +
    return (
      <SmoothScroll>
-       <div className=" min-h-screen bg-[var(--color-tertiary)]">
+       <div className=" min-h-screen bg-(--color-tertiary)">
 @@ -111,7 +207,7 @@ export default function DonationCheckout() {
            </div>
          </div>
@@ -203,7 +203,7 @@ index 40cf0bb..608f4c3 100644
 -      pr-10
 -      h-12
 -      leading-tight
--      focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]
+-      focus:outline-none focus:ring-2 focus:ring-(--color-primary)
 -    `}
 -                    defaultValue="India"
 +                      ${inputBase}
@@ -212,7 +212,7 @@ index 40cf0bb..608f4c3 100644
 +                      pr-10
 +                      h-12
 +                      leading-tight
-+                      focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]
++                      focus:outline-none focus:ring-2 focus:ring-(--color-primary)
 +                    `}
 +                    value={country}
                      onMouseDown={() => setOpen((prev) => !prev)}
@@ -341,13 +341,13 @@ index 40cf0bb..608f4c3 100644
                    type="submit"
 -                  className="btn-primary w-full group relative inline-flex items-center justify-center gap-2
 -      font-semibold text-base px-10 py-4 cursor-pointer
--      bg-[var(--color-primary)] text-[var(--color-secondary)]
--      hover:text-[var(--color-primary)] overflow-hidden"
+-      bg-(--color-primary) text-(--color-secondary)
+-      hover:text-(--color-primary) overflow-hidden"
 +                  disabled={loading}
 +                  className={`btn-primary w-full group relative inline-flex items-center justify-center gap-2
 +                    font-semibold text-base px-10 py-4 cursor-pointer
-+                    bg-[var(--color-primary)] text-[var(--color-secondary)]
-+                    hover:text-[var(--color-primary)] overflow-hidden ${
++                    bg-(--color-primary) text-(--color-secondary)
++                    hover:text-(--color-primary) overflow-hidden ${
 +                      loading ? "opacity-50 cursor-not-allowed" : ""
 +                    }`}
                  >
