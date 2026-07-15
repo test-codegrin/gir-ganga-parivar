@@ -68,7 +68,12 @@ export default function Products() {
         : [1, "...", currentPage, "...", totalPages];
 
   const goToPage = (page: number) => {
-    setCurrentPage(Math.min(Math.max(page, 1), totalPages));
+    const nextPage = Math.min(Math.max(page, 1), totalPages);
+
+    if (nextPage === currentPage) return;
+
+    setCurrentPage(nextPage);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const pageButtonClass = (page: number) =>
