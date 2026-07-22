@@ -5,18 +5,8 @@ export async function POST(req: Request) {
   try {
     const key = process.env.EASEBUZZ_KEY;
     const salt = process.env.EASEBUZZ_SALT;
-    const env = process.env.EASEBUZZ_ENV;
-
-    if (env !== "production" && env !== "sandbox") {
-      console.error("Easebuzz environment is not configured correctly in environment variables.");
-      return NextResponse.json(
-        { status: 0, error: "Payment gateway environment is not configured correctly." },
-        { status: 500 }
-      );
-    }
-
-    const isProduction = env === "production";
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const isProduction = process.env.CONTEXT === "production" || process.env.NODE_ENV === "production";
 
     if (!key || !salt) {
       console.error("Easebuzz configurations are missing in environment variables.");
@@ -147,10 +137,13 @@ export async function POST(req: Request) {
     const result = await response.json();
 
     if (result.status === 1) {
+      const payUrl = isProduction
+        ? `https://pay.easebuzz.in/pay/${result.data}`
+        : `https://testpay.easebuzz.in/pay/${result.data}`;
+
       return NextResponse.json({
         status: 1,
-        access_key: result.data,
-        env: isProduction ? "production" : "sandbox",
+        payUrl,
       });
     } else {
       console.error("Easebuzz initiation error:", result.data);
