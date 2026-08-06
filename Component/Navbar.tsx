@@ -288,6 +288,14 @@ export default function Navbar() {
               </Link>
             </li>
 
+            {/* SSE */}
+            <li className="relative group">
+              <Link href="/sse" className={linkCls("/sse")}>
+                SSE
+                <span className={underline(isActive("/sse"))} />
+              </Link>
+            </li>
+
             {/* MEDIA ▾ */}
             <li
               className="relative"
@@ -658,6 +666,21 @@ export default function Navbar() {
               }`}
             >
               Partners / CSR Collaboration
+            </Link>
+          </li>
+
+          {/* SSE */}
+          <li>
+            <Link
+              href="/sse"
+              onClick={() => setMenuOpen(false)}
+              className={`block py-3.5 font-bold border-b border-slate-50 tracking-wide ${
+                isActive("/sse")
+                  ? "text-(--color-primary)"
+                  : "text-slate-800"
+              }`}
+            >
+              NSE - SSE
             </Link>
           </li>
 

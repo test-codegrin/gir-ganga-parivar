@@ -113,6 +113,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 {[
                   { label: "Home", href: "/" },
+                  { label: "NSE SSE Public Issue", href: "/sse" },
                   { label: "Awards", href: "/awards" },
                   { label: "About Us", href: "/about-us" },
                   { label: "Gallery", href: "/photos" },
