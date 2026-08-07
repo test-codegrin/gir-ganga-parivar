@@ -689,7 +689,7 @@ export default function SSEPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                       <div className="bg-[#f8fafc] border border-slate-200 rounded-xl p-3.5 text-center shadow-xs">
                         <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Issue Target</p>
-                        <p className="text-lg font-black text-slate-900 mt-0.5">₹1 Crore</p>
+                        <p className="text-lg font-black text-slate-900 mt-0.5">₹1,08,73,000</p>
                       </div>
                       <div className="bg-[#e6f7fb] border border-(--color-primary)/20 rounded-xl p-3.5 text-center shadow-xs">
                         <p className="text-xs text-(--color-primary) font-bold uppercase tracking-wider">Min Contribution</p>

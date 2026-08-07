@@ -73,7 +73,7 @@ export const publicIssueDetails = [
   { label: "Villages Covered", value: "10 Water-Stressed Villages", icon: <Layers className="w-5 h-5 text-(--color-primary)" /> },
   { label: "Project Duration", value: "12 Months Execution", icon: <Calendar className="w-5 h-5 text-(--color-primary)" /> },
   { label: "Minimum Investment", value: "₹1,000 (Or as Approved)", icon: <DollarSign className="w-5 h-5 text-(--color-primary)" /> },
-  { label: "Proposed Issue Size", value: "₹1 Crore (Post Approval)", icon: <TrendingUp className="w-5 h-5 text-(--color-primary)" /> },
+  { label: "Proposed Issue Size", value: "₹1,08,73,000 (Post Approval)", icon: <TrendingUp className="w-5 h-5 text-(--color-primary)" /> },
 ];
 
 export const snapshotMetrics = [
