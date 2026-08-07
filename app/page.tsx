@@ -144,12 +144,6 @@ export default function HomePage() {
     return () => observer.disconnect();
   }, []);
 
-  const fadeUp = (delay = 0) => ({
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.65, delay, ease: [0.16, 1, 0.3, 1] },
-  });
 
   return (
     <>
@@ -245,9 +239,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ══════════════════════════════════════════════
-          SECTION 2 — IMPACT STATS
-      ══════════════════════════════════════════════ */}
+       
         <section ref={statsRef} className=" bg-white py-0">
           <div className="container">
             <motion.div
@@ -544,6 +536,69 @@ export default function HomePage() {
           </div>
         </section>
 
+         {/* ══════════════════════════════════════════════
+          SECTION —Registered for NSE SSE
+      ══════════════════════════════════════════════ */}
+        <section className="py-6">
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65, delay: 0, ease: "easeOut" }}
+              className="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-5 lg:gap-8 items-center rounded-3xl border border-gray-100 bg-white p-4 sm:p-5 lg:p-6 shadow-[0_16px_45px_rgba(15,23,42,0.07)] max-w-6xl mx-auto"
+            >
+              <div className="text-center lg:text-left">
+                <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
+                  <div className="h-px w-8 bg-(--color-secondary)" />
+                  <span className="text-(--color-secondary) text-[10px] sm:text-xs font-bold tracking-[0.18em] uppercase">
+                    NSE Social Stock Exchange
+                  </span>
+                  <div className="h-px w-8 bg-(--color-secondary) md:hidden" />
+                </div>
+
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                  Registered for{" "}
+                  <span className="text-(--color-primary)">NSE SSE</span>
+                </h2>
+
+                <p className="mt-3 text-sm sm:text-base text-gray-500 leading-relaxed max-w-lg mx-auto md:mx-0">
+                  Girganga Parivar Trust is connected with India&apos;s Social Stock
+                  Exchange ecosystem, strengthening transparent support for
+                  community-led water conservation projects.
+                </p>
+
+                <div className="mt-5 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                  <Link
+                    href="/sse"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-(--color-primary) px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-cyan-900/10 transition hover:bg-cyan-700"
+                  >
+                    Explore NSE SSE
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-sm font-bold text-gray-900 transition hover:border-(--color-primary) hover:text-(--color-primary)"
+                  >
+                    Contact Our Team
+                  </Link>
+                </div>
+              </div>
+
+              <div className="relative overflow-hidden ">
+                <Image
+                  src="/image/home/NSE SSE image.png"
+                  alt="NSE Social Stock Exchange registration for Girganga Parivar Trust"
+                  width={1200}
+                  height={900}
+                  className="float-end w-full max-h-[220px] sm:max-h-[280px] lg:max-h-[340px] lg:max-w-[440px] object-fit"
+                  priority
+                />
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* ══════════════════════════════════════════════
           SECTION 5 — OUR PARTNERS
       ══════════════════════════════════════════════ */}
@@ -562,7 +617,7 @@ export default function HomePage() {
               <motion.div>
                 <div className="flex items-center justify-center gap-3 mb-4">
                   <div className="h-px w-8 bg-(--color-secondary)" />
-                  <span className="text-(--color-secondary) text-xs font-bold tracking-[0.22em] uppercase">
+                  <span className="text-(--color-secondary) text-[10px] sm:text-xs font-bold tracking-[0.18em] uppercase">
                     Join the Movement
                   </span>
                   <div className="h-px w-8 bg-(--color-secondary)" />

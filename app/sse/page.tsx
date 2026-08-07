@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import SmoothScroll from "../../Component/SmothScrolling";
 
 import {
@@ -14,7 +13,6 @@ import {
   Building2,
   CheckCircle2,
   ChevronDown,
-  PieChart as PieChartIcon,
   Phone,
   Mail,
   Sparkles,
@@ -99,13 +97,13 @@ function InvestmentPieChart() {
   // Compute angles for pie slices
   const totalSum = outcomeSlices.reduce((acc, curr) => acc + curr.percentage, 0);
 
-  let cumulativeAngle = 0;
-  const slicesWithGeometry = outcomeSlices.map((slice) => {
+  const slicesWithGeometry = outcomeSlices.map((slice, index) => {
+    const startAngle = outcomeSlices
+      .slice(0, index)
+      .reduce((acc, curr) => acc + (curr.percentage / totalSum) * 360, 0);
     const angleSpan = (slice.percentage / totalSum) * 360;
-    const startAngle = cumulativeAngle;
-    const endAngle = cumulativeAngle + angleSpan;
+    const endAngle = startAngle + angleSpan;
     const midAngle = startAngle + angleSpan / 2;
-    cumulativeAngle = endAngle;
 
     const pathData = getArcPath(200, 200, 160, 75, startAngle, endAngle);
 
@@ -128,9 +126,9 @@ function InvestmentPieChart() {
   const currentActiveSlice = slicesWithGeometry.find((s) => s.id === activeId);
 
   return (
-    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl space-y-8">
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-slate-200 shadow-xl space-y-6 sm:space-y-8">
       {/* Top Header */}
-      <div className="text-center sm:text-left border-b border-slate-100 pb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="text-center sm:text-left border-b border-slate-100 pb-5 sm:pb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mt-2">
             Resource Allocation Pie Chart
@@ -139,20 +137,20 @@ function InvestmentPieChart() {
             Integrated Water Conservation & Groundwater Recharge Project (Paddhari Block, Rajkot District)
           </p>
         </div>
-        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-3 px-5 text-center sm:text-right shrink-0">
+        <div className="w-full sm:w-auto bg-slate-50 border border-slate-200 rounded-2xl p-3 sm:px-5 text-center sm:text-right shrink-0">
           <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Total Issue Size</p>
           <p className="text-lg font-black text-(--color-primary)">₹1,08,73,000</p>
         </div>
       </div>
 
       {/* Main Grid: Pie SVG + Legend */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
         {/* Left: SVG Pie Chart */}
         <div
-          className="lg:col-span-6 min-h-[470px] flex flex-col items-center justify-center relative"
+          className="lg:col-span-6 min-h-[300px] sm:min-h-[390px] lg:min-h-[470px] flex flex-col items-center justify-center relative"
           onMouseLeave={() => setActiveId(null)}
         >
-          <div className="relative w-[300px] h-[300px] sm:w-[360px] sm:h-[360px]">
+          <div className="relative w-full max-w-[260px] aspect-square sm:max-w-[360px]">
             <svg viewBox="0 0 400 400" className="w-full h-full filter drop-shadow-md overflow-visible">
               <defs>
                 <filter id="pieShadow" x="-20%" y="-20%" width="140%" height="140%">
@@ -223,14 +221,14 @@ function InvestmentPieChart() {
 
         {/* Right: Legend Box matching official document format */}
         <div
-          className="lg:col-span-6 bg-slate-50/80 border border-slate-200 rounded-2xl p-5 sm:p-6 space-y-4 min-h-[470px] flex flex-col justify-start"
+          className="lg:col-span-6 bg-slate-50/80 border border-slate-200 rounded-2xl p-4 sm:p-6 space-y-4 lg:min-h-[470px] flex flex-col justify-start"
           onMouseLeave={() => setActiveId(null)}
         >
           <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
-            <h4 className="font-extrabold text-slate-900 text-xs sm:text-sm uppercase tracking-wider">
+            <h4 className="font-extrabold text-slate-900 text-[11px] sm:text-sm uppercase tracking-wider">
               Project Outcomes & Breakdown
             </h4>
-            <span className="text-[11px] font-bold text-slate-500 bg-white px-2.5 py-1 rounded-md border border-slate-200">
+            <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 bg-white px-2.5 py-1 rounded-md border border-slate-200 shrink-0">
               5 Key Allocations
             </span>
           </div>
@@ -248,8 +246,8 @@ function InvestmentPieChart() {
                       : "bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50"
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3 min-w-0 pr-2">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
+                    <div className="flex items-center gap-3 min-w-0 sm:pr-2">
                       <span
                         className="w-4 h-4 rounded-full shrink-0 shadow-sm"
                         style={{ backgroundColor: item.color }}
@@ -259,7 +257,7 @@ function InvestmentPieChart() {
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-3 shrink-0">
+                    <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0 pl-7 sm:pl-0">
                       <span className="text-xs font-semibold text-slate-500 hidden sm:inline">
                         {item.amount}
                       </span>
@@ -278,7 +276,7 @@ function InvestmentPieChart() {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       transition={{ duration: 0.2 }}
-                      className="mt-2.5 pt-2.5 border-t border-slate-200/70 text-xs text-slate-600 leading-relaxed pl-7"
+                      className="mt-2.5 pt-2.5 border-t border-slate-200/70 text-xs text-slate-600 leading-relaxed sm:pl-7"
                     >
                       {item.desc}
                     </motion.div>
@@ -291,8 +289,8 @@ function InvestmentPieChart() {
       </div>
 
       {/* Footer Banner Inside Card */}
-      <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-emerald-900 text-white p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-        <div className="flex items-center gap-3">
+      <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-emerald-900 text-white p-4 sm:p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="flex items-start sm:items-center gap-3">
           <Droplets className="w-6 h-6 text-(--color-secondary) shrink-0" />
           <p className="text-xs sm:text-sm font-semibold">
             <strong className="text-white">Your investment creates measurable impact.</strong> Together for a Water Secure and Sustainable Rural Gujarat.
@@ -300,7 +298,7 @@ function InvestmentPieChart() {
         </div>
         <a
           href="#register-interest"
-          className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[url('/image/button/button-bg.jpeg')] bg-cover bg-center text-white font-semibold text-xs tracking-wider uppercase shrink-0 shadow-md hover:-translate-y-0.5 transition-transform"
+          className="group relative overflow-hidden inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-lg bg-[url('/image/button/button-bg.jpeg')] bg-cover bg-center text-white font-semibold text-xs tracking-wider uppercase shrink-0 shadow-md hover:-translate-y-0.5 transition-transform"
         >
           <span className="relative z-10">Pledge Investment</span>
           <span className="relative z-10 group-hover:translate-x-1 transition-transform">→</span>
@@ -313,12 +311,12 @@ function InvestmentPieChart() {
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-center justify-center gap-3 mb-4">
-      <span className="block w-7 h-px bg-(--color-secondary)" />
-      <span className="text-[0.65rem] font-bold tracking-[0.25em] uppercase text-(--color-secondary) font-[var(--font)]">
+    <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4">
+      <span className="block w-5 sm:w-7 h-px bg-(--color-secondary)" />
+      <span className="text-[0.6rem] sm:text-[0.65rem] font-bold tracking-[0.18em] sm:tracking-[0.25em] uppercase text-(--color-secondary) font-[var(--font)] text-center">
         {children}
       </span>
-      <span className="block w-7 h-px bg-(--color-secondary)" />
+      <span className="block w-5 sm:w-7 h-px bg-(--color-secondary)" />
     </div>
   );
 }
@@ -337,13 +335,13 @@ function SectionHeader({
   dark?: boolean;
 }) {
   return (
-    <div className="text-center mb-10 space-y-4 max-w-3xl mx-auto font-[var(--font)]">
+    <div className="text-center mb-8 sm:mb-10 space-y-3 sm:space-y-4 max-w-3xl mx-auto font-[var(--font)]">
       <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className={`font-[var(--font)] text-[clamp(2rem,3.5vw,3rem)] font-bold leading-[1.15] mb-2 ${dark ? "text-white" : "text-gray-900"}`}>
+      <h2 className={`font-[var(--font)] text-[clamp(1.75rem,6vw,3rem)] font-bold leading-[1.15] mb-2 ${dark ? "text-white" : "text-gray-900"}`}>
         {title} <span className="text-(--color-primary)">{highlight}</span>
       </h2>
       {subtitle && (
-        <p className={`text-[0.92rem] leading-[1.8] font-[var(--font)] ${dark ? "text-cyan-100/80" : "text-gray-500"}`}>
+        <p className={`text-sm sm:text-[0.92rem] leading-[1.7] sm:leading-[1.8] font-[var(--font)] ${dark ? "text-cyan-100/80" : "text-gray-500"}`}>
           {subtitle}
         </p>
       )}
@@ -390,7 +388,7 @@ function CustomDropdown({
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`w-full px-4 py-3 rounded-xl border text-left flex items-center justify-between gap-2 text-sm bg-white transition-all duration-200 cursor-pointer ${
+        className={`w-full px-3 sm:px-4 py-3 rounded-xl border text-left flex items-center justify-between gap-2 text-sm bg-white transition-all duration-200 cursor-pointer ${
           isOpen
             ? "border-(--color-primary) ring-2 ring-(--color-primary)/20 shadow-md"
             : "border-slate-300 hover:border-slate-400 shadow-xs"
@@ -562,7 +560,7 @@ export default function SSEPage() {
       } else {
         setFormError(resData.message || "Failed to submit form. Please check your Web3Forms access key.");
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Web3Forms API submit error:", err);
       setFormSubmitted(true);
     } finally {
@@ -595,39 +593,39 @@ export default function SSEPage() {
         {/* ════════════════════════════════════════════════════════
             1. HERO SECTION
         ════════════════════════════════════════════════════════ */}
-        <section className="relative bg-gradient-to-b from-[var(--color-tertiary)] via-[#e6f7fb] to-white text-slate-900 pt-12 pb-20 overflow-hidden border-b border-slate-100">
+        <section className="relative bg-gradient-to-b from-[var(--color-tertiary)] via-[#e6f7fb] to-white text-slate-900 pt-8 sm:pt-12 pb-12 sm:pb-16 lg:pb-20 overflow-hidden border-b border-slate-100">
           {/* Subtle Background Pattern & Glow */}
           <div className="absolute inset-0 bg-[radial-gradient(#009dc4_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-(--color-primary)/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(600px,90vw)] h-[min(600px,90vw)] bg-(--color-primary)/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left Column: Heading & Key Value Prop */}
               <motion.div
                 initial="hidden"
                 animate="show"
                 variants={staggerContainer}
-                className="lg:col-span-7 space-y-6 text-center lg:text-left"
+                className="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left"
               >
                 <motion.h1
                   variants={fadeUp}
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.12] tracking-tight text-slate-900"
+                  className="text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.12] tracking-tight text-slate-900 max-w-full"
                 >
-                  Invest In Water. <br />
-                  <span className="text-(--color-primary) italic font-serif">
+                  Invest In Water.
+                  <span className="block text-[1.55rem] min-[420px]:text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl text-(--color-primary) italic font-serif">
                     Invest in Gujarat’s Future.
                   </span>
                 </motion.h1>
 
                 <motion.p
                   variants={fadeUp}
-                  className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal"
+                  className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal"
                 >
                   <strong className="text-slate-900 font-semibold">Girganga Parivar Trust (GGPT)</strong> is officially registered on the <strong className="text-(--color-primary)">NSE Social Stock Exchange (SSE)</strong>. Through the <strong className="text-slate-900">Zero Coupon Zero Principal (ZCZP)</strong> instrument, GGPT seeks support for its Integrated Water Conservation & Groundwater Recharge Project in 10 water-stressed villages of Paddhari Block, Rajkot District, Gujarat.
                 </motion.p>
 
                 {/* Key Pill Features */}
-                <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 pt-2">
                   {[
                     "SEBI Regulated",
                     "NSE Registered",
@@ -637,7 +635,7 @@ export default function SSEPage() {
                   ].map((feat, idx) => (
                     <span
                       key={idx}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-slate-800 text-xs font-semibold border border-slate-200 shadow-sm"
+                      className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg bg-white text-slate-800 text-[11px] sm:text-xs font-semibold border border-slate-200 shadow-sm"
                     >
                       <CheckCircle2 className="w-3.5 h-3.5 text-(--color-primary)" />
                       {feat}
@@ -646,10 +644,10 @@ export default function SSEPage() {
                 </motion.div>
 
                 {/* CTA Buttons */}
-                <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3 sm:pt-4">
                   <a
                     href="#register-interest"
-                    className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-[url('/image/button/button-bg.jpeg')] bg-cover bg-center text-white font-semibold text-base shadow-lg hover:-translate-y-0.5 transition-transform"
+                    className="group relative overflow-hidden inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-[url('/image/button/button-bg.jpeg')] bg-cover bg-center text-white font-semibold text-sm sm:text-base shadow-lg hover:-translate-y-0.5 transition-transform"
                   >
                     <span className="relative z-10">Register Your Interest</span>
                     <span className="relative z-10 group-hover:translate-x-1 transition-transform">→</span>
@@ -665,8 +663,8 @@ export default function SSEPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="lg:col-span-5"
               >
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-white group">
-                  <div className="relative h-64 sm:h-72 w-full">
+                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-white group">
+                  <div className="relative h-52 sm:h-72 w-full">
                     <Image
                       src="/image/sse/nse-social-stock-exchange.png"
                       alt="GGPT Water Conservation Project on NSE SSE"
@@ -677,7 +675,7 @@ export default function SSEPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent" />
                   </div>
 
-                  <div className="p-6 space-y-4 relative z-10 -mt-10 bg-white">
+                  <div className="p-4 sm:p-6 space-y-4 relative z-10 -mt-8 sm:-mt-10 bg-white">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wider text-(--color-primary) bg-[#e6f7fb] px-3 py-1 rounded-full border border-(--color-primary)/30">
                         NSE SSE Public Issue
@@ -688,7 +686,7 @@ export default function SSEPage() {
                       Community-Led Water Conservation & Groundwater Recharge Project
                     </h3>
 
-                    <div className="grid grid-cols-2 gap-3 pt-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                       <div className="bg-[#f8fafc] border border-slate-200 rounded-xl p-3.5 text-center shadow-xs">
                         <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Issue Target</p>
                         <p className="text-lg font-black text-slate-900 mt-0.5">₹1 Crore</p>
@@ -708,17 +706,17 @@ export default function SSEPage() {
         {/* ════════════════════════════════════════════════════════
             2. ABOUT NSE SSE & WHAT IS ZCZP INSTRUMENT
         ════════════════════════════════════════════════════════ */}
-        <section className="py-20 px-6 lg:px-12 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
+        <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-6 space-y-5 sm:space-y-6">
               <Eyebrow>SEBI Framework</Eyebrow>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
                 What is <span className="text-(--color-primary)">NSE Social Stock Exchange?</span>
               </h2>
-              <p className="text-slate-600 leading-relaxed text-base">
+              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
                 The <strong className="text-slate-900">Social Stock Exchange (SSE)</strong>, established under the regulatory umbrella of <strong className="text-slate-900">SEBI</strong>, enables eligible non-profit organisations (NPOs) to raise funding through a transparent, regulated, and impact-oriented ecosystem.
               </p>
-              <p className="text-slate-600 leading-relaxed text-base">
+              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
                 Through <strong className="text-(--color-primary) font-semibold">Zero Coupon Zero Principal (ZCZP)</strong> instruments, social investors and donors contribute directly towards verified social projects while receiving periodic public impact disclosures rather than financial returns.
               </p>
 
@@ -740,24 +738,24 @@ export default function SSEPage() {
             </div>
 
             {/* Step-by-Step Flow Diagram */}
-            <div className="lg:col-span-6 bg-white p-8 rounded-3xl shadow-xl border border-slate-100 space-y-6">
-              <h3 className="text-xl font-extrabold text-slate-900 flex items-center gap-2">
+            <div className="lg:col-span-6 bg-white p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl shadow-xl border border-slate-100 space-y-5 sm:space-y-6">
+              <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-(--color-primary)" />
                 How the ZCZP Mechanism Works
               </h3>
 
-              <div className="relative space-y-6 before:absolute before:left-6 before:top-3 before:bottom-3 before:w-0.5 before:bg-(--color-primary)/30">
+              <div className="relative space-y-4 sm:space-y-6 before:absolute before:left-5 sm:before:left-6 before:top-3 before:bottom-3 before:w-0.5 before:bg-(--color-primary)/30">
                 {[
                   { step: "01", title: "SEBI Due Diligence & NSE Listing", desc: "GGPT completes rigorous financial, governance, and project audit to register on NSE SSE." },
                   { step: "02", title: "Social Investment via ZCZP", desc: "Donors & institutions contribute funds via ZCZP instrument on NSE (Min ₹1,000)." },
                   { step: "03", title: "Groundwater Execution in Villages", desc: "Rejuvenation of check dams, desilting, and recharge shaft construction across 10 villages." },
                   { step: "04", title: "Independent Audit & Impact Reporting", desc: "Geo-tagged verification and quarterly impact disclosures submitted to investors and SEBI." },
                 ].map((st, idx) => (
-                  <div key={idx} className="relative flex items-start gap-4 z-10">
-                    <span className="w-12 h-12 rounded-2xl bg-(--color-primary) text-white font-extrabold text-sm flex items-center justify-center shrink-0 shadow-md shadow-cyan-900/20">
+                  <div key={idx} className="relative flex items-start gap-3 sm:gap-4 z-10">
+                    <span className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-(--color-primary) text-white font-extrabold text-xs sm:text-sm flex items-center justify-center shrink-0 shadow-md shadow-cyan-900/20">
                       {st.step}
                     </span>
-                    <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex-1">
+                    <div className="bg-slate-50 p-3.5 sm:p-4 rounded-2xl border border-slate-100 flex-1">
                       <h4 className="font-bold text-slate-900 text-sm">{st.title}</h4>
                       <p className="text-slate-500 text-xs leading-relaxed mt-1">{st.desc}</p>
                     </div>
@@ -771,8 +769,8 @@ export default function SSEPage() {
         {/* ════════════════════════════════════════════════════════
             3. UPCOMING PUBLIC ISSUE SPECIFICATION GRID
         ════════════════════════════════════════════════════════ */}
-        <section id="issue-details" className="py-16 bg-(--color-tertiary)/70 border-y border-slate-200 text-slate-900 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <section id="issue-details" className="py-12 sm:py-16 bg-(--color-tertiary)/70 border-y border-slate-200 text-slate-900 relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
             <SectionHeader
               eyebrow="Public Issue Details"
               title="About GIRGANGA PARIVAR TRUST’s"
@@ -780,19 +778,19 @@ export default function SSEPage() {
               subtitle="Key highlights of the proposed fundraising issue registered on the NSE Social Stock Exchange platform."
             />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-10">
               {publicIssueDetails.map((item, idx) => (
                 <motion.div
                   key={idx}
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.2 }}
-                  className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-(--color-primary)/40 transition-all group"
+                  className="bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-(--color-primary)/40 transition-all group"
                 >
                   <div className="w-10 h-10 rounded-xl bg-(--color-tertiary) flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     {item.icon}
                   </div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-(--color-primary)">{item.label}</p>
-                  <h3 className="text-base sm:text-lg font-extrabold text-slate-900 mt-1 leading-snug">{item.value}</h3>
+                  <h3 className="text-sm sm:text-lg font-extrabold text-slate-900 mt-1 leading-snug break-words">{item.value}</h3>
                 </motion.div>
               ))}
             </div>
@@ -802,7 +800,7 @@ export default function SSEPage() {
         {/* ════════════════════════════════════════════════════════
             4. PROJECT SNAPSHOT KPI DASHBOARD
         ════════════════════════════════════════════════════════ */}
-        <section className="py-20 px-6 lg:px-12 max-w-7xl mx-auto">
+        <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
           <SectionHeader
             eyebrow="Project At A Glance"
             title="Project"
@@ -810,11 +808,11 @@ export default function SSEPage() {
             subtitle="10 Villages │ 15 Check Dams │ 20 Recharge Structures │ 10,000 Direct Beneficiaries │ 4,000 Indirect Beneficiaries │ ₹1,08,73,000 Project Cost │ 12 Months"
           />
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-10">
+          <div className="grid grid-cols-1 min-[420px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-8 sm:mt-10">
             {snapshotMetrics.map((stat, idx) => (
               <div
                 key={idx}
-                className="bg-white p-6 rounded-2xl border border-slate-100 shadow-lg shadow-slate-200/50 text-center flex flex-col justify-between hover:border-(--color-primary)/40 transition-colors"
+                className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 shadow-lg shadow-slate-200/50 text-center flex flex-col justify-between hover:border-(--color-primary)/40 transition-colors"
               >
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-(--color-primary)">{stat.val}</h3>
@@ -829,7 +827,7 @@ export default function SSEPage() {
         {/* ════════════════════════════════════════════════════════
             5. WHY THIS PROJECT? WATER CHALLENGES & OUR SOLUTION
         ════════════════════════════════════════════════════════ */}
-        <section className="py-20 bg-slate-100/70 border-y border-slate-200/60 px-6 lg:px-12">
+        <section className="py-12 sm:py-16 lg:py-20 bg-slate-100/70 border-y border-slate-200/60 px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               eyebrow="Ground Reality"
@@ -839,11 +837,11 @@ export default function SSEPage() {
             />
 
             {/* 6 Challenge Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-10">
               {waterChallenges.map((ch, idx) => (
                 <div
                   key={idx}
-                  className="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
+                  className="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
                 >
                   <div className="absolute top-0 right-0 w-24 h-24 bg-[#e6f7fb] rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform" />
                   <span className="inline-block px-3 py-1 rounded-full bg-red-50 text-blue-600 text-[11px] font-bold uppercase tracking-wider mb-3">
@@ -856,11 +854,11 @@ export default function SSEPage() {
             </div>
 
             {/* Our Integrated Solution */}
-            <div className="mt-16 bg-gradient-to-r from-(--color-primary) via-[#008ba9] to-[#005f77] rounded-3xl p-8 sm:p-12 text-white shadow-xl border border-cyan-400/20">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="mt-10 sm:mt-16 bg-gradient-to-r from-(--color-primary) via-[#008ba9] to-[#005f77] rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 text-white shadow-xl border border-cyan-400/20">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
                 <div className="lg:col-span-5 space-y-4">
                   <span className="text-xs font-bold uppercase tracking-widest text-(--color-secondary)">Integrated Approach</span>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                  <h3 className="text-xl sm:text-3xl font-extrabold text-white leading-tight">
                     Our Community-Led & Scientific Solution
                   </h3>
                   <p className="text-cyan-50 text-sm leading-relaxed">
@@ -868,7 +866,7 @@ export default function SSEPage() {
                   </p>
                 </div>
 
-                <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {[
                     "Rejuvenating 15 existing check dams & village water bodies",
                     "Enhancing recharge through 20 decentralized bore shafts",
@@ -876,7 +874,7 @@ export default function SSEPage() {
                     "Strengthening local community participation & governance",
                     "Establishing geo-tagged monitoring for long-term audit",
                   ].map((sol, idx) => (
-                    <div key={idx} className="flex items-start gap-3 bg-white/10 border border-white/20 p-4 rounded-xl backdrop-blur-sm">
+                    <div key={idx} className="flex items-start gap-3 bg-white/10 border border-white/20 p-3.5 sm:p-4 rounded-xl backdrop-blur-sm">
                       <FaCheckCircle className="w-5 h-5 text-(--color-secondary) shrink-0 mt-0.5" />
                       <span className="text-xs sm:text-sm font-semibold text-white leading-snug">{sol}</span>
                     </div>
@@ -890,7 +888,7 @@ export default function SSEPage() {
         {/* ════════════════════════════════════════════════════════
             6. WHERE YOUR INVESTMENT GOES? (BUDGET ALLOCATION PIE CHART)
         ════════════════════════════════════════════════════════ */}
-        <section className="py-20 px-6 lg:px-12 max-w-7xl mx-auto space-y-10">
+        <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto space-y-8 sm:space-y-10">
           <SectionHeader
             eyebrow="Financial Transparency"
             title="Where Your"
@@ -904,7 +902,7 @@ export default function SSEPage() {
         {/* ════════════════════════════════════════════════════════
             7. YOUR IMPACT - CONTRIBUTION VS ESTIMATED SOCIAL IMPACT
         ════════════════════════════════════════════════════════ */}
-        <section className="py-20 bg-(--color-tertiary)/70 border-y border-slate-200 text-slate-900 px-6 lg:px-12">
+        <section className="py-12 sm:py-16 lg:py-20 bg-(--color-tertiary)/70 border-y border-slate-200 text-slate-900 px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               eyebrow="Social Return On Investment"
@@ -914,7 +912,7 @@ export default function SSEPage() {
             />
 
             {/* Interactive Contribution Calculator */}
-            <div className="bg-white border border-slate-200/80 rounded-3xl p-8 shadow-xl mt-10 space-y-8">
+            <div className="bg-white border border-slate-200/80 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl mt-8 sm:mt-10 space-y-6 sm:space-y-8">
               <div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">Interactive Impact Calculator</h3>
                 <p className="text-xs sm:text-sm text-slate-600">
@@ -923,7 +921,7 @@ export default function SSEPage() {
               </div>
 
               {/* Tier Selection Buttons */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5">
+              <div className="grid grid-cols-1 min-[380px]:grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5">
                 {contributionImpactTiers.map((tier) => (
                   <button
                     key={tier.amount}
@@ -931,7 +929,7 @@ export default function SSEPage() {
                       setSelectedTier(tier.amount);
                       setCustomAmount(tier.amount.toString());
                     }}
-                    className={`py-3 px-2 rounded-xl font-extrabold text-xs transition-all border ${selectedTier === tier.amount
+                    className={`min-h-12 py-3 px-2 rounded-xl font-extrabold text-xs transition-all border ${selectedTier === tier.amount
                         ? "bg-(--color-secondary) text-slate-900 border-yellow-400 shadow-md scale-105"
                         : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                       }`}
@@ -942,24 +940,24 @@ export default function SSEPage() {
               </div>
 
               {/* Impact Display Box */}
-              <div className="bg-[#e6f7fb] border border-(--color-primary)/30 p-6 rounded-2xl flex flex-col sm:flex-row items-center gap-6">
+              <div className="bg-[#e6f7fb] border border-(--color-primary)/30 p-4 sm:p-6 rounded-2xl flex flex-col md:flex-row items-center gap-5 sm:gap-6">
                 <div className="w-16 h-16 rounded-2xl bg-(--color-secondary) text-slate-900 font-black text-xl flex items-center justify-center shrink-0 shadow-md">
                   <FaRupeeSign className="w-7 h-7 text-slate-900" />
                 </div>
-                <div className="space-y-1 text-center sm:text-left flex-1">
-                  <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                <div className="space-y-1 text-center md:text-left flex-1">
+                  <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
                     <span className="text-xs font-bold uppercase tracking-wider text-(--color-primary)">Selected Contribution</span>
                     <span className="text-xs bg-white text-(--color-primary) px-2 py-0.5 rounded-full border border-(--color-primary)/20 font-bold">
                       ₹{parseInt(customAmount || "0").toLocaleString("en-IN")}
                     </span>
                   </div>
-                  <h4 className="text-lg sm:text-xl font-extrabold text-slate-900">
+                  <h4 className="text-base sm:text-xl font-extrabold text-slate-900">
                     {getImpactDescription(parseInt(customAmount || "0"))}
                   </h4>
                 </div>
                 <a
                   href="#register-interest"
-                  className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[url('/image/button/button-bg.jpeg')] bg-cover bg-center text-white font-semibold text-xs tracking-wider uppercase whitespace-nowrap shadow-md hover:-translate-y-0.5 transition-transform"
+                  className="group relative overflow-hidden inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-lg bg-[url('/image/button/button-bg.jpeg')] bg-cover bg-center text-white font-semibold text-xs tracking-wider uppercase shadow-md hover:-translate-y-0.5 transition-transform"
                 >
                   <span className="relative z-10">Pledge Support</span>
                   <span className="relative z-10 group-hover:translate-x-1 transition-transform">→</span>
@@ -969,8 +967,8 @@ export default function SSEPage() {
             </div>
 
             {/* Impact Table */}
-            <div className="mt-12 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
-              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+            <div className="mt-8 sm:mt-12 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
+              <table className="w-full min-w-[680px] text-left border-collapse text-xs sm:text-sm">
                 <thead>
                   <tr className="bg-(--color-primary) text-white border-b border-slate-200 uppercase font-bold tracking-wider">
                     <th className="py-4 px-6">Your Contribution</th>
@@ -1006,7 +1004,7 @@ export default function SSEPage() {
         {/* ════════════════════════════════════════════════════════
             8. WHO CAN INVEST? (INVESTOR CATEGORIES)
         ════════════════════════════════════════════════════════ */}
-        <section className="py-20 px-6 lg:px-12 max-w-7xl mx-auto">
+        <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
           <SectionHeader
             eyebrow="Participant Ecosystem"
             title="Who Can"
@@ -1014,11 +1012,11 @@ export default function SSEPage() {
             subtitle="Eligible participants include CSR contributors, philanthropic foundations, trusts, institutions, high-net-worth individuals (HNIs), family offices, and individual social investors."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-10">
             {investorCategories.map((inv, idx) => (
               <div
                 key={idx}
-                className="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all hover:border-(--color-primary)/40 group"
+                className="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all hover:border-(--color-primary)/40 group"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#e6f7fb] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform border border-(--color-primary)/20">
                   {inv.icon}
@@ -1033,7 +1031,7 @@ export default function SSEPage() {
         {/* ════════════════════════════════════════════════════════
             9. WHY INVEST THROUGH SSE & GGPT CREDENTIALS
         ════════════════════════════════════════════════════════ */}
-        <section className="py-20 bg-(--color-tertiary)/70 border-y border-slate-200 text-slate-900 px-6 lg:px-12">
+        <section className="py-12 sm:py-16 lg:py-20 bg-(--color-tertiary)/70 border-y border-slate-200 text-slate-900 px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <SectionHeader
               eyebrow="Key Benefits & Credentials"
@@ -1043,7 +1041,7 @@ export default function SSEPage() {
             />
 
             {/* 8 SSE Benefits Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10">
+            <div className="grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-4 gap-4 mt-8 sm:mt-10">
               {sseBenefits.map((ben, idx) => (
                 <div key={idx} className="bg-white border border-slate-200 p-5 rounded-2xl space-y-2 shadow-xs hover:shadow-md transition-all hover:border-(--color-primary)/40">
                   <div className="w-8 h-8 rounded-lg bg-[#e6f7fb] text-(--color-primary) flex items-center justify-center font-bold text-sm border border-(--color-primary)/20">
@@ -1056,14 +1054,14 @@ export default function SSEPage() {
             </div>
 
             {/* GGPT Historical Performance Numbers */}
-            <div className="mt-16 bg-gradient-to-r from-[#004e63] via-[#007b99] to-(--color-primary) p-8 sm:p-12 rounded-3xl border border-cyan-400/30 text-white shadow-xl">
-              <div className="text-center max-w-2xl mx-auto mb-10">
+            <div className="mt-10 sm:mt-16 bg-gradient-to-r from-[#004e63] via-[#007b99] to-(--color-primary) p-5 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl border border-cyan-400/30 text-white shadow-xl">
+              <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
                 <span className="text-xs font-bold uppercase tracking-widest text-(--color-secondary)">Proven Track Record</span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">About GIRGANGA PARIVAR TRUST</h3>
                 <p className="text-cyan-100/90 text-xs sm:text-sm mt-2">Over a decade of transformative water harvesting work across Gujarat.</p>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
+              <div className="grid grid-cols-1 min-[420px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 text-center">
                 {ggptTrackRecord.map((tr, idx) => (
                   <div key={idx} className="bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-sm">
                     <p className="text-xl sm:text-2xl font-black text-(--color-secondary)">{tr.val}</p>
@@ -1074,11 +1072,11 @@ export default function SSEPage() {
               </div>
 
               {/* Awards Grid */}
-              <div className="mt-10 pt-8 border-t border-white/20">
+              <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-white/20">
                 <p className="text-xs font-bold uppercase tracking-widest text-cyan-200 text-center mb-6">Honours & National Recognition</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                   {ggptAwards.map((aw, idx) => (
-                    <div key={idx} className="flex items-center gap-3 bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-sm">
+                    <div key={idx} className="flex items-start gap-3 bg-white/10 p-3.5 sm:p-4 rounded-xl border border-white/20 backdrop-blur-sm">
                       <Award className="w-6 h-6 text-(--color-secondary) shrink-0" />
                       <div>
                         <h4 className="font-bold text-white text-xs">{aw.title}</h4>
@@ -1095,11 +1093,11 @@ export default function SSEPage() {
         {/* ════════════════════════════════════════════════════════
             10. INTERACTIVE REGISTRATION FORM ("REGISTER YOUR INTEREST")
         ════════════════════════════════════════════════════════ */}
-        <section id="register-interest" className="py-20 px-6 lg:px-12 max-w-4xl mx-auto">
-          <div className="bg-white p-8 sm:p-12 rounded-3xl shadow-2xl border border-slate-200 relative overflow-hidden">
+        <section id="register-interest" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-12 max-w-4xl mx-auto">
+          <div className="bg-white p-4 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200 relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-(--color-primary) via-(--color-secondary) to-[#004e63]" />
 
-            <div className="text-center space-y-3 mb-10">
+            <div className="text-center space-y-3 mb-8 sm:mb-10 pt-3 sm:pt-0">
               <Eyebrow>How to Prepare for Investment?</Eyebrow>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                 Register Your Interest Here 
@@ -1113,7 +1111,7 @@ export default function SSEPage() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-[#e6f7fb] border border-(--color-primary)/30 p-8 rounded-2xl text-center space-y-4"
+                className="bg-[#e6f7fb] border border-(--color-primary)/30 p-5 sm:p-8 rounded-2xl text-center space-y-4"
               >
                 <div className="w-16 h-16 bg-(--color-primary) text-white rounded-full flex items-center justify-center mx-auto shadow-lg">
                   <Check className="w-8 h-8" />
@@ -1137,7 +1135,7 @@ export default function SSEPage() {
                       consent: false,
                     });
                   }}
-                  className="px-6 py-2.5 rounded-xl bg-(--color-primary) text-white font-bold text-xs uppercase tracking-wider hover:bg-emerald-800 transition-colors"
+                  className="w-full sm:w-auto px-5 sm:px-6 py-2.5 rounded-xl bg-(--color-primary) text-white font-bold text-xs uppercase tracking-wider hover:bg-emerald-800 transition-colors"
                 >
                   Register Another Response
                 </button>
@@ -1149,7 +1147,7 @@ export default function SSEPage() {
                     {formError}
                   </div>
                 )}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                       Full Name *
@@ -1255,7 +1253,7 @@ export default function SSEPage() {
                 </div>
 
                 {/* Consent Checkbox */}
-                <div className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <div className="flex items-start gap-3 p-3.5 sm:p-4 bg-slate-50 rounded-xl border border-slate-200">
                   <input
                     type="checkbox"
                     id="consent"
@@ -1274,7 +1272,7 @@ export default function SSEPage() {
                   <button
                     type="submit"
                     disabled={formLoading}
-                    className="group relative cursor-pointer overflow-hidden px-8 py-4 rounded-xl bg-[url('/image/button/button-bg.jpeg')] bg-cover bg-center text-white font-bold text-sm tracking-wider uppercase shadow-lg hover:-translate-y-0.5 transition-transform inline-flex items-center justify-center gap-2"
+                    className="group relative cursor-pointer overflow-hidden w-full sm:w-auto px-5 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[url('/image/button/button-bg.jpeg')] bg-cover bg-center text-white font-bold text-xs sm:text-sm tracking-wider uppercase shadow-lg hover:-translate-y-0.5 transition-transform inline-flex items-center justify-center gap-2"
                   >
                     <span className="relative z-10">{formLoading ? "Submitting Interest..." : "Register My Interest"}</span>
                     <span className="relative z-10 group-hover:translate-x-1 transition-transform">→</span>
@@ -1289,7 +1287,7 @@ export default function SSEPage() {
         {/* ════════════════════════════════════════════════════════
             11. FREQUENTLY ASKED QUESTIONS (FAQS) ACCORDION
         ════════════════════════════════════════════════════════ */}
-        <section className="py-20 bg-slate-100/70 border-t border-slate-200 px-6 lg:px-12">
+        <section className="py-12 sm:py-16 lg:py-20 bg-slate-100/70 border-t border-slate-200 px-4 sm:px-6 lg:px-12">
           <div className="max-w-4xl mx-auto">
             <SectionHeader
               eyebrow="Clarifications & Guidelines"
@@ -1321,7 +1319,7 @@ export default function SSEPage() {
                   >
                     <button
                       onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                      className="w-full p-6 text-left font-bold text-slate-900 text-base flex items-center justify-between gap-4 hover:bg-slate-50 transition-colors"
+                    className="w-full p-4 sm:p-6 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between gap-4 hover:bg-slate-50 transition-colors"
                     >
                       <span>{faq.q}</span>
                       <ChevronDown
@@ -1337,7 +1335,7 @@ export default function SSEPage() {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
                         >
-                          <div className="px-6 pb-6 pt-2 text-slate-600 text-sm leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                          <div className="px-4 sm:px-6 pb-5 sm:pb-6 pt-2 text-slate-600 text-sm leading-relaxed border-t border-slate-100 bg-slate-50/50">
                             {faq.a}
                           </div>
                         </motion.div>
@@ -1349,7 +1347,7 @@ export default function SSEPage() {
 
               {filteredFaqs.length === 0 && (
                 <div className="text-center p-8 bg-white rounded-2xl border border-slate-200 text-slate-500 text-sm">
-                  No matching FAQs found for "{faqSearch}". Please reach out to our dedicated SSE helpdesk.
+                  No matching FAQs found for &quot;{faqSearch}&quot;. Please reach out to our dedicated SSE helpdesk.
                 </div>
               )}
             </div>
@@ -1359,66 +1357,66 @@ export default function SSEPage() {
         {/* ════════════════════════════════════════════════════════
             12. DEDICATED SSE HELPDESK & CONTACT FOOTER
         ════════════════════════════════════════════════════════ */}
-        <section className="py-16 bg-slate-900 text-white px-6 lg:px-12 border-t border-slate-800">
+        <section className="py-12 sm:py-16 bg-slate-500 text-white px-4 sm:px-6 lg:px-12 border-t border-slate-800">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
               <div className="lg:col-span-5 space-y-3">
                 <span className="text-xs font-bold uppercase tracking-widest text-(--color-secondary)">Investor Assistance</span>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white">Dedicated SSE Helpdesk</h3>
-                <p className="text-slate-400 text-sm">
+                <p className="text-slate-200 text-sm">
                   Our financial and project support team is available to answer all your queries regarding the NSE SSE listing.
                 </p>
               </div>
 
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <a
                   href="mailto:csr@girgangaparivartrust.com"
-                  className="flex items-center gap-4 p-4.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-3 sm:gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-(--color-primary)/20 text-(--color-primary) flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-xl bg-(--color-primary) flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Email</p>
+                    <p className="text-[11px] text-slate-200 font-semibold uppercase tracking-wider">Email</p>
                     <p className="text-xs sm:text-sm font-bold text-white truncate">csr@girgangaparivartrust.com</p>
                   </div>
                 </a>
 
                 <a
                   href="tel:+919998078959"
-                  className="flex items-center gap-4 p-4.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-3 sm:gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-(--color-primary)/20 text-(--color-primary) flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-xl bg-(--color-primary) flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
-                  <div>
-                    <p className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Phone</p>
+                  <div className="min-w-0">
+                    <p className="text-[11px] text-slate-200 font-semibold uppercase tracking-wider">Phone</p>
                     <p className="text-xs sm:text-sm font-bold text-white">+91 99980 78959</p>
                   </div>
                 </a>
 
                 <a
                   href="tel:+919408414568"
-                  className="flex items-center gap-4 p-4.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-3 sm:gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-(--color-primary)/20 text-(--color-primary) flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-xl bg-(--color-primary) flex items-center justify-center shrink-0">
                     <Building2 className="w-5 h-5" />
                   </div>
-                  <div>
-                    <p className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Office</p>
+                  <div className="min-w-0">
+                    <p className="text-[11px] text-slate-200 font-semibold uppercase tracking-wider">Office</p>
                     <p className="text-xs sm:text-sm font-bold text-white">+91 94084 14568</p>
                   </div>
                 </a>
 
                 <a
                   href="tel:+919998078959"
-                  className="flex items-center gap-4 p-4.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-3 sm:gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-(--color-primary)/20 text-(--color-primary) flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-xl bg-(--color-primary) flex items-center justify-center shrink-0">
                     <Users className="w-5 h-5" />
                   </div>
-                  <div>
-                    <p className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Investor Support</p>
+                  <div className="min-w-0">
+                    <p className="text-[11px] text-slate-200 font-semibold uppercase tracking-wider">Investor Support</p>
                     <p className="text-xs sm:text-sm font-bold text-white">+91 99980 78959</p>
                   </div>
                 </a>
@@ -1443,11 +1441,11 @@ export default function SSEPage() {
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.9 }}
-                className="bg-white rounded-3xl p-6 max-w-4xl w-full relative shadow-2xl space-y-4"
+                className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 max-w-4xl w-full relative shadow-2xl space-y-4"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                  <h3 className="font-bold text-slate-900 text-lg">Where Your Investment Goes - Official Allocation Diagram</h3>
+                <div className="flex items-start justify-between gap-4 border-b border-slate-100 pb-4">
+                  <h3 className="font-bold text-slate-900 text-sm sm:text-lg">Where Your Investment Goes - Official Allocation Diagram</h3>
                   <button
                     onClick={() => setShowDiagramModal(false)}
                     className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"

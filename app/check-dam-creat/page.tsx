@@ -58,7 +58,23 @@ const images = [
     title: "Concrete Reinforcement Work",
     tag: "Reinforcement",
   },
+  {
+    src: "/image/check-dam-creat/check-dam-10.jpg",
+    title: "Check Dam Construction Progress",
+    tag: "Construction",
+  },
+  {
+    src: "/image/check-dam-creat/check-dam-11.jpg",
+    title: "Check Dam Construction Progress",
+    tag: "Construction",
+  },
 ];
+
+// The main masonry/grid uses every image except the final two.
+// The final two are rendered separately as a "large + small" feature row
+// (see FeatureRow below) so that row keeps its own layout at every breakpoint.
+const restImages = images.slice(0, -2);
+const lastTwo = images.slice(-2); // [large, small]
 
 // ── Slider (mobile / tablet only – hidden on lg+) ──────────────────────────
 function HeroSlider() {
@@ -154,10 +170,9 @@ function HeroSlider() {
   );
 }
 
-// ── Gallery Card ───────────────────────────────────────────────────────────
+// ── Gallery Card (used for the main grid, not the last row) ────────────────
 function GalleryCard({ img, i }: { img: { src: string; title: string; tag: string }; i: number }) {
   const isTall = i % 5 === 0 || i % 5 === 4;
-  
 
   return (
     <motion.div
@@ -170,13 +185,68 @@ function GalleryCard({ img, i }: { img: { src: string; title: string; tag: strin
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
       className={`group relative overflow-hidden rounded-2xl cursor-pointer ${isTall ? "sm:row-span-2" : ""}`}
-      
     >
       <Image src={img.src}
         alt={img.title}
         fill
         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
         style={{ position: "absolute", inset: 0 }} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} />
+
+      {/* Dark layer */}
+      <div className="absolute inset-0 bg-linear-to-t from-stone-900/90 via-stone-900/10 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-400" />
+
+      {/* Tag */}
+      <div className="absolute top-4 left-4 z-10">
+        <span className="text-[9px] tracking-[0.25em] uppercase font-bold text-amber-300 bg-amber-300/10 backdrop-blur-sm border border-amber-300/30 px-2.5 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+          {img.tag}
+        </span>
+      </div>
+
+      {/* Caption */}
+      <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-2 group-hover:translate-y-0 transition-transform duration-400">
+        <h3 className="text-white text-sm font-semibold leading-snug drop-shadow-lg">
+          {img.title}
+        </h3>
+      </div>
+    </motion.div>
+  );
+}
+
+// ── Feature Row Card (the last row: one large + one small, side by side) ───
+// Uses flex instead of grid-span math so the same markup adapts at every
+// breakpoint: stacked on very small screens, side-by-side from `sm` up.
+function FeatureRowCard({
+  img,
+  i,
+  size,
+}: {
+  img: { src: string; title: string; tag: string };
+  i: number;
+  size: "large" | "small";
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{
+        duration: 0.55,
+        delay: i * 0.1,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      }}
+      className={`group relative overflow-hidden rounded-2xl cursor-pointer w-full h-64 sm:h-72 lg:h-[300px] ${
+        size === "large" ? "sm:flex-[2]" : "sm:flex-1"
+      }`}
+    >
+      <Image
+        src={img.src}
+        alt={img.title}
+        fill
+        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+        style={{ position: "absolute", inset: 0 }}
+        sizes="(max-width: 640px) 100vw, (max-width: 1200px) 66vw, 50vw"
+        quality={75}
+      />
 
       {/* Dark layer */}
       <div className="absolute inset-0 bg-linear-to-t from-stone-900/90 via-stone-900/10 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-400" />
@@ -242,14 +312,14 @@ export default function Media() {
 
           {/* ── Desktop Masonry Grid (lg+) ── */}
           <div className="hidden lg:grid grid-cols-3 auto-rows-[240px] gap-4">
-            {images.map((img, i) => (
+            {restImages.map((img, i) => (
               <GalleryCard key={i} img={img} i={i} />
             ))}
           </div>
 
           {/* ── Mobile/Tablet uniform grid ── */}
           <div className="grid sm:grid-cols-2 gap-4 lg:hidden">
-            {images.map((img, i) => (
+            {restImages.map((img, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
@@ -270,6 +340,14 @@ export default function Media() {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* ── Last row: one large + one small frame, side by side ──
+              Stacks full-width on very small screens, sits side by side
+              from `sm` upward on every breakpoint (mobile, tablet, desktop). */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            <FeatureRowCard img={lastTwo[0]} i={0} size="large" />
+            <FeatureRowCard img={lastTwo[1]} i={1} size="small" />
           </div>
         </section>
 

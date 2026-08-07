@@ -283,7 +283,7 @@ export default function Navbar() {
                 href="/partner-with-us-csr"
                 className={linkCls("/partner-with-us-csr")}
               >
-                PARTNERS/CSR COLLABORATION
+                CSR COLLABORATION
                 <span className={underline(isActive("/partner-with-us-csr"))} />
               </Link>
             </li>
@@ -308,7 +308,7 @@ export default function Navbar() {
                 onClick={() => setDesktopMediaOpen(!desktopMediaOpen)}
                 className={`${linkCls("")} gap-1 flex items-center cursor-pointer`}
               >
-                Media/News
+                Media
                 <FiChevronDown
                   size={11}
                   className={`mt-px transition-transform duration-200 ${
@@ -698,7 +698,7 @@ export default function Navbar() {
                     : "text-slate-800"
                 }`}
               >
-                Media/News
+                Media
               </button>
               <button
                 type="button"
