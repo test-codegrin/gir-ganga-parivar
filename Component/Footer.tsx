@@ -6,7 +6,6 @@ import {
   FaFacebookF,
   FaInstagram,
   FaYoutube,
-  FaLinkedin,
   FaLinkedinIn,
 } from "react-icons/fa";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
@@ -102,6 +101,21 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
+
+              <Link
+                href="/sse"
+                className="mt-5 inline-flex w-fit rounded-xl border border-black/10 bg-white/80 p-2 shadow-2xl transition hover:-translate-y-0.5 hover:shadow-md"
+                aria-label="NSE Social Stock Exchange registration"
+              >
+                <Image
+                  src="/NSC SSE logo.jpg"
+                  alt="NSE Social Stock Exchange logo"
+                  width={180}
+                  height={70}
+                  className="h-auto w-32 sm:w-36 object-contain"
+                  quality={85}
+                />
+              </Link>
             </div>
 
             {/* Quick Links */}
